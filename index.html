@@ -271,8 +271,6 @@ body.dark .pub-name{color:#fcd34d;}
 .chat-header-titulo::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--gr2);box-shadow:0 0 8px rgba(40,168,90,0.5);animation:pulse 2s infinite}
 .chat-header-sub{font-size:0.66rem;color:var(--tx3);margin-top:2px}
 .chat-acciones{display:flex;gap:6px}
-.hb{background:var(--bg2);border:1px solid var(--bd2);border-radius:8px;padding:6px 13px;font-size:0.73rem;cursor:pointer;color:var(--tx0);font-family:'DM Sans',sans-serif;transition:all 0.2s;font-weight:600}
-.hb:hover{background:var(--gr2);color:#fff;transform:translateY(-1px)}
 
 .msgs{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;position:relative;z-index:1}
 .mph{text-align:center;color:var(--tx3);font-size:0.85rem;margin:auto;padding:2rem;}
@@ -286,12 +284,15 @@ body.dark .pub-name{color:#fcd34d;}
 .mr2.me .mm{color:rgba(255,255,255,0.6)}
 .snm{font-size:0.61rem;font-weight:600;color:var(--gr2);margin-bottom:3px}
 .mr2.me .snm{display:none}
-.dd{text-align:center;font-size:0.62rem;color:var(--tx3);position:relative;margin:6px 0;align-self:center}
-.dd span{background:var(--bg0);padding:0 12px;position:relative;z-index:1}
-.dd::before{content:'';position:absolute;top:50%;left:0;right:0;height:1px;background:var(--bg2)}
 
 .ib{background:var(--bg1);border:1px solid var(--bg2);border-radius:12px;overflow:hidden;max-width:200px;box-shadow:var(--shadow)}
 .ib img{width:100%;max-height:160px;object-fit:cover;display:block}
+
+/* EMOJI BARRA */
+.emoji-bar { display: none; gap: 8px; padding: 8px 12px; background: var(--bg1); border: 1px solid var(--bg2); border-radius: 12px; margin-bottom: 8px; flex-wrap: wrap; box-shadow: var(--shadow); }
+.emoji-bar.show { display: flex; }
+.emj-btn { cursor: pointer; font-size: 1.2rem; padding: 4px; border-radius: 6px; transition: transform 0.2s; user-select: none; }
+.emj-btn:hover { transform: scale(1.2); background: var(--bg2); }
 
 .cft{background:var(--bg0);border-top:1px solid var(--bg2);padding:10px 14px;flex-shrink:0;}
 .mt{display:flex;gap:5px;margin-bottom:8px;flex-wrap:wrap}
@@ -316,14 +317,11 @@ body.dark .pub-name{color:#fcd34d;}
 .user-av-wrap{position:relative;flex-shrink:0}
 .user-info{flex:1;min-width:0}
 .user-nombre{font-size:0.73rem;font-weight:600;color:var(--tx0);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.user-ciudad{font-size:0.61rem;color:var(--tx3);margin-top:1px}
 .seccion-estado{font-size:0.59rem;font-weight:700;color:var(--tx3);text-transform:uppercase;letter-spacing:0.1em;padding:8px 12px 3px}
 
 /* CHAT PRIVADO */
 .priv-chat{position:fixed;bottom:16px;right:16px;width:318px;background:var(--bg0);border:1px solid var(--bd2);border-radius:20px;box-shadow:var(--shadow-lg);z-index:400;display:flex;flex-direction:column;overflow:hidden;animation:slideUp 0.3s cubic-bezier(0.34,1.56,0.64,1)}
 .priv-header{background:var(--bg1);border-bottom:1px solid var(--bg2);padding:12px 14px;display:flex;align-items:center;gap:9px;flex-shrink:0}
-.priv-av{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.62rem;font-weight:700;flex-shrink:0;overflow:hidden;border:2px solid var(--bd2)}
-.priv-av img{width:100%;height:100%;object-fit:cover;border-radius:50%}
 .priv-nombre{font-size:0.84rem;font-weight:700;flex:1;color:var(--tx0)}
 .priv-acciones{display:flex;gap:4px}
 .priv-btn{background:var(--bg2);border:none;color:var(--tx1);border-radius:7px;padding:4px 8px;font-size:0.76rem;cursor:pointer;transition:all 0.15s}
@@ -335,8 +333,7 @@ body.dark .pub-name{color:#fcd34d;}
 .priv-bub.yo{background:linear-gradient(135deg,var(--gr1),var(--gr2));border-radius:14px 14px 3px 14px;align-self:flex-end;color:#fff}
 .priv-hora{font-size:0.57rem;color:var(--tx3);margin-top:3px;display:block}
 .priv-input-area{padding:9px 10px;border-top:1px solid var(--bg2);display:flex;align-items:center;gap:6px;background:var(--bg0)}
-.priv-opciones{display:flex;gap:2px}
-.priv-opt{background:none;border:none;font-size:1rem;cursor:pointer;padding:5px;border-radius:7px;transition:background 0.15s;color:var(--tx2)}
+.priv-opt{background:none;border:none;font-size:1.2rem;cursor:pointer;padding:5px;border-radius:7px;transition:background 0.15s;color:var(--tx2)}
 .priv-opt:hover{background:var(--bg2);color:var(--gr1)}
 .priv-inp{flex:1;border:1.5px solid var(--bg2);border-radius:12px;padding:6px 12px;font-size:0.79rem;outline:none;background:var(--bg1);color:var(--tx0);font-family:'DM Sans',sans-serif;}
 .priv-inp:focus{border-color:var(--gr2)}
@@ -350,7 +347,7 @@ body.dark .pub-name{color:#fcd34d;}
 .mhd{background:var(--bg1);color:var(--tx0);padding:13px 16px;display:flex;justify-content:space-between;align-items:center;font-size:0.85rem;font-weight:600;border-bottom:1px solid var(--bg2)}
 .mc{background:var(--bg2);border:none;color:var(--tx1);width:28px;height:28px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:0.85rem}
 
-/* PÁGINAS INTERNAS (Noticias, Eventos, Directorio) */
+/* PÁGINAS EXTRAS */
 .cp{padding:22px;max-width:1100px;margin:0 auto}
 .ptt{font-family:'Syne',sans-serif;font-size:1.15rem;font-weight:800;color:var(--tx0);margin-bottom:18px}
 .ng{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
@@ -370,449 +367,4 @@ body.dark .ni{background:var(--bg2) !important;}
 body.dark .pc{border-color:rgba(245,185,74,0.3);}
 .pc:hover{border-color:#f5b94a;transform:scale(1.04) translateY(-3px)}
 .pci{height:90px;display:flex;align-items:center;justify-content:center;font-size:2.3rem}
-body.dark .pci{background:var(--bg2) !important;}
-.pcb{padding:13px}
-.pct{font-size:0.61rem;font-weight:700;color:#b45309;text-transform:uppercase;letter-spacing:0.06em}
-body.dark .pct{color:#fcd34d;}
-.pcn{font-size:0.84rem;font-weight:700;color:var(--tx0);margin:3px 0}
-.pcd{font-size:0.71rem;color:var(--tx2);line-height:1.4}
-.pcbtn{background:#f5a623;color:#fff;border:none;border-radius:20px;padding:6px 15px;font-size:0.71rem;font-weight:700;margin-top:9px;cursor:pointer;font-family:'DM Sans',sans-serif}
-
-::-webkit-scrollbar{width:4px;height:4px}
-::-webkit-scrollbar-track{background:transparent}
-::-webkit-scrollbar-thumb{background:var(--bg3);border-radius:4px}
-::-webkit-scrollbar-thumb:hover{background:var(--bd2)}
-</style>
-</head>
-<body>
-
-<div id="screen-load"><div class="spin"></div></div>
-
-<!-- LOGIN -->
-<div id="screen-login">
-  <div class="login-bg-circles">
-    <div class="login-circle c1"></div>
-    <div class="login-circle c2"></div>
-  </div>
-  <div class="lcard">
-    <div class="l-badge"><span class="l-badge-dot"></span><span class="l-badge-txt">Comunidad del Caquetá</span></div>
-    <div class="l-logo">Caquet<span>á</span>Chat</div>
-    <p class="l-sub">El rincón libre de la comunidad.<br>Habla de lo que quieras, cuando quieras.</p>
-    <div class="l-feats"><span class="l-feat">💬 Chat</span><span class="l-feat">📰 Noticias</span><span class="l-feat">🔒 Privado</span></div>
-    <div class="l-sep"><div class="l-sep-line"></div><span class="l-sep-txt">Entrar</span><div class="l-sep-line"></div></div>
-    <button id="btn-login" class="l-btn">
-      <div class="l-btn-ico"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg></div>
-      <span class="l-btn-txt">Continuar con Google</span><span class="l-btn-arr">→</span>
-    </button>
-    <p class="l-note">Tu identidad puede ser anónima. Una vez dentro, elige tu propio Apodo.</p>
-  </div>
-</div>
-
-<!-- APP -->
-<div id="screen-app">
-  <nav class="topbar">
-    <div class="logo">Caquet<span>á</span>Chat</div>
-    <div class="ntabs">
-      <button class="ntab active" data-p="inicio">🏠 Inicio</button>
-      <button class="ntab" data-p="chat">💬 Chat</button>
-      <button class="ntab" data-p="noticias">📰 Noticias</button>
-      <button class="ntab" data-p="publicidad">📢 Publicidad</button>
-      <button class="ntab" data-p="eventos">🎉 Eventos</button>
-    </div>
-    <div class="topbar-right">
-      <button id="btn-theme" class="obtn" title="Modo Oscuro/Claro">🌙</button>
-      <button class="obtn" onclick="document.getElementById('modal-perfil').classList.add('show')" title="Editar mi Apodo">✏️</button>
-      <div id="uav" class="uav">?</div>
-      <span id="unm" class="unm"></span>
-      <button id="btn-out" class="obtn" title="Cerrar sesión">⏻</button>
-    </div>
-  </nav>
-
-  <!-- INICIO (La Grid de ventanas original) -->
-  <div class="page active" id="page-inicio">
-    <div class="hero-banner">
-      <div class="heliconias-container">
-        <!-- SVG Heliconias (simplificado aquí por espacio, asume que están las mismas tuyas) -->
-        <svg class="heliconia-svg h1" width="90" height="130" viewBox="0 0 90 130"><g><ellipse cx="45" cy="100" rx="8" ry="30" fill="#145228" opacity="0.9"/><path d="M45,80 Q20,55 10,30 Q30,45 45,65 Q60,45 80,30 Q70,55 45,80Z" fill="#1a6b3a"/><path d="M45,65 Q22,42 15,20 Q35,38 45,55 Q55,38 75,20 Q68,42 45,65Z" fill="#228b47"/><path d="M45,55 Q25,35 20,15 Q38,32 45,48 Q52,32 70,15 Q65,35 45,55Z" fill="#e63946" opacity="0.85"/></g></svg>
-      </div>
-      <div class="hero-inner">
-        <div>
-          <div class="hero-eyebrow"><span class="hero-eyebrow-dot"></span><span class="hero-eyebrow-txt">Espacio Libre</span></div>
-          <div class="hero-h1">Conecta con tu<br><span>región</span> hoy</div>
-          <div class="hero-h1-sub">Habla sin filtros. Elige un apodo, entra a las salas de chat y descubre las últimas novedades del Caquetá.</div>
-          <div class="hero-ctas">
-            <button class="hero-cta-main" onclick="gp('chat')">💬 Entrar al Chat</button>
-            <button class="hero-cta-sec" onclick="gp('noticias')">📰 Ver Noticias</button>
-          </div>
-        </div>
-        <div class="hero-stats">
-          <div><div class="hero-stat-val">6</div><div class="hero-stat-lbl">Salas</div></div>
-          <div><div class="hero-stat-val" id="hero-online-count">—</div><div class="hero-stat-lbl">En línea</div></div>
-        </div>
-      </div>
-      <div class="hero-wave">
-        <svg viewBox="0 0 1440 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <path class="w1" d="M0,24 C200,6 400,42 600,24 C800,6 1000,42 1200,24 C1400,6 1600,42 1800,24 L1800,48 L0,48 Z" fill="rgba(255,255,255,0.2)"/>
-          <path class="w2" d="M0,32 C300,14 600,46 900,32 C1200,14 1500,46 1800,32 L1800,48 L0,48 Z" fill="#ffffff"/>
-        </svg>
-      </div>
-    </div>
-
-    <div class="inicio-wrap">
-      <div>
-        <div class="sec-label">Noticias destacadas</div>
-        <div class="noticias-grid">
-          <div class="noticia-main" onclick="gp('noticias')">
-            <div class="noticia-main-img">🌿</div>
-            <div class="noticia-main-body">
-              <span class="h-tag vd">Departamento</span>
-              <div class="noticia-main-title">Caquetá avanza en conectividad digital para zonas rurales</div>
-              <div class="noticia-main-desc">El gobierno lanzó un plan para llevar internet a más de 40 veredas del departamento.</div>
-              <div class="noticia-main-footer"><span class="noticia-autor">Redacción</span><span class="noticia-tiempo">Hace 1 hora</span></div>
-            </div>
-          </div>
-          <div class="noticia-stack">
-            <div class="noticia-mini" onclick="gp('noticias')"><div class="noticia-mini-ico az">🐟</div><div><div class="h-tag az" style="margin-bottom:4px">Naturaleza</div><div class="noticia-mini-title">Rescate de tortugas</div><div class="noticia-mini-time">Hace 2 horas</div></div></div>
-            <div class="noticia-mini" onclick="gp('noticias')"><div class="noticia-mini-ico ro">🎭</div><div><div class="h-tag ro" style="margin-bottom:4px">Cultura</div><div class="noticia-mini-title">Festival de teatro</div><div class="noticia-mini-time">Hace 4 horas</div></div></div>
-            <div class="noticia-mini" onclick="gp('noticias')"><div class="noticia-mini-ico na">⚽</div><div><div class="h-tag na" style="margin-bottom:4px">Deportes</div><div class="noticia-mini-title">Caquetá FC a la final</div><div class="noticia-mini-time">Ayer</div></div></div>
-          </div>
-        </div>
-        <div class="sec-label" style="margin-top:22px">Accesos rápidos</div>
-        <div class="accesos">
-          <div class="acceso" onclick="gp('chat')"><span class="acceso-icon">💬</span><div class="acceso-title">Chat</div><div class="acceso-sub">Salas libres</div></div>
-          <div class="acceso" onclick="gp('noticias')"><span class="acceso-icon">📰</span><div class="acceso-title">Noticias</div><div class="acceso-sub">Lo más reciente</div></div>
-          <div class="acceso" onclick="gp('publicidad')"><span class="acceso-icon">📢</span><div class="acceso-title">Directorio</div><div class="acceso-sub">Negocios locales</div></div>
-          <div class="acceso" onclick="gp('eventos')"><span class="acceso-icon">🎉</span><div class="acceso-title">Eventos</div><div class="acceso-sub">Agenda cultural</div></div>
-        </div>
-      </div>
-      
-      <div class="inicio-sidebar">
-        <div class="widget">
-          <div class="widget-header"><span class="widget-header-ico">🌤️</span><span class="widget-header-title">Clima — Florencia</span></div>
-          <div class="widget-body">
-            <div class="clima-top"><span class="clima-ico">⛅</span><div><div class="clima-ciudad">Florencia, Caquetá</div><div class="clima-temp">28°C</div><div class="clima-desc">Parcialmente nublado</div></div></div>
-            <div class="clima-extra">
-              <div class="clima-stat"><div class="clima-stat-val">82%</div><div class="clima-stat-lbl">Humedad</div></div>
-              <div class="clima-stat"><div class="clima-stat-val">18km/h</div><div class="clima-stat-lbl">Viento</div></div>
-              <div class="clima-stat"><div class="clima-stat-val">26°C</div><div class="clima-stat-lbl">Sens</div></div>
-            </div>
-          </div>
-        </div>
-        <div class="widget">
-          <div class="widget-header"><span class="widget-header-ico">👥</span><span class="widget-header-title">En línea ahora</span></div>
-          <div class="widget-body"><div id="online-list"><div style="font-size:0.75rem;color:var(--tx3)">Cargando...</div></div><button class="ir-chat-btn" onclick="gp('chat')">Ir al chat →</button></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- CHAT (Los 3 Paneles Originales adaptados) -->
-  <div class="page" id="page-chat">
-    <div class="chat-layout">
-      <div class="panel-salas">
-        <div class="panel-salas-header">Salas de Chat</div>
-        <div class="sala active" onclick="cs('general','Plaza General',this)"><span class="sala-dot"></span><span class="sala-emoji">🍻</span><span class="sala-nombre">Plaza General</span></div>
-        <div class="sala" onclick="cs('nocturno','Café Nocturno',this)"><span class="sala-dot"></span><span class="sala-emoji">☕</span><span class="sala-nombre">Café Nocturno</span></div>
-        <div class="sala" onclick="cs('debates','Debates',this)"><span class="sala-dot"></span><span class="sala-emoji">🔥</span><span class="sala-nombre">Debates</span></div>
-        <div class="sala" onclick="cs('naturaleza','Naturaleza',this)"><span class="sala-dot"></span><span class="sala-emoji">🐟</span><span class="sala-nombre">Naturaleza</span></div>
-      </div>
-      <div class="panel-centro">
-        <div class="chat-header">
-          <div><div class="chat-header-titulo" id="rnm">Plaza General</div><div class="chat-header-sub" id="rst">Cargando...</div></div>
-        </div>
-        <div class="msgs" id="msgs"><div class="mph">Selecciona una sala</div></div>
-        <div class="cft">
-          <div class="mt">
-            <button class="mtl" onclick="document.getElementById('img-in').click()">🖼️ Imagen</button>
-            <button class="mtl" onclick="addEmoji()">😄 Emoji</button>
-          </div>
-          <div class="ir"><textarea id="minp" class="mi" rows="1" placeholder="Escribe tu mensaje..."></textarea><button class="sb" onclick="enviar()">➤</button></div>
-        </div>
-        <input type="file" id="img-in" accept="image/*" style="display:none" onchange="upImg(this)">
-      </div>
-      <div class="panel-usuarios" id="panel-usuarios">
-        <div class="panel-usuarios-header">Comunidad<div class="online-badge"><span class="online-badge-dot"></span><span id="contador-online">0 en línea</span></div></div>
-        <div id="lista-usuarios-chat" style="padding-top:6px"><div style="font-size:0.72rem;color:var(--tx3);padding:12px">Cargando...</div></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- PÁGINAS EXTRAS (Abreviadas estructuralmente de tu original) -->
-  <div class="page" id="page-noticias"><div class="cp"><div class="ptt">📰 Noticias del Caquetá</div><div class="ng"><div class="icard"><div class="ni" style="background:#e8f5ee">🌿</div><div class="nb"><span class="h-tag vd">Departamento</span><div class="nt">Conectividad digital llega a 40 veredas rurales</div><div class="nd">Hace 1 hora</div></div></div></div></div></div>
-  <div class="page" id="page-publicidad"><div class="cp"><div class="ptt">🛒 Directorio comercial</div><div class="pg"><div class="pc"><div class="pci" style="background:#fff7e6">🛒</div><div class="pcb"><div class="pct">Mercado</div><div class="pcn">Mercado Caquetá Fresco</div><div class="pcd">Frutas y verduras a precios del campo.</div><button class="pcbtn">Ver más</button></div></div></div></div></div>
-  <div class="page" id="page-eventos"><div class="cp"><div class="ptt">🎉 Eventos en el Caquetá</div><div class="ng"><div class="icard"><div class="ni" style="background:#fff7e6;font-size:2.5rem">🎭</div><div class="nb"><span class="h-tag na">Festival</span><div class="nt">Festival de Teatro Internacional Florencia</div><div class="nd">📅 15-20 Oct</div></div></div></div></div></div>
-
-  <div id="contenedor-privado"></div>
-
-  <!-- MODAL DE PERFIL (Para cambiar el apodo) -->
-  <div class="mw" id="modal-perfil">
-    <div class="mb2">
-      <div class="mhd">Editar mi Identidad <button class="mc" onclick="document.getElementById('modal-perfil').classList.remove('show')">✕</button></div>
-      <div style="padding:20px; text-align:center;">
-        <p style="font-size:0.75rem; color:var(--tx2); margin-bottom:15px;">Elige un apodo para mantener tu anonimato en las salas.</p>
-        <input type="text" id="inp-apodo" class="mi" style="width:100%; margin-bottom:15px; text-align:center; font-weight:bold;" placeholder="Ej: LoboSolitario">
-        <button class="sb" style="width:100%; border-radius:12px;" onclick="guardarPerfil()">Guardar Apodo</button>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-<script type="module">
-import{initializeApp}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import{getAuth,GoogleAuthProvider,signInWithPopup,signOut,onAuthStateChanged}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-import{getFirestore,collection,addDoc,query,orderBy,limit,onSnapshot,serverTimestamp,doc,setDoc,getDocs,getDoc}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-
-const app=initializeApp({apiKey:"AIzaSyDehFdJAKNzvCGPRB3rca6VmEMTvdpO-2M",authDomain:"caquetachat.firebaseapp.com",projectId:"caquetachat",storageBucket:"caquetachat.firebasestorage.app",messagingSenderId:"911518784033",appId:"1:911518784033:web:9c003be112ad6880a1e160"});
-const auth=getAuth(app),db=getFirestore(app);
-
-let user=null, sala="general", unsub=null, unsubU=null, privAbierto=null, unsubPriv=null;
-let miApodo = "Anon"; 
-let usuariosBloqueados = JSON.parse(localStorage.getItem('bloqueados') || '[]');
-
-const SL=document.getElementById("screen-load"),SLG=document.getElementById("screen-login"),SA=document.getElementById("screen-app");
-function show(s){SL.style.display="none";SLG.classList.remove("show");SA.classList.remove("show");if(s==="login")SLG.classList.add("show");else SA.classList.add("show");}
-
-/* NAVEGACIÓN (TABS) */
-document.querySelectorAll(".ntab").forEach(b=>b.onclick=()=>{
-  document.querySelectorAll(".ntab").forEach(x=>x.classList.remove("active"));
-  b.classList.add("active");
-  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
-  document.getElementById("page-"+b.dataset.p).classList.add("active");
-  if(b.dataset.p==="chat") loadChat(sala);
-});
-window.gp=p=>{
-  document.querySelectorAll(".ntab").forEach(b=>b.classList.toggle("active",b.dataset.p===p));
-  document.querySelectorAll(".page").forEach(x=>x.classList.remove("active"));
-  document.getElementById("page-"+p).classList.add("active");
-  if(p==="chat") loadChat(sala);
-};
-
-/* MODO OSCURO */
-const btnTheme = document.getElementById("btn-theme");
-if(localStorage.getItem('theme') === 'dark') {
-    document.body.classList.add('dark');
-    btnTheme.textContent = '☀️';
-}
-btnTheme.onclick = () => {
-    document.body.classList.toggle('dark');
-    const isDark = document.body.classList.contains('dark');
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    btnTheme.textContent = isDark ? '☀️' : '🌙';
-};
-
-/* AUTH */
-document.getElementById("btn-login").onclick=async()=>{try{await signInWithPopup(auth,new GoogleAuthProvider());}catch(e){alert("Error: "+e.message);}};
-document.getElementById("btn-out").onclick=()=>signOut(auth);
-
-onAuthStateChanged(auth,async u=>{
-  if(u){
-    user=u;
-    const docSnap = await getDoc(doc(db, "presencia", u.uid));
-    if(docSnap.exists() && docSnap.data().apodo) { miApodo = docSnap.data().apodo; } 
-    else { miApodo = "Anon_" + Math.floor(Math.random()*9000 + 1000); }
-    
-    document.getElementById("unm").textContent = miApodo;
-    document.getElementById("inp-apodo").value = miApodo;
-    const av=document.getElementById("uav");
-    if(u.photoURL) { av.innerHTML=`<img src="${u.photoURL}">`; } else { av.textContent=miApodo.charAt(0); }
-
-    await setDoc(doc(db,"presencia",u.uid),{apodo:miApodo, foto:u.photoURL||"", online:true, ts:serverTimestamp()},{merge:true});
-    show("app"); loadOnline(); loadUsuariosChat(); if(document.getElementById("page-chat").classList.contains("active")) loadChat(sala);
-  } else {
-    user=null; show("login");
-  }
-});
-
-/* GUARDAR PERFIL (Apodo) */
-window.guardarPerfil = async () => {
-    const nuevoApodo = document.getElementById("inp-apodo").value.trim();
-    if(nuevoApodo.length < 3) return alert("El apodo debe tener al menos 3 letras.");
-    miApodo = nuevoApodo;
-    document.getElementById("unm").textContent = miApodo;
-    document.getElementById('modal-perfil').classList.remove('show');
-    await setDoc(doc(db,"presencia",user.uid), {apodo: miApodo}, {merge:true});
-};
-
-/* CHAT PÚBLICO */
-window.cs=(s,nm,el)=>{document.querySelectorAll(".sala").forEach(x=>x.classList.remove("active"));el.classList.add("active");sala=s;document.getElementById("rnm").textContent=nm;loadChat(s);};
-
-function loadChat(s){
-  if(unsub)unsub();
-  const c=document.getElementById("msgs");
-  c.innerHTML='<div class="mph">Cargando...</div>';
-  const q=query(collection(db,"salas",s,"mensajes"),orderBy("timestamp","asc"),limit(60));
-  unsub=onSnapshot(q,snap=>{
-    c.innerHTML="";
-    snap.forEach(d=>{
-      const m=d.data();
-      if(usuariosBloqueados.includes(m.uid)) return; // FILTRO DE BLOQUEO
-      c.appendChild(mkBub(m));
-    });
-    c.scrollTop=c.scrollHeight;
-    document.getElementById("rst").textContent=snap.size+" mensajes en sala";
-  });
-}
-
-function mkBub(m){
-  const me=m.uid===user?.uid;
-  const row=document.createElement("div");
-  row.className="mr2"+(me?" me":"");
-  const hr=m.timestamp?.toDate()?.toLocaleTimeString("es-CO",{hour:"2-digit",minute:"2-digit"})||"";
-  const nombreMostrar = m.apodo || "Anon";
-  const lt=nombreMostrar.charAt(0).toUpperCase();
-  const avH=m.foto?`<div class="av"><img src="${m.foto}"></div>`:`<div class="av" style="background:var(--gr2);color:#fff">${lt}</div>`;
-  
-  let cont="";
-  if(m.tipo==="texto") cont=`<div class="snm">${nombreMostrar}</div><div class="bub">${esc(m.texto)}</div><div class="mm">${hr}</div>`;
-  else if(m.tipo==="imagen") cont=`<div class="snm">${nombreMostrar}</div><div class="ib"><img src="${m.url}" loading="lazy"></div><div class="mm">${hr}</div>`;
-  
-  row.innerHTML=avH+`<div>${cont}</div>`;
-  return row;
-}
-
-window.enviar=async()=>{
-  const inp=document.getElementById("minp");
-  const txt=inp.value.trim();
-  if(!txt||!user)return;
-  inp.value="";
-  await addDoc(collection(db,"salas",sala,"mensajes"),{tipo:"texto", texto:txt, uid:user.uid, apodo:miApodo, foto:user.photoURL||"", timestamp:serverTimestamp()});
-};
-document.getElementById("minp").addEventListener("keydown",e=>{if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();enviar();}});
-
-window.upImg=async inp=>{
-  const f=inp.files[0];
-  if(!f||!user)return;
-  inp.value="";
-  const r=new FileReader();
-  r.onloadend=async()=>{
-    if(r.result.length>1000000){alert("Imagen muy grande. Máx 1MB");return;}
-    await addDoc(collection(db,"salas",sala,"mensajes"),{tipo:"imagen", url:r.result, uid:user.uid, apodo:miApodo, foto:user.photoURL||"", timestamp:serverTimestamp()});
-  };
-  r.readAsDataURL(f);
-};
-
-const emjs=["🌿","🐟","🦜","🌺","🌅","🍻","🔥","😏","😎"];
-window.addEmoji=()=>{const i=document.getElementById("minp");i.value+=emjs[Math.floor(Math.random()*emjs.length)];i.focus();};
-
-/* USUARIOS Y PRIVADO */
-function loadUsuariosChat(){
-  const lista=document.getElementById("lista-usuarios-chat");
-  const contador=document.getElementById("contador-online");
-  if(unsubU)unsubU();
-  unsubU=onSnapshot(collection(db,"presencia"),snap=>{
-    lista.innerHTML="";
-    let count=0;
-    const tit=document.createElement("div"); tit.className="seccion-estado"; tit.textContent="En línea"; lista.appendChild(tit);
-    snap.forEach(d=>{
-      if(d.id===user?.uid)return;
-      count++;
-      const u=d.data();
-      const nombreMostrar = u.apodo || "Anon";
-      const el=document.createElement("div");
-      el.className="user-en-linea";
-      el.innerHTML=`
-        <div class="user-av-wrap">
-          <div class="user-av" style="background:var(--bg2)">${nombreMostrar.charAt(0).toUpperCase()}</div>
-          <div class="user-estado-dot" style="background:var(--gr2)"></div>
-        </div>
-        <div class="user-info"><div class="user-nombre">${esc(nombreMostrar)}</div></div>
-        <span style="font-size:0.7rem;color:var(--gr2)">💬</span>`;
-      el.onclick=()=>abrirChatPrivado(d.id,u);
-      lista.appendChild(el);
-    });
-    contador.textContent=count+" en línea";
-  });
-}
-
-window.abrirChatPrivado=(otroUid,otroUser)=>{
-  if(privAbierto===otroUid)return;
-  privAbierto=otroUid;
-  const chatId=[user.uid,otroUid].sort().join("_");
-  if(unsubPriv)unsubPriv();
-  const c=document.getElementById("contenedor-privado");
-  const nombreMostrar = otroUser.apodo || "Anon";
-  
-  c.innerHTML=`
-    <div class="priv-chat" id="ventana-privada">
-      <div class="priv-header">
-        <span class="priv-nombre">${esc(nombreMostrar)}</span>
-        <div class="priv-acciones">
-          <button class="priv-btn block" onclick="bloquearUsuario('${otroUid}')" title="Bloquear">🚫</button>
-          <button class="priv-btn" onclick="cerrarPrivado()">✕</button>
-        </div>
-      </div>
-      <div class="priv-msgs" id="priv-msgs"><div style="text-align:center;color:var(--tx3);font-size:0.75rem;padding:20px">Di hola 👋</div></div>
-      <div class="priv-input-area">
-        <textarea id="priv-inp" class="priv-inp" rows="1" placeholder="Mensaje..."></textarea>
-        <button class="priv-send" onclick="privEnviar('${chatId}')">➤</button>
-      </div>
-    </div>`;
-  
-  document.getElementById("priv-inp").addEventListener("keydown",e=>{if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();privEnviar(chatId);}});
-  
-  const q=query(collection(db,"privados",chatId,"mensajes"),orderBy("timestamp","asc"),limit(50));
-  unsubPriv=onSnapshot(q,snap=>{
-    const box=document.getElementById("priv-msgs");
-    if(!box)return;
-    box.innerHTML="";
-    snap.forEach(d=>{
-      const m=d.data();
-      if(usuariosBloqueados.includes(m.uid)) return; // Filtro de bloqueo
-      const yo=m.uid===user.uid;
-      const hr=m.timestamp?.toDate()?.toLocaleTimeString("es-CO",{hour:"2-digit",minute:"2-digit"})||"";
-      const bub=document.createElement("div");
-      bub.style.display="flex"; bub.style.flexDirection="column"; bub.style.alignItems=yo?"flex-end":"flex-start";
-      bub.innerHTML=`<div class="priv-bub ${yo?'yo':'ellos'}">${esc(m.texto||"")}</div><span class="priv-hora">${hr}</span>`;
-      box.appendChild(bub);
-    });
-    box.scrollTop=box.scrollHeight;
-  });
-}
-
-window.privEnviar=async(chatId)=>{
-  const inp=document.getElementById("priv-inp");
-  const txt=inp?.value.trim();
-  if(!txt||!user)return;
-  inp.value="";
-  await addDoc(collection(db,"privados",chatId,"mensajes"),{tipo:"texto", texto:txt, uid:user.uid, timestamp:serverTimestamp()});
-};
-
-window.cerrarPrivado=()=>{if(unsubPriv){unsubPriv();unsubPriv=null;}privAbierto=null;document.getElementById("contenedor-privado").innerHTML="";};
-
-window.bloquearUsuario = (uidABloquear) => {
-    if(confirm("¿Bloquear a este usuario? No volverás a ver sus mensajes.")){
-        if(!usuariosBloqueados.includes(uidABloquear)){
-            usuariosBloqueados.push(uidABloquear);
-            localStorage.setItem('bloqueados', JSON.stringify(usuariosBloqueados));
-        }
-        cerrarPrivado();
-        loadChat(sala); 
-    }
-}
-
-async function loadOnline(){
-  const c=document.getElementById("online-list");
-  try{
-    const s=await getDocs(collection(db,"presencia"));
-    const hc=document.getElementById("hero-online-count");
-    if(hc)hc.textContent=s.size;
-    c.innerHTML="";
-    let n=0;
-    s.forEach(d=>{
-      if(n>=5)return;
-      const u=d.data();
-      const nombreMostrar = u.apodo || "U";
-      const row=document.createElement("div");
-      row.className="online-row";
-      row.innerHTML=`<div class="online-av" style="background:var(--bg2)">${nombreMostrar.charAt(0).toUpperCase()}</div><span class="online-name">${esc(nombreMostrar)}</span><div class="online-dot"></div>`;
-      c.appendChild(row);
-      n++;
-    });
-  }catch(e){}
-}
-
-function esc(t){return t?.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")||"";}
-</script>
-</body>
-</html>
+body.
