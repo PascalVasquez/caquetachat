@@ -1,4 +1,312 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>CaquetáChat — Comunidad del Caquetá</title><link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"><style>*{margin:0;padding:0;box-sizing:border-box}:root{--vd:#1a6b3c;--vm:#2db86b;--vn:#39e87c;--cr:#f8f4ec;--os:#0d1f15;--gr:#e8f0eb}body{font-family:'DM Sans',sans-serif;background:#f0f4f1;color:var(--os);min-height:100vh}.screen{display:none}.screen.active{display:block}#screen-login{min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--cr);position:relative;overflow:hidden}.login-leaf{position:absolute;font-size:220px;opacity:0.07;pointer-events:none}.login-leaf.l1{top:-60px;left:-80px;transform:rotate(-15deg)}.login-leaf.l2{bottom:-60px;right:-80px;transform:rotate(20deg)}.login-box{background:#fff;border-radius:24px;border:1px solid rgba(26,107,60,0.12);padding:3rem 2.5rem;text-align:center;max-width:420px;width:92%;position:relative;z-index:2;box-shadow:0 20px 60px rgba(26,107,60,0.08)}.login-logo{font-family:'Syne',sans-serif;font-size:2.4rem;font-weight:800;color:var(--vd);margin-bottom:0.4rem}.login-logo span{color:var(--vm)}.login-tag{font-size:0.88rem;color:#5f6b62;margin-bottom:1.8rem;line-height:1.5}.login-feats{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:2.2rem}.login-feats span{background:#e8f5e9;color:#2e7d32;font-size:0.73rem;padding:5px 13px;border-radius:20px;font-weight:500}.btn-google{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:0.95rem;border:1.5px solid rgba(26,107,60,0.2);border-radius:14px;background:#fff;font-family:'DM Sans',sans-serif;font-size:0.97rem;font-weight:500;cursor:pointer;color:var(--os);transition:all 0.2s;margin-bottom:1rem}.btn-google:hover{border-color:var(--vm);background:#f0f7f3;transform:translateY(-1px)}.login-note{font-size:0.68rem;color:#bbb}.topbar{background:var(--vd);color:#fff;display:flex;align-items:center;padding:0 1.4rem;height:54px;gap:12px;position:sticky;top:0;z-index:100}.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.15rem;flex-shrink:0;letter-spacing:-0.3px}.logo span{color:var(--vn)}.nav-tabs{display:flex;gap:2px;flex:1;overflow-x:auto;scrollbar-width:none}.nav-tabs::-webkit-scrollbar{display:none}.ntab{background:none;border:none;color:rgba(255,255,255,0.6);padding:0 13px;height:54px;font-size:0.78rem;cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap;font-family:'DM Sans',sans-serif;transition:all 0.2s}.ntab.active,.ntab:hover{color:#fff;border-bottom-color:var(--vn)}.topbar-right{display:flex;align-items:center;gap:8px;flex-shrink:0}.user-av{width:32px;height:32px;border-radius:50%;background:var(--vn);color:var(--os);display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700;overflow:hidden;cursor:pointer}.user-av img{width:100%;height:100%;object-fit:cover;border-radius:50%}.user-nm{font-size:0.75rem;color:rgba(255,255,255,0.85);max-width:90px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.btn-out{background:rgba(255,255,255,0.15);border:none;color:#fff;border-radius:50%;width:32px;height:32px;cursor:pointer;font-size:0.8rem;display:flex;align-items:center;justify-content:center;transition:background 0.2s}.btn-out:hover{background:rgba(255,255,255,0.3)}.page{display:none}.page.active{display:block}.portal{display:grid;grid-template-columns:1fr 290px;gap:14px;padding:16px;max-width:1100px;margin:0 auto}@media(max-width:780px){.portal{grid-template-columns:1fr}.sidebar-col{display:none}}.card{background:#fff;border-radius:14px;border:0.5px solid rgba(26,107,60,0.12);overflow:hidden;transition:all 0.2s;cursor:pointer}.card:hover{transform:translateY(-2px);border-color:var(--vm);box-shadow:0 6px 20px rgba(26,107,60,0.08)}.hero-grid{display:grid;grid-template-columns:2fr 1fr;gap:12px;margin-bottom:14px}@media(max-width:580px){.hero-grid{grid-template-columns:1fr}}.hero-img{height:160px;display:flex;align-items:center;justify-content:center;font-size:3.5rem;color:rgba(255,255,255,0.25)}.hero-body{padding:14px}.hero-body h3{font-size:0.95rem;font-weight:700;line-height:1.3;margin:6px 0 5px;color:var(--os)}.hero-body p{font-size:0.74rem;color:#5f6b62;line-height:1.45}.news-stack{display:flex;flex-direction:column;gap:8px}.news-mini{display:flex;gap:9px;align-items:flex-start;padding:10px}.mini-thumb{width:50px;height:50px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}.mini-thumb.az{background:#e3f2fd}.mini-thumb.ro{background:#fce4ec}.mini-thumb.na{background:#fff3e0}.mini-txt h4{font-size:0.76rem;font-weight:600;color:var(--os);line-height:1.3}.mini-txt p{font-size:0.65rem;color:#9aab9e;margin-top:2px}.tag{display:inline-block;font-size:0.63rem;font-weight:700;padding:2px 8px;border-radius:20px;margin-bottom:4px;text-transform:uppercase;letter-spacing:0.3px}.tag.vd{background:#e8f5e9;color:#2e7d32}.tag.az{background:#e3f2fd;color:#1565c0}.tag.ro{background:#fce4ec;color:#880e4f}.tag.na{background:#fff3e0;color:#bf360c}.tag.mo{background:#f3e5f5;color:#6a1b9a}.sec-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}@media(max-width:580px){.sec-grid{grid-template-columns:repeat(2,1fr)}}.sec-card{background:#fff;border-radius:14px;border:0.5px solid rgba(26,107,60,0.12);padding:16px;text-align:center;transition:all 0.2s;cursor:pointer}.sec-card:hover{transform:translateY(-3px);border-color:var(--vm);box-shadow:0 6px 20px rgba(26,107,60,0.08)}.sec-ico{font-size:1.8rem;margin-bottom:7px}.sec-ttl{font-size:0.8rem;font-weight:700;color:var(--os)}.sec-dsc{font-size:0.68rem;color:#7a8c7e;margin-top:3px}.sidebar-col{display:flex;flex-direction:column;gap:12px}.wcard{background:#fff;border-radius:14px;border:0.5px solid rgba(26,107,60,0.12);overflow:hidden}.whead{background:var(--vd);color:#fff;padding:9px 13px;font-size:0.75rem;font-weight:700}.wbody{padding:11px 13px}.clima-row{display:flex;align-items:center;gap:10px}.clima-ico{font-size:2.2rem}.clima-t{font-size:1.6rem;font-weight:800;color:var(--vd)}.clima-info{font-size:0.7rem;color:#5f6b62;line-height:1.4}.pub-wrap{border:1.5px dashed rgba(230,81,0,0.3);background:#fff;border-radius:14px;padding:12px;cursor:pointer;transition:all 0.2s}.pub-wrap:hover{border-color:#e65100}.pub-lbl{font-size:0.6rem;color:#ccc;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}.pub-inner{background:#fff3e0;border-radius:10px;padding:14px;text-align:center}.pub-ico{font-size:1.6rem;margin-bottom:4px}.pub-ttl{font-size:0.85rem;font-weight:700;color:#e65100}.pub-sub{font-size:0.7rem;color:#bf360c;margin-top:2px}.pub-btn{background:#e65100;color:#fff;border:none;border-radius:20px;padding:5px 15px;font-size:0.7rem;margin-top:8px;cursor:pointer;font-family:'DM Sans',sans-serif}.urow{display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:0.5px solid rgba(26,107,60,0.07)}.urow:last-child{border:none}.uav{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.6rem;font-weight:700;flex-shrink:0;overflow:hidden}.uav img{width:100%;height:100%;object-fit:cover;border-radius:50%}.unm{font-size:0.76rem;font-weight:500;color:var(--os);flex:1}.udot{width:7px;height:7px;border-radius:50%;background:var(--vn);flex-shrink:0}.btn-chat{background:var(--vd);color:#fff;border:none;border-radius:20px;padding:5px 16px;font-size:0.72rem;cursor:pointer;font-family:'DM Sans',sans-serif;margin-top:8px;width:100%}.chat-layout{display:grid;grid-template-columns:210px 1fr;height:calc(100vh - 54px)}@media(max-width:600px){.chat-layout{grid-template-columns:1fr}.salas-col{display:none}}.salas-col{background:#fff;border-right:0.5px solid rgba(26,107,60,0.1);overflow-y:auto}.salas-ttl{padding:11px 13px;font-size:0.78rem;font-weight:700;color:var(--vd);border-bottom:0.5px solid rgba(26,107,60,0.1);position:sticky;top:0;background:#fff}.sala{display:flex;align-items:center;gap:7px;padding:9px 13px;cursor:pointer;border-left:3px solid transparent;transition:all 0.15s}.sala:hover,.sala.active{background:#f0f7f3;border-left-color:var(--vm)}.sala-dot{width:6px;height:6px;border-radius:50%;background:var(--vn);flex-shrink:0}.sala-em{font-size:0.95rem}.sala-nm{font-size:0.78rem;font-weight:500;color:var(--os)}.chat-main{display:flex;flex-direction:column;height:calc(100vh - 54px);overflow:hidden}.chat-hd{background:#fff;border-bottom:0.5px solid rgba(26,107,60,0.1);padding:10px 15px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}.room-nm{font-weight:700;font-size:0.92rem;color:var(--os)}.room-st{font-size:0.68rem;color:#7a8c7e;margin-top:1px}.chat-acts{display:flex;gap:6px}.hbtn{background:none;border:1px solid rgba(26,107,60,0.18);border-radius:8px;padding:5px 10px;font-size:0.73rem;cursor:pointer;color:#4a6b56;font-family:'DM Sans',sans-serif;transition:all 0.15s}.hbtn:hover{background:#f0f7f3;border-color:var(--vm)}.msgs{flex:1;overflow-y:auto;padding:13px 15px;display:flex;flex-direction:column;gap:10px;background:#f8faf8}.msg-ph{text-align:center;color:#9aab9e;font-size:0.82rem;margin:auto;padding:2rem}.mrow{display:flex;gap:8px;align-items:flex-end;max-width:76%}.mrow.me{align-self:flex-end;flex-direction:row-reverse}.av{width:29px;height:29px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.6rem;font-weight:700;flex-shrink:0;overflow:hidden}.av img{width:100%;height:100%;object-fit:cover;border-radius:50%}.bub{background:#fff;border:0.5px solid rgba(26,107,60,0.12);border-radius:12px 12px 12px 3px;padding:7px 12px;font-size:0.82rem;line-height:1.45;word-break:break-word}.mrow.me .bub{background:var(--vd);color:#fff;border-radius:12px 12px 3px 12px;border-color:transparent}.mmeta{font-size:0.6rem;color:#aaa;margin-top:2px}.mrow.me .mmeta{color:rgba(255,255,255,0.6)}.snm{font-size:0.62rem;font-weight:600;color:var(--vd);margin-bottom:2px}.mrow.me .snm{display:none}.ddiv{text-align:center;font-size:0.65rem;color:#9aab9e;position:relative;margin:2px 0;align-self:center}.ddiv span{background:#f8faf8;padding:0 8px;position:relative;z-index:1}.ddiv::before{content:'';position:absolute;top:50%;left:0;right:0;height:0.5px;background:rgba(26,107,60,0.12)}.abub{background:#fff;border:0.5px solid rgba(26,107,60,0.15);border-radius:12px;padding:8px 11px;display:flex;align-items:center;gap:9px;min-width:170px}.pbtn{width:30px;height:30px;border-radius:50%;background:var(--vd);border:none;color:#fff;font-size:0.75rem;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}.waveform{flex:1;height:24px;display:flex;align-items:center;gap:2px}.wbar{width:3px;border-radius:2px;background:rgba(45,184,107,0.45)}.adur{font-size:0.62rem;color:#7a8c7e;white-space:nowrap}.ibub{background:#fff;border:0.5px solid rgba(26,107,60,0.12);border-radius:12px;overflow:hidden;max-width:200px}.ibub img{width:100%;max-height:160px;object-fit:cover;display:block}.icap{padding:5px 9px;font-size:0.7rem;color:#5f6b62}.fbub{background:#fff;border:0.5px solid rgba(26,107,60,0.12);border-radius:12px;padding:8px 11px;display:flex;align-items:center;gap:9px;min-width:170px}.fico{width:34px;height:34px;border-radius:7px;background:#e8f5e9;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}.fnm{font-size:0.73rem;font-weight:600;color:var(--os)}.fsz{font-size:0.62rem;color:#7a8c7e}.chat-ft{background:#fff;border-top:0.5px solid rgba(26,107,60,0.1);padding:9px 13px;flex-shrink:0}.mtbar{display:flex;gap:5px;margin-bottom:7px;flex-wrap:wrap}.mtool{background:none;border:1px solid rgba(26,107,60,0.18);border-radius:7px;padding:4px 9px;font-size:0.73rem;cursor:pointer;color:#4a6b56;font-family:'DM Sans',sans-serif;transition:all 0.15s;display:flex;align-items:center;gap:4px}.mtool:hover{background:#f0f7f3;border-color:var(--vm)}.mtool.rec{background:#ffebee;border-color:#f44336;color:#c62828}.inp-row{display:flex;gap:7px;align-items:flex-end}.minp{flex:1;border:1.5px solid rgba(26,107,60,0.2);border-radius:18px;padding:7px 14px;font-size:0.85rem;outline:none;resize:none;background:#f8faf8;color:var(--os);font-family:'DM Sans',sans-serif;transition:border-color 0.2s;max-height:100px}.minp:focus{border-color:var(--vm)}.sbtn{background:var(--vd);color:#fff;border:none;border-radius:50%;width:37px;height:37px;cursor:pointer;font-size:0.85rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.2s}.sbtn:hover{background:var(--vm);transform:scale(1.08)}.cpage{padding:16px;max-width:1000px;margin:0 auto}.ptitle{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;color:var(--vd);margin-bottom:14px}.ngrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}.nc-img{height:100px;display:flex;align-items:center;justify-content:center;font-size:2.2rem}.nc-body{padding:10px}.nc-ttl{font-size:0.8rem;font-weight:600;color:var(--os);line-height:1.3;margin:3px 0}.nc-dt{font-size:0.65rem;color:#9aab9e;margin-top:4px}.pban{background:#fff3e0;border-radius:14px;border:1px solid rgba(230,81,0,0.2);padding:15px;margin-bottom:14px;display:flex;align-items:center;gap:13px;flex-wrap:wrap}.pban h3{font-size:0.9rem;font-weight:700;color:#bf360c}.pban p{font-size:0.72rem;color:#7a8c7e}.pbtn2{background:#e65100;color:#fff;border:none;border-radius:20px;padding:8px 18px;font-size:0.78rem;cursor:pointer;margin-left:auto;font-family:'DM Sans',sans-serif}.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}.pcard{background:#fff;border-radius:14px;border:1.5px dashed rgba(230,81,0,0.2);overflow:hidden;cursor:pointer;transition:all 0.2s}.pcard:hover{border-color:#e65100;transform:translateY(-2px)}.pc-img{height:90px;display:flex;align-items:center;justify-content:center;font-size:2.2rem}.pc-body{padding:10px}.pc-tag{font-size:0.62rem;font-weight:700;color:#e65100;text-transform:uppercase}.pc-ttl{font-size:0.83rem;font-weight:700;color:var(--os);margin:3px 0}.pc-dsc{font-size:0.7rem;color:#7a8c7e;line-height:1.4}.pc-btn{background:#e65100;color:#fff;border:none;border-radius:20px;padding:5px 13px;font-size:0.7rem;margin-top:7px;cursor:pointer;font-family:'DM Sans',sans-serif}.mwrap{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.65);z-index:500;align-items:center;justify-content:center}.mwrap.show{display:flex}.mbox{background:#fff;border-radius:16px;width:360px;overflow:hidden;max-width:95vw}.mhd{background:var(--vd);color:#fff;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;font-size:0.85rem;font-weight:600}.mclose{background:none;border:none;color:#fff;font-size:1rem;cursor:pointer}::-webkit-scrollbar{width:4px;height:4px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:rgba(26,107,60,0.2);border-radius:4px}</style></head><body><div id="screen-login" class="screen active"><div class="login-leaf l1">🌿</div><div class="login-leaf l2">🍃</div><div class="login-box"><div class="login-logo">Caquet<span>á</span>Chat</div><p class="login-tag">La comunidad digital del departamento del Caquetá</p><div class="login-feats"><span>💬 Chat</span><span>🎙️ Audio</span><span>📷 Cámara</span><span>📰 Noticias</span></div><button id="btn-login" class="btn-google"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>Continuar con Google</button><p class="login-note">Al entrar aceptas los términos de uso de CaquetáChat</p></div></div><div id="screen-app" class="screen"><nav class="topbar"><div class="logo">Caquet<span>á</span>Chat</div><div class="nav-tabs"><button class="ntab active" data-p="inicio">🏠 Inicio</button><button class="ntab" data-p="chat">💬 Chat</button><button class="ntab" data-p="noticias">📰 Noticias</button><button class="ntab" data-p="publicidad">📢 Publicidad</button><button class="ntab" data-p="eventos">🎉 Eventos</button></div><div class="topbar-right"><div id="uav" class="user-av">?</div><span id="unm" class="user-nm"></span><button id="btn-out" class="btn-out">⏻</button></div></nav><div class="page active" id="page-inicio"><div class="portal"><div><div class="hero-grid"><div class="card" onclick="gp('noticias')"><div class="hero-img" style="background:#1a6b3c">🌿</div><div class="hero-body"><span class="tag vd">Departamento</span><h3>Caquetá avanza en conectividad digital para zonas rurales</h3><p>El gobierno departamental lanzó un plan para llevar internet de alta velocidad a más de 40 veredas...</p></div></div><div class="news-stack"><div class="card news-mini" onclick="gp('noticias')"><div class="mini-thumb az">🐟</div><div class="mini-txt"><span class="tag az">Naturaleza</span><h4>Rescate de tortugas en el Caguán</h4><p>Hace 2 horas</p></div></div><div class="card news-mini" onclick="gp('noticias')"><div class="mini-thumb ro">🎭</div><div class="mini-txt"><span class="tag ro">Cultura</span><h4>Festival de teatro llega a Florencia</h4><p>Hace 4 horas</p></div></div><div class="card news-mini" onclick="gp('noticias')"><div class="mini-thumb na">⚽</div><div class="mini-txt"><span class="tag na">Deportes</span><h4>Caquetá FC clasifica a la final</h4><p>Ayer</p></div></div></div></div><div class="sec-grid"><div class="sec-card" onclick="gp('chat')"><div class="sec-ico">💬</div><div class="sec-ttl">Chat</div><div class="sec-dsc">Salas en tiempo real</div></div><div class="sec-card" onclick="gp('noticias')"><div class="sec-ico">📰</div><div class="sec-ttl">Noticias</div><div class="sec-dsc">Lo más reciente</div></div><div class="sec-card" onclick="gp('publicidad')"><div class="sec-ico">📢</div><div class="sec-ttl">Directorio</div><div class="sec-dsc">Negocios locales</div></div><div class="sec-card" onclick="gp('eventos')"><div class="sec-ico">🎉</div><div class="sec-ttl">Eventos</div><div class="sec-dsc">Agenda cultural</div></div></div></div><div class="sidebar-col"><div class="wcard"><div class="whead">🌤️ Clima — Florencia</div><div class="wbody"><div class="clima-row"><span class="clima-ico">⛅</span><div><div class="clima-t">28°C</div><div class="clima-info">Parcialmente nublado<br>Hum. 82%</div></div></div></div></div><div class="pub-wrap" onclick="gp('publicidad')"><div class="pub-lbl">Publicidad</div><div class="pub-inner"><div class="pub-ico">🛒</div><div class="pub-ttl">Mercado Caquetá</div><div class="pub-sub">Productos frescos de tu región</div><button class="pub-btn">Ver oferta →</button></div></div><div class="wcard"><div class="whead">👥 En línea ahora</div><div class="wbody" id="online-list"><div style="font-size:0.75rem;color:#9aab9e">Cargando...</div></div><div style="padding:0 13px 10px"><button class="btn-chat" onclick="gp('chat')">Ir al chat →</button></div></div></div></div></div><div class="page" id="page-chat"><div class="chat-layout"><div class="salas-col"><div class="salas-ttl">💬 Salas</div><div class="sala active" onclick="cs('plaza','🌿 Plaza Caquetá',this)"><span class="sala-dot"></span><span class="sala-em">🌿</span><span class="sala-nm">Plaza Caquetá</span></div><div class="sala" onclick="cs('cultura','🎵 Cultura',this)"><span class="sala-dot"></span><span class="sala-em">🎵</span><span class="sala-nm">Cultura y Arte</span></div><div class="sala" onclick="cs('empleo','💼 Empleo',this)"><span class="sala-dot"></span><span class="sala-em">💼</span><span class="sala-nm">Empleo</span></div><div class="sala" onclick="cs('naturaleza','🐟 Naturaleza',this)"><span class="sala-dot"></span><span class="sala-em">🐟</span><span class="sala-nm">Naturaleza</span></div><div class="sala" onclick="cs('deportes','⚽ Deportes',this)"><span class="sala-dot"></span><span class="sala-em">⚽</span><span class="sala-nm">Deportes</span></div><div class="sala" onclick="cs('salud','🏥 Salud',this)"><span class="sala-dot"></span><span class="sala-em">🏥</span><span class="sala-nm">Salud</span></div></div><div class="chat-main"><div class="chat-hd"><div><div class="room-nm" id="rnm">🌿 Plaza Caquetá</div><div class="room-st" id="rst">Cargando...</div></div><div class="chat-acts"><button class="hbtn" onclick="document.getElementById('vm').classList.add('show')">📹 Video</button><button class="hbtn" onclick="alert('Llamadas próximamente')">📞 Llamar</button></div></div><div class="msgs" id="msgs"><div class="msg-ph">Selecciona una sala 👋</div></div><div class="chat-ft"><div class="mtbar"><button class="mtool" id="baudio" onclick="tAudio()">🎙️ Audio</button><button class="mtool" onclick="document.getElementById('cam-in').click()">📷 Cámara</button><button class="mtool" onclick="document.getElementById('file-in').click()">📎 Archivo</button><button class="mtool" onclick="document.getElementById('img-in').click()">🖼️ Imagen</button><button class="mtool" onclick="addEmoji()">😄 Emoji</button></div><div class="inp-row"><textarea id="minp" class="minp" rows="1" placeholder="Escribe un mensaje..."></textarea><button class="sbtn" onclick="enviar()">➤</button></div></div><input type="file" id="file-in" style="display:none" onchange="upFile(this)"><input type="file" id="img-in" accept="image/*" style="display:none" onchange="upImg(this)"><input type="file" id="cam-in" accept="image/*" capture="environment" style="display:none" onchange="upImg(this)"></div></div><div class="mwrap" id="vm"><div class="mbox"><div class="mhd">📹 Videollamada <button class="mclose" onclick="document.getElementById('vm').classList.remove('show')">✕</button></div><div style="background:#111;min-height:200px;display:flex;align-items:center;justify-content:center;color:#666;font-size:0.82rem;border-radius:0 0 14px 14px">Iniciando...</div></div></div></div><div class="page" id="page-noticias"><div class="cpage"><div class="ptitle">📰 Noticias del Caquetá</div><div class="ngrid"><div class="card"><div class="nc-img" style="background:#e8f5e9">🌿</div><div class="nc-body"><span class="tag vd">Departamento</span><div class="nc-ttl">Conectividad digital llega a 40 veredas rurales</div><div class="nc-dt">Hace 1 hora</div></div></div><div class="card"><div class="nc-img" style="background:#e3f2fd">🐟</div><div class="nc-body"><span class="tag az">Naturaleza</span><div class="nc-ttl">Rescate masivo de tortugas en el río Caguán</div><div class="nc-dt">Hace 2 horas</div></div></div><div class="card"><div class="nc-img" style="background:#fce4ec">🎭</div><div class="nc-body"><span class="tag ro">Cultura</span><div class="nc-ttl">Festival de teatro internacional en Florencia</div><div class="nc-dt">Hace 4 horas</div></div></div><div class="card"><div class="nc-img" style="background:#fff3e0">⚽</div><div class="nc-body"><span class="tag na">Deportes</span><div class="nc-ttl">Caquetá FC clasifica a la final regional</div><div class="nc-dt">Ayer</div></div></div><div class="card"><div class="nc-img" style="background:#e8f5e9">🌾</div><div class="nc-body"><span class="tag vd">Economía</span><div class="nc-ttl">Cacao caquetano conquista mercados europeos</div><div class="nc-dt">Ayer</div></div></div><div class="card"><div class="nc-img" style="background:#f3e5f5">🏥</div><div class="nc-body"><span class="tag mo">Salud</span><div class="nc-ttl">Nueva unidad de salud en San Vicente del Caguán</div><div class="nc-dt">Hace 2 días</div></div></div></div></div></div><div class="page" id="page-publicidad"><div class="cpage"><div class="pban"><div style="font-size:2rem">📢</div><div><h3>¿Tienes un negocio en el Caquetá?</h3><p>Llega a miles de usuarios de tu región</p></div><button class="pbtn2">Publicar aviso</button></div><div class="ptitle">🛒 Directorio comercial</div><div class="pgrid"><div class="pcard"><div class="pc-img" style="background:#fff3e0">🛒</div><div class="pc-body"><div class="pc-tag">Mercado</div><div class="pc-ttl">Mercado Caquetá Fresco</div><div class="pc-dsc">Frutas y verduras a precios del campo.</div><button class="pc-btn">Ver más</button></div></div><div class="pcard"><div class="pc-img" style="background:#e8f5e9">🏠</div><div class="pc-body"><div class="pc-tag">Finca Raíz</div><div class="pc-ttl">Inmobiliaria Amazonia</div><div class="pc-dsc">Lotes, fincas y casas en el departamento.</div><button class="pc-btn">Ver más</button></div></div><div class="pcard"><div class="pc-img" style="background:#e3f2fd">🚌</div><div class="pc-body"><div class="pc-tag">Transporte</div><div class="pc-ttl">Transportes del Sur</div><div class="pc-dsc">Rutas desde Florencia.</div><button class="pc-btn">Ver más</button></div></div><div class="pcard"><div class="pc-img" style="background:#fce4ec">🍽️</div><div class="pc-body"><div class="pc-tag">Restaurante</div><div class="pc-ttl">Sabor Amazónico</div><div class="pc-dsc">Gastronomía típica caquetana.</div><button class="pc-btn">Ver más</button></div></div><div class="pcard"><div class="pc-img" style="background:#f3e5f5">💻</div><div class="pc-body"><div class="pc-tag">Tecnología</div><div class="pc-ttl">TechCaquetá</div><div class="pc-dsc">Reparación de equipos y accesorios.</div><button class="pc-btn">Ver más</button></div></div><div class="pcard"><div class="pc-img" style="background:#e8f5e9">🌿</div><div class="pc-body"><div class="pc-tag">Turismo</div><div class="pc-ttl">Ecoturismo Caguán</div><div class="pc-dsc">Tours por la selva amazónica.</div><button class="pc-btn">Ver más</button></div></div></div></div></div><div class="page" id="page-eventos"><div class="cpage"><div class="ptitle">🎉 Eventos en el Caquetá</div><div class="ngrid"><div class="card"><div class="nc-img" style="background:#fff3e0;font-size:2.5rem">🎭</div><div class="nc-body"><span class="tag na">Festival</span><div class="nc-ttl">Festival de Teatro Internacional Florencia</div><div class="nc-dt">📅 15-20 Oct 2025</div></div></div><div class="card"><div class="nc-img" style="background:#e8f5e9;font-size:2.5rem">🌾</div><div class="nc-body"><span class="tag vd">Feria</span><div class="nc-ttl">Feria del Cacao Caquetano</div><div class="nc-dt">📅 8 Nov 2025</div></div></div><div class="card"><div class="nc-img" style="background:#e3f2fd;font-size:2.5rem">⚽</div><div class="nc-body"><span class="tag az">Deportes</span><div class="nc-ttl">Final Regional de Fútbol</div><div class="nc-dt">📅 2 Nov 2025</div></div></div><div class="card"><div class="nc-img" style="background:#fce4ec;font-size:2.5rem">🎶</div><div class="nc-body"><span class="tag ro">Música</span><div class="nc-ttl">Noche de Llaneras — San Vicente</div><div class="nc-dt">📅 28 Sep 2025</div></div></div></div></div></div></div><script type="module">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CaquetáChat</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--vd:#1a6b3c;--vm:#2db86b;--vn:#39e87c;--cr:#f8f4ec;--os:#0d1f15}
+body{font-family:'DM Sans',sans-serif;background:#f0f4f1;color:var(--os)}
+.screen{display:none}.screen.active{display:block}
+#screen-login{min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--cr);position:relative;overflow:hidden}
+.ll{position:absolute;font-size:220px;opacity:0.07;pointer-events:none}
+.ll.a{top:-60px;left:-80px;transform:rotate(-15deg)}
+.ll.b{bottom:-60px;right:-80px;transform:rotate(20deg)}
+.lbox{background:#fff;border-radius:24px;border:1px solid rgba(26,107,60,0.12);padding:3rem 2.5rem;text-align:center;max-width:420px;width:92%;position:relative;z-index:2;box-shadow:0 20px 60px rgba(26,107,60,0.08)}
+.llogo{font-family:'Syne',sans-serif;font-size:2.4rem;font-weight:800;color:var(--vd);margin-bottom:0.4rem}
+.llogo span{color:var(--vm)}
+.ltag{font-size:0.88rem;color:#5f6b62;margin-bottom:1.8rem;line-height:1.5}
+.lfeats{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:2.2rem}
+.lfeats span{background:#e8f5e9;color:#2e7d32;font-size:0.73rem;padding:5px 13px;border-radius:20px;font-weight:500}
+.gbtn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:0.95rem;border:1.5px solid rgba(26,107,60,0.2);border-radius:14px;background:#fff;font-family:'DM Sans',sans-serif;font-size:0.97rem;font-weight:500;cursor:pointer;color:var(--os);transition:all 0.2s;margin-bottom:1rem}
+.gbtn:hover{border-color:var(--vm);background:#f0f7f3}
+.lnote{font-size:0.68rem;color:#bbb}
+.topbar{background:var(--vd);color:#fff;display:flex;align-items:center;padding:0 1.4rem;height:54px;gap:12px;position:sticky;top:0;z-index:100}
+.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.15rem;flex-shrink:0}
+.logo span{color:var(--vn)}
+.ntabs{display:flex;gap:2px;flex:1;overflow-x:auto;scrollbar-width:none}
+.ntabs::-webkit-scrollbar{display:none}
+.ntab{background:none;border:none;color:rgba(255,255,255,0.6);padding:0 13px;height:54px;font-size:0.78rem;cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap;font-family:'DM Sans',sans-serif;transition:all 0.2s}
+.ntab.active,.ntab:hover{color:#fff;border-bottom-color:var(--vn)}
+.tr{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.uav{width:32px;height:32px;border-radius:50%;background:var(--vn);color:var(--os);display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700;overflow:hidden}
+.uav img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.unm{font-size:0.75rem;color:rgba(255,255,255,0.85);max-width:90px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.obtn{background:rgba(255,255,255,0.15);border:none;color:#fff;border-radius:50%;width:32px;height:32px;cursor:pointer;font-size:0.8rem;display:flex;align-items:center;justify-content:center}
+.page{display:none}.page.active{display:block}
+.portal{display:grid;grid-template-columns:1fr 290px;gap:14px;padding:16px;max-width:1100px;margin:0 auto}
+@media(max-width:780px){.portal{grid-template-columns:1fr}.scol{display:none}}
+.card{background:#fff;border-radius:14px;border:0.5px solid rgba(26,107,60,0.12);overflow:hidden;transition:all 0.2s;cursor:pointer}
+.card:hover{transform:translateY(-2px);border-color:var(--vm)}
+.hgrid{display:grid;grid-template-columns:2fr 1fr;gap:12px;margin-bottom:14px}
+@media(max-width:580px){.hgrid{grid-template-columns:1fr}}
+.himg{height:160px;display:flex;align-items:center;justify-content:center;font-size:3.5rem}
+.hbody{padding:14px}
+.hbody h3{font-size:0.95rem;font-weight:700;line-height:1.3;margin:6px 0 5px;color:var(--os)}
+.hbody p{font-size:0.74rem;color:#5f6b62;line-height:1.45}
+.nstk{display:flex;flex-direction:column;gap:8px}
+.nmini{display:flex;gap:9px;align-items:flex-start;padding:10px}
+.nth{width:50px;height:50px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+.nth.az{background:#e3f2fd}.nth.ro{background:#fce4ec}.nth.na{background:#fff3e0}
+.ntxt h4{font-size:0.76rem;font-weight:600;color:var(--os);line-height:1.3}
+.ntxt p{font-size:0.65rem;color:#9aab9e;margin-top:2px}
+.tag{display:inline-block;font-size:0.63rem;font-weight:700;padding:2px 8px;border-radius:20px;margin-bottom:4px;text-transform:uppercase;letter-spacing:0.3px}
+.tag.vd{background:#e8f5e9;color:#2e7d32}.tag.az{background:#e3f2fd;color:#1565c0}
+.tag.ro{background:#fce4ec;color:#880e4f}.tag.na{background:#fff3e0;color:#bf360c}.tag.mo{background:#f3e5f5;color:#6a1b9a}
+.sgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+@media(max-width:580px){.sgrid{grid-template-columns:repeat(2,1fr)}}
+.sc{background:#fff;border-radius:14px;border:0.5px solid rgba(26,107,60,0.12);padding:16px;text-align:center;transition:all 0.2s;cursor:pointer}
+.sc:hover{transform:translateY(-3px);border-color:var(--vm)}
+.sci{font-size:1.8rem;margin-bottom:7px}
+.sct{font-size:0.8rem;font-weight:700;color:var(--os)}
+.scd{font-size:0.68rem;color:#7a8c7e;margin-top:3px}
+.scol{display:flex;flex-direction:column;gap:12px}
+.wc{background:#fff;border-radius:14px;border:0.5px solid rgba(26,107,60,0.12);overflow:hidden}
+.wh{background:var(--vd);color:#fff;padding:9px 13px;font-size:0.75rem;font-weight:700}
+.wb{padding:11px 13px}
+.cr2{display:flex;align-items:center;gap:10px}
+.ci{font-size:2.2rem}
+.ct{font-size:1.6rem;font-weight:800;color:var(--vd)}
+.cn{font-size:0.7rem;color:#5f6b62;line-height:1.4}
+.pw{border:1.5px dashed rgba(230,81,0,0.3);background:#fff;border-radius:14px;padding:12px;cursor:pointer}
+.pl{font-size:0.6rem;color:#ccc;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.pi{background:#fff3e0;border-radius:10px;padding:14px;text-align:center}
+.pio{font-size:1.6rem;margin-bottom:4px}
+.pt{font-size:0.85rem;font-weight:700;color:#e65100}
+.ps{font-size:0.7rem;color:#bf360c;margin-top:2px}
+.pb{background:#e65100;color:#fff;border:none;border-radius:20px;padding:5px 15px;font-size:0.7rem;margin-top:8px;cursor:pointer;font-family:'DM Sans',sans-serif}
+.ur{display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:0.5px solid rgba(26,107,60,0.07)}
+.ur:last-child{border:none}
+.ua{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.6rem;font-weight:700;flex-shrink:0;overflow:hidden}
+.ua img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.un{font-size:0.76rem;font-weight:500;color:var(--os);flex:1}
+.ud{width:7px;height:7px;border-radius:50%;background:var(--vn);flex-shrink:0}
+.bc{background:var(--vd);color:#fff;border:none;border-radius:20px;padding:5px 16px;font-size:0.72rem;cursor:pointer;font-family:'DM Sans',sans-serif;margin-top:8px;width:100%}
+.chat-layout{display:grid;grid-template-columns:210px 1fr;height:calc(100vh - 54px)}
+@media(max-width:600px){.chat-layout{grid-template-columns:1fr}.sp{display:none}}
+.sp{background:#fff;border-right:0.5px solid rgba(26,107,60,0.1);overflow-y:auto}
+.spt{padding:11px 13px;font-size:0.78rem;font-weight:700;color:var(--vd);border-bottom:0.5px solid rgba(26,107,60,0.1);position:sticky;top:0;background:#fff}
+.sala{display:flex;align-items:center;gap:7px;padding:9px 13px;cursor:pointer;border-left:3px solid transparent;transition:all 0.15s}
+.sala:hover,.sala.active{background:#f0f7f3;border-left-color:var(--vm)}
+.sd{width:6px;height:6px;border-radius:50%;background:var(--vn);flex-shrink:0}
+.se{font-size:0.95rem}
+.sn{font-size:0.78rem;font-weight:500;color:var(--os)}
+.cm{display:flex;flex-direction:column;height:calc(100vh - 54px);overflow:hidden}
+.chd{background:#fff;border-bottom:0.5px solid rgba(26,107,60,0.1);padding:10px 15px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.rn{font-weight:700;font-size:0.92rem;color:var(--os)}
+.rs{font-size:0.68rem;color:#7a8c7e;margin-top:1px}
+.ca{display:flex;gap:6px}
+.hb{background:none;border:1px solid rgba(26,107,60,0.18);border-radius:8px;padding:5px 10px;font-size:0.73rem;cursor:pointer;color:#4a6b56;font-family:'DM Sans',sans-serif;transition:all 0.15s}
+.hb:hover{background:#f0f7f3;border-color:var(--vm)}
+.msgs{flex:1;overflow-y:auto;padding:13px 15px;display:flex;flex-direction:column;gap:10px;background:#f8faf8}
+.mph{text-align:center;color:#9aab9e;font-size:0.82rem;margin:auto;padding:2rem}
+.mr2{display:flex;gap:8px;align-items:flex-end;max-width:76%}
+.mr2.me{align-self:flex-end;flex-direction:row-reverse}
+.av{width:29px;height:29px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.6rem;font-weight:700;flex-shrink:0;overflow:hidden}
+.av img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.bub{background:#fff;border:0.5px solid rgba(26,107,60,0.12);border-radius:12px 12px 12px 3px;padding:7px 12px;font-size:0.82rem;line-height:1.45;word-break:break-word}
+.mr2.me .bub{background:var(--vd);color:#fff;border-radius:12px 12px 3px 12px;border-color:transparent}
+.mm{font-size:0.6rem;color:#aaa;margin-top:2px}
+.mr2.me .mm{color:rgba(255,255,255,0.6)}
+.snm{font-size:0.62rem;font-weight:600;color:var(--vd);margin-bottom:2px}
+.mr2.me .snm{display:none}
+.dd{text-align:center;font-size:0.65rem;color:#9aab9e;position:relative;margin:2px 0;align-self:center}
+.dd span{background:#f8faf8;padding:0 8px;position:relative;z-index:1}
+.dd::before{content:'';position:absolute;top:50%;left:0;right:0;height:0.5px;background:rgba(26,107,60,0.12)}
+.ab{background:#fff;border:0.5px solid rgba(26,107,60,0.15);border-radius:12px;padding:8px 11px;display:flex;align-items:center;gap:9px;min-width:170px}
+.ppb{width:30px;height:30px;border-radius:50%;background:var(--vd);border:none;color:#fff;font-size:0.75rem;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.wf{flex:1;height:24px;display:flex;align-items:center;gap:2px}
+.wb2{width:3px;border-radius:2px;background:rgba(45,184,107,0.45)}
+.ad{font-size:0.62rem;color:#7a8c7e;white-space:nowrap}
+.ib{background:#fff;border:0.5px solid rgba(26,107,60,0.12);border-radius:12px;overflow:hidden;max-width:200px}
+.ib img{width:100%;max-height:160px;object-fit:cover;display:block}
+.ic{padding:5px 9px;font-size:0.7rem;color:#5f6b62}
+.fb{background:#fff;border:0.5px solid rgba(26,107,60,0.12);border-radius:12px;padding:8px 11px;display:flex;align-items:center;gap:9px;min-width:170px}
+.fi{width:34px;height:34px;border-radius:7px;background:#e8f5e9;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.fn{font-size:0.73rem;font-weight:600;color:var(--os)}
+.fs{font-size:0.62rem;color:#7a8c7e}
+.cft{background:#fff;border-top:0.5px solid rgba(26,107,60,0.1);padding:9px 13px;flex-shrink:0}
+.mt{display:flex;gap:5px;margin-bottom:7px;flex-wrap:wrap}
+.mtl{background:none;border:1px solid rgba(26,107,60,0.18);border-radius:7px;padding:4px 9px;font-size:0.73rem;cursor:pointer;color:#4a6b56;font-family:'DM Sans',sans-serif;transition:all 0.15s}
+.mtl:hover{background:#f0f7f3;border-color:var(--vm)}
+.mtl.rec{background:#ffebee;border-color:#f44336;color:#c62828}
+.ir{display:flex;gap:7px;align-items:flex-end}
+.mi{flex:1;border:1.5px solid rgba(26,107,60,0.2);border-radius:18px;padding:7px 14px;font-size:0.85rem;outline:none;resize:none;background:#f8faf8;color:var(--os);font-family:'DM Sans',sans-serif;transition:border-color 0.2s;max-height:100px}
+.mi:focus{border-color:var(--vm)}
+.sb{background:var(--vd);color:#fff;border:none;border-radius:50%;width:37px;height:37px;cursor:pointer;font-size:0.85rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.2s}
+.sb:hover{background:var(--vm);transform:scale(1.08)}
+.cp{padding:16px;max-width:1000px;margin:0 auto}
+.ptt{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;color:var(--vd);margin-bottom:14px}
+.ng{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.ni{height:100px;display:flex;align-items:center;justify-content:center;font-size:2.2rem}
+.nb{padding:10px}
+.nt{font-size:0.8rem;font-weight:600;color:var(--os);line-height:1.3;margin:3px 0}
+.nd{font-size:0.65rem;color:#9aab9e;margin-top:4px}
+.pbn{background:#fff3e0;border-radius:14px;border:1px solid rgba(230,81,0,0.2);padding:15px;margin-bottom:14px;display:flex;align-items:center;gap:13px;flex-wrap:wrap}
+.pbn h3{font-size:0.9rem;font-weight:700;color:#bf360c}
+.pbn p{font-size:0.72rem;color:#7a8c7e}
+.pbb{background:#e65100;color:#fff;border:none;border-radius:20px;padding:8px 18px;font-size:0.78rem;cursor:pointer;margin-left:auto;font-family:'DM Sans',sans-serif}
+.pg{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.pc{background:#fff;border-radius:14px;border:1.5px dashed rgba(230,81,0,0.2);overflow:hidden;cursor:pointer;transition:all 0.2s}
+.pc:hover{border-color:#e65100;transform:translateY(-2px)}
+.pci{height:90px;display:flex;align-items:center;justify-content:center;font-size:2.2rem}
+.pcb{padding:10px}
+.pct{font-size:0.62rem;font-weight:700;color:#e65100;text-transform:uppercase}
+.pcn{font-size:0.83rem;font-weight:700;color:var(--os);margin:3px 0}
+.pcd{font-size:0.7rem;color:#7a8c7e;line-height:1.4}
+.pcbtn{background:#e65100;color:#fff;border:none;border-radius:20px;padding:5px 13px;font-size:0.7rem;margin-top:7px;cursor:pointer;font-family:'DM Sans',sans-serif}
+.mw{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.65);z-index:500;align-items:center;justify-content:center}
+.mw.show{display:flex}
+.mb{background:#fff;border-radius:16px;width:360px;overflow:hidden;max-width:95vw}
+.mhd{background:var(--vd);color:#fff;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;font-size:0.85rem;font-weight:600}
+.mc{background:none;border:none;color:#fff;font-size:1rem;cursor:pointer}
+::-webkit-scrollbar{width:4px;height:4px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:rgba(26,107,60,0.2);border-radius:4px}
+</style>
+</head>
+<body>
+<div id="screen-login" class="screen active">
+  <div class="ll a">🌿</div>
+  <div class="ll b">🍃</div>
+  <div class="lbox">
+    <div class="llogo">Caquet<span>á</span>Chat</div>
+    <p class="ltag">La comunidad digital del departamento del Caquetá</p>
+    <div class="lfeats"><span>💬 Chat</span><span>🎙️ Audio</span><span>📷 Cámara</span><span>📰 Noticias</span></div>
+    <button id="btn-login" class="gbtn">
+      <svg width="18" height="18" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+      Continuar con Google
+    </button>
+    <p class="lnote">Al entrar aceptas los términos de uso de CaquetáChat</p>
+  </div>
+</div>
+<div id="screen-app" class="screen">
+  <nav class="topbar">
+    <div class="logo">Caquet<span>á</span>Chat</div>
+    <div class="ntabs">
+      <button class="ntab active" data-p="inicio">🏠 Inicio</button>
+      <button class="ntab" data-p="chat">💬 Chat</button>
+      <button class="ntab" data-p="noticias">📰 Noticias</button>
+      <button class="ntab" data-p="publicidad">📢 Publicidad</button>
+      <button class="ntab" data-p="eventos">🎉 Eventos</button>
+    </div>
+    <div class="tr">
+      <div id="uav" class="uav">?</div>
+      <span id="unm" class="unm"></span>
+      <button id="btn-out" class="obtn">⏻</button>
+    </div>
+  </nav>
+  <div class="page active" id="page-inicio">
+    <div class="portal">
+      <div>
+        <div class="hgrid">
+          <div class="card" onclick="gp('noticias')">
+            <div class="himg" style="background:#1a6b3c">🌿</div>
+            <div class="hbody"><span class="tag vd">Departamento</span><h3>Caquetá avanza en conectividad digital para zonas rurales</h3><p>El gobierno departamental lanzó un plan para llevar internet de alta velocidad a más de 40 veredas...</p></div>
+          </div>
+          <div class="nstk">
+            <div class="card nmini" onclick="gp('noticias')"><div class="nth az">🐟</div><div class="ntxt"><span class="tag az">Naturaleza</span><h4>Rescate de tortugas en el Caguán</h4><p>Hace 2 horas</p></div></div>
+            <div class="card nmini" onclick="gp('noticias')"><div class="nth ro">🎭</div><div class="ntxt"><span class="tag ro">Cultura</span><h4>Festival de teatro llega a Florencia</h4><p>Hace 4 horas</p></div></div>
+            <div class="card nmini" onclick="gp('noticias')"><div class="nth na">⚽</div><div class="ntxt"><span class="tag na">Deportes</span><h4>Caquetá FC clasifica a la final</h4><p>Ayer</p></div></div>
+          </div>
+        </div>
+        <div class="sgrid">
+          <div class="sc" onclick="gp('chat')"><div class="sci">💬</div><div class="sct">Chat</div><div class="scd">Salas en tiempo real</div></div>
+          <div class="sc" onclick="gp('noticias')"><div class="sci">📰</div><div class="sct">Noticias</div><div class="scd">Lo más reciente</div></div>
+          <div class="sc" onclick="gp('publicidad')"><div class="sci">📢</div><div class="sct">Directorio</div><div class="scd">Negocios locales</div></div>
+          <div class="sc" onclick="gp('eventos')"><div class="sci">🎉</div><div class="sct">Eventos</div><div class="scd">Agenda cultural</div></div>
+        </div>
+      </div>
+      <div class="scol">
+        <div class="wc"><div class="wh">🌤️ Clima — Florencia</div><div class="wb"><div class="cr2"><span class="ci">⛅</span><div><div class="ct">28°C</div><div class="cn">Parcialmente nublado<br>Hum. 82%</div></div></div></div></div>
+        <div class="pw" onclick="gp('publicidad')"><div class="pl">Publicidad</div><div class="pi"><div class="pio">🛒</div><div class="pt">Mercado Caquetá</div><div class="ps">Productos frescos de tu región</div><button class="pb">Ver oferta →</button></div></div>
+        <div class="wc"><div class="wh">👥 En línea ahora</div><div class="wb" id="online-list"><div style="font-size:0.75rem;color:#9aab9e">Cargando...</div></div><div style="padding:0 13px 10px"><button class="bc" onclick="gp('chat')">Ir al chat →</button></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="page" id="page-chat">
+    <div class="chat-layout">
+      <div class="sp">
+        <div class="spt">💬 Salas</div>
+        <div class="sala active" onclick="cs('plaza','🌿 Plaza Caquetá',this)"><span class="sd"></span><span class="se">🌿</span><span class="sn">Plaza Caquetá</span></div>
+        <div class="sala" onclick="cs('cultura','🎵 Cultura',this)"><span class="sd"></span><span class="se">🎵</span><span class="sn">Cultura y Arte</span></div>
+        <div class="sala" onclick="cs('empleo','💼 Empleo',this)"><span class="sd"></span><span class="se">💼</span><span class="sn">Empleo</span></div>
+        <div class="sala" onclick="cs('naturaleza','🐟 Naturaleza',this)"><span class="sd"></span><span class="se">🐟</span><span class="sn">Naturaleza</span></div>
+        <div class="sala" onclick="cs('deportes','⚽ Deportes',this)"><span class="sd"></span><span class="se">⚽</span><span class="sn">Deportes</span></div>
+        <div class="sala" onclick="cs('salud','🏥 Salud',this)"><span class="sd"></span><span class="se">🏥</span><span class="sn">Salud</span></div>
+      </div>
+      <div class="cm">
+        <div class="chd">
+          <div><div class="rn" id="rnm">🌿 Plaza Caquetá</div><div class="rs" id="rst">Cargando...</div></div>
+          <div class="ca">
+            <button class="hb" onclick="document.getElementById('vm').classList.add('show')">📹 Video</button>
+            <button class="hb" onclick="alert('Llamadas próximamente')">📞 Llamar</button>
+          </div>
+        </div>
+        <div class="msgs" id="msgs"><div class="mph">Selecciona una sala 👋</div></div>
+        <div class="cft">
+          <div class="mt">
+            <button class="mtl" id="baudio" onclick="tAudio()">🎙️ Audio</button>
+            <button class="mtl" onclick="document.getElementById('cam-in').click()">📷 Cámara</button>
+            <button class="mtl" onclick="document.getElementById('file-in').click()">📎 Archivo</button>
+            <button class="mtl" onclick="document.getElementById('img-in').click()">🖼️ Imagen</button>
+            <button class="mtl" onclick="addEmoji()">😄 Emoji</button>
+          </div>
+          <div class="ir">
+            <textarea id="minp" class="mi" rows="1" placeholder="Escribe un mensaje..."></textarea>
+            <button class="sb" onclick="enviar()">➤</button>
+          </div>
+        </div>
+        <input type="file" id="file-in" style="display:none" onchange="upFile(this)">
+        <input type="file" id="img-in" accept="image/*" style="display:none" onchange="upImg(this)">
+        <input type="file" id="cam-in" accept="image/*" capture="environment" style="display:none" onchange="upImg(this)">
+      </div>
+    </div>
+    <div class="mw" id="vm">
+      <div class="mb">
+        <div class="mhd">📹 Videollamada <button class="mc" onclick="document.getElementById('vm').classList.remove('show')">✕</button></div>
+        <div style="background:#111;min-height:200px;display:flex;align-items:center;justify-content:center;color:#666;font-size:0.82rem;border-radius:0 0 14px 14px">Iniciando...</div>
+      </div>
+    </div>
+  </div>
+  <div class="page" id="page-noticias">
+    <div class="cp"><div class="ptt">📰 Noticias del Caquetá</div>
+    <div class="ng">
+      <div class="card"><div class="ni" style="background:#e8f5e9">🌿</div><div class="nb"><span class="tag vd">Departamento</span><div class="nt">Conectividad digital llega a 40 veredas rurales</div><div class="nd">Hace 1 hora</div></div></div>
+      <div class="card"><div class="ni" style="background:#e3f2fd">🐟</div><div class="nb"><span class="tag az">Naturaleza</span><div class="nt">Rescate masivo de tortugas en el río Caguán</div><div class="nd">Hace 2 horas</div></div></div>
+      <div class="card"><div class="ni" style="background:#fce4ec">🎭</div><div class="nb"><span class="tag ro">Cultura</span><div class="nt">Festival de teatro internacional en Florencia</div><div class="nd">Hace 4 horas</div></div></div>
+      <div class="card"><div class="ni" style="background:#fff3e0">⚽</div><div class="nb"><span class="tag na">Deportes</span><div class="nt">Caquetá FC clasifica a la final regional</div><div class="nd">Ayer</div></div></div>
+      <div class="card"><div class="ni" style="background:#e8f5e9">🌾</div><div class="nb"><span class="tag vd">Economía</span><div class="nt">Cacao caquetano conquista mercados europeos</div><div class="nd">Ayer</div></div></div>
+      <div class="card"><div class="ni" style="background:#f3e5f5">🏥</div><div class="nb"><span class="tag mo">Salud</span><div class="nt">Nueva unidad de salud en San Vicente del Caguán</div><div class="nd">Hace 2 días</div></div></div>
+    </div></div>
+  </div>
+  <div class="page" id="page-publicidad">
+    <div class="cp">
+      <div class="pbn"><div style="font-size:2rem">📢</div><div><h3>¿Tienes un negocio en el Caquetá?</h3><p>Llega a miles de usuarios de tu región</p></div><button class="pbb">Publicar aviso</button></div>
+      <div class="ptt">🛒 Directorio comercial</div>
+      <div class="pg">
+        <div class="pc"><div class="pci" style="background:#fff3e0">🛒</div><div class="pcb"><div class="pct">Mercado</div><div class="pcn">Mercado Caquetá Fresco</div><div class="pcd">Frutas y verduras a precios del campo.</div><button class="pcbtn">Ver más</button></div></div>
+        <div class="pc"><div class="pci" style="background:#e8f5e9">🏠</div><div class="pcb"><div class="pct">Finca Raíz</div><div class="pcn">Inmobiliaria Amazonia</div><div class="pcd">Lotes, fincas y casas en el departamento.</div><button class="pcbtn">Ver más</button></div></div>
+        <div class="pc"><div class="pci" style="background:#e3f2fd">🚌</div><div class="pcb"><div class="pct">Transporte</div><div class="pcn">Transportes del Sur</div><div class="pcd">Rutas desde Florencia.</div><button class="pcbtn">Ver más</button></div></div>
+        <div class="pc"><div class="pci" style="background:#fce4ec">🍽️</div><div class="pcb"><div class="pct">Restaurante</div><div class="pcn">Sabor Amazónico</div><div class="pcd">Gastronomía típica caquetana.</div><button class="pcbtn">Ver más</button></div></div>
+        <div class="pc"><div class="pci" style="background:#f3e5f5">💻</div><div class="pcb"><div class="pct">Tecnología</div><div class="pcn">TechCaquetá</div><div class="pcd">Reparación de equipos y accesorios.</div><button class="pcbtn">Ver más</button></div></div>
+        <div class="pc"><div class="pci" style="background:#e8f5e9">🌿</div><div class="pcb"><div class="pct">Turismo</div><div class="pcn">Ecoturismo Caguán</div><div class="pcd">Tours por la selva amazónica.</div><button class="pcbtn">Ver más</button></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="page" id="page-eventos">
+    <div class="cp"><div class="ptt">🎉 Eventos en el Caquetá</div>
+    <div class="ng">
+      <div class="card"><div class="ni" style="background:#fff3e0;font-size:2.5rem">🎭</div><div class="nb"><span class="tag na">Festival</span><div class="nt">Festival de Teatro Internacional Florencia</div><div class="nd">📅 15-20 Oct 2025</div></div></div>
+      <div class="card"><div class="ni" style="background:#e8f5e9;font-size:2.5rem">🌾</div><div class="nb"><span class="tag vd">Feria</span><div class="nt">Feria del Cacao Caquetano</div><div class="nd">📅 8 Nov 2025</div></div></div>
+      <div class="card"><div class="ni" style="background:#e3f2fd;font-size:2.5rem">⚽</div><div class="nb"><span class="tag az">Deportes</span><div class="nt">Final Regional de Fútbol</div><div class="nd">📅 2 Nov 2025</div></div></div>
+      <div class="card"><div class="ni" style="background:#fce4ec;font-size:2.5rem">🎶</div><div class="nb"><span class="tag ro">Música</span><div class="nt">Noche de Llaneras — San Vicente</div><div class="nd">📅 28 Sep 2025</div></div></div>
+    </div></div>
+  </div>
+</div>
+<script type="module">
 import{initializeApp}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import{getAuth,GoogleAuthProvider,signInWithPopup,signOut,onAuthStateChanged}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 import{getFirestore,collection,addDoc,query,orderBy,limit,onSnapshot,serverTimestamp,doc,setDoc,getDocs}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
@@ -8,18 +316,26 @@ let user=null,sala="plaza",unsub=null,rec=false,mr=null,chunks=[];
 document.getElementById("btn-login").onclick=async()=>{try{await signInWithPopup(auth,new GoogleAuthProvider());}catch(e){alert("Error: "+e.message);}};
 document.getElementById("btn-out").onclick=()=>signOut(auth);
 onAuthStateChanged(auth,async u=>{
-if(u){user=u;document.getElementById("screen-login").classList.remove("active");document.getElementById("screen-app").classList.add("active");
-const av=document.getElementById("uav");if(u.photoURL){av.innerHTML=`<img src="${u.photoURL}">`;}else{av.textContent=u.displayName?.charAt(0)||"U";}
+if(u){
+user=u;
+document.getElementById("screen-login").classList.remove("active");
+document.getElementById("screen-app").classList.add("active");
+const av=document.getElementById("uav");
+if(u.photoURL){av.innerHTML=`<img src="${u.photoURL}">`;}else{av.textContent=u.displayName?.charAt(0)||"U";}
 document.getElementById("unm").textContent=u.displayName?.split(" ")[0]||"";
 await setDoc(doc(db,"presencia",u.uid),{nombre:u.displayName||"Usuario",foto:u.photoURL||"",online:true,ts:serverTimestamp()},{merge:true});
 loadOnline();loadChat("plaza");
-}else{user=null;document.getElementById("screen-app").classList.remove("active");document.getElementById("screen-login").classList.add("active");}
+}else{
+user=null;
+document.getElementById("screen-app").classList.remove("active");
+document.getElementById("screen-login").classList.add("active");
+}
 });
 document.querySelectorAll(".ntab").forEach(b=>b.onclick=()=>{document.querySelectorAll(".ntab").forEach(x=>x.classList.remove("active"));b.classList.add("active");document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));document.getElementById("page-"+b.dataset.p).classList.add("active");if(b.dataset.p==="chat")loadChat(sala);});
 window.gp=p=>{document.querySelectorAll(".ntab").forEach(b=>{b.classList.toggle("active",b.dataset.p===p);});document.querySelectorAll(".page").forEach(x=>x.classList.remove("active"));document.getElementById("page-"+p).classList.add("active");if(p==="chat")loadChat(sala);};
 window.cs=(s,nm,el)=>{document.querySelectorAll(".sala").forEach(x=>x.classList.remove("active"));el.classList.add("active");sala=s;document.getElementById("rnm").textContent=nm;loadChat(s);};
-function loadChat(s){if(unsub)unsub();const c=document.getElementById("msgs");c.innerHTML='<div class="msg-ph">Cargando...</div>';const q=query(collection(db,"salas",s,"mensajes"),orderBy("timestamp","asc"),limit(60));unsub=onSnapshot(q,snap=>{c.innerHTML="";let ld="";snap.forEach(d=>{const m=d.data();const fd=m.timestamp?.toDate();const fs=fd?fd.toLocaleDateString("es-CO",{weekday:"long",day:"numeric",month:"long"}):"";if(fs&&fs!==ld){const dv=document.createElement("div");dv.className="ddiv";dv.innerHTML=`<span>${fs}</span>`;c.appendChild(dv);ld=fs;}c.appendChild(mkBub(m));});c.scrollTop=c.scrollHeight;document.getElementById("rst").textContent=snap.size+" mensajes";});}
-function mkBub(m){const me=m.uid===user?.uid;const row=document.createElement("div");row.className="mrow"+(me?" me":"");const hr=m.timestamp?.toDate()?.toLocaleTimeString("es-CO",{hour:"2-digit",minute:"2-digit"})||"";const lt=(m.nombre||"U").charAt(0).toUpperCase();const cols=["#e8f5e9","#e3f2fd","#fff3e0","#fce4ec","#f3e5f5"];const col=cols[(m.nombre||"").charCodeAt(0)%cols.length]||"#e8f5e9";const avH=m.foto?`<div class="av"><img src="${m.foto}"></div>`:`<div class="av" style="background:${col}">${lt}</div>`;let cont="";if(m.tipo==="texto")cont=`<div class="snm">${m.nombre||"Usuario"}</div><div class="bub">${esc(m.texto)}</div><div class="mmeta">${hr}${me?" ✓✓":""}</div>`;else if(m.tipo==="imagen")cont=`<div class="snm">${m.nombre||"Usuario"}</div><div class="ibub"><img src="${m.url}" loading="lazy"><div class="icap">${esc(m.nf||"Imagen")}</div></div><div class="mmeta">${hr}</div>`;else if(m.tipo==="archivo")cont=`<div class="snm">${m.nombre||"Usuario"}</div><div class="fbub"><div class="fico">📄</div><div><div class="fnm">${esc(m.nf||"Archivo")}</div><div class="fsz">${m.sz||""}</div></div><a href="${m.url}" target="_blank" style="font-size:0.75rem;color:var(--vm);text-decoration:none;margin-left:4px">⬇</a></div><div class="mmeta">${hr}</div>`;else if(m.tipo==="audio"){const wv=Array.from({length:18},(_,i)=>`<div class="wbar" style="height:${[10,16,22,14,26,18,12,20,16,24,10,18,14,22,16,12,20,8][i]}px"></div>`).join("");cont=`<div class="snm">${m.nombre||"Usuario"}</div><div class="abub"><button class="pbtn" onclick="new Audio('${m.url}').play()">▶</button><div class="waveform">${wv}</div><span class="adur">${m.dur||"0:10"}</span></div><div class="mmeta">${hr}</div>`;}
+function loadChat(s){if(unsub)unsub();const c=document.getElementById("msgs");c.innerHTML='<div class="mph">Cargando...</div>';const q=query(collection(db,"salas",s,"mensajes"),orderBy("timestamp","asc"),limit(60));unsub=onSnapshot(q,snap=>{c.innerHTML="";let ld="";snap.forEach(d=>{const m=d.data();const fd=m.timestamp?.toDate();const fs=fd?fd.toLocaleDateString("es-CO",{weekday:"long",day:"numeric",month:"long"}):"";if(fs&&fs!==ld){const dv=document.createElement("div");dv.className="dd";dv.innerHTML=`<span>${fs}</span>`;c.appendChild(dv);ld=fs;}c.appendChild(mkBub(m));});c.scrollTop=c.scrollHeight;document.getElementById("rst").textContent=snap.size+" mensajes";});}
+function mkBub(m){const me=m.uid===user?.uid;const row=document.createElement("div");row.className="mr2"+(me?" me":"");const hr=m.timestamp?.toDate()?.toLocaleTimeString("es-CO",{hour:"2-digit",minute:"2-digit"})||"";const lt=(m.nombre||"U").charAt(0).toUpperCase();const cols=["#e8f5e9","#e3f2fd","#fff3e0","#fce4ec","#f3e5f5"];const col=cols[(m.nombre||"").charCodeAt(0)%cols.length]||"#e8f5e9";const avH=m.foto?`<div class="av"><img src="${m.foto}"></div>`:`<div class="av" style="background:${col}">${lt}</div>`;let cont="";if(m.tipo==="texto")cont=`<div class="snm">${m.nombre||"U"}</div><div class="bub">${esc(m.texto)}</div><div class="mm">${hr}${me?" ✓✓":""}</div>`;else if(m.tipo==="imagen")cont=`<div class="snm">${m.nombre||"U"}</div><div class="ib"><img src="${m.url}" loading="lazy"><div class="ic">${esc(m.nf||"Imagen")}</div></div><div class="mm">${hr}</div>`;else if(m.tipo==="archivo")cont=`<div class="snm">${m.nombre||"U"}</div><div class="fb"><div class="fi">📄</div><div><div class="fn">${esc(m.nf||"Archivo")}</div><div class="fs">${m.sz||""}</div></div><a href="${m.url}" target="_blank" style="font-size:0.75rem;color:var(--vm);text-decoration:none;margin-left:4px">⬇</a></div><div class="mm">${hr}</div>`;else if(m.tipo==="audio"){const wv=Array.from({length:18},(_,i)=>`<div class="wb2" style="height:${[10,16,22,14,26,18,12,20,16,24,10,18,14,22,16,12,20,8][i]}px"></div>`).join("");cont=`<div class="snm">${m.nombre||"U"}</div><div class="ab"><button class="ppb" onclick="new Audio('${m.url}').play()">▶</button><div class="wf">${wv}</div><span class="ad">${m.dur||"0:10"}</span></div><div class="mm">${hr}</div>`;}
 row.innerHTML=avH+`<div>${cont}</div>`;return row;}
 window.enviar=async()=>{const inp=document.getElementById("minp");const txt=inp.value.trim();if(!txt||!user)return;inp.value="";await addDoc(collection(db,"salas",sala,"mensajes"),{tipo:"texto",texto:txt,uid:user.uid,nombre:user.displayName||"Usuario",foto:user.photoURL||"",timestamp:serverTimestamp()});};
 document.getElementById("minp").addEventListener("keydown",e=>{if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();enviar();}});
@@ -28,6 +344,8 @@ window.upImg=async inp=>{const f=inp.files[0];if(!f||!user)return;inp.value="";c
 window.upFile=async inp=>{const f=inp.files[0];if(!f||!user)return;inp.value="";const r=new FileReader();r.onloadend=async()=>{if(r.result.length>900000){alert("Archivo muy grande. Máx 700KB");return;}const kb=Math.round(f.size/1024);const sz=kb>1024?(kb/1024).toFixed(1)+" MB":kb+" KB";await addDoc(collection(db,"salas",sala,"mensajes"),{tipo:"archivo",url:r.result,nf:f.name,sz,uid:user.uid,nombre:user.displayName||"Usuario",foto:user.photoURL||"",timestamp:serverTimestamp()});};r.readAsDataURL(f);};
 const emjs=["🌿","🐟","🦜","🌺","🌅","😊","🎉","👋","❤️","🌱"];
 window.addEmoji=()=>{const i=document.getElementById("minp");i.value+=emjs[Math.floor(Math.random()*emjs.length)];i.focus();};
-async function loadOnline(){const c=document.getElementById("online-list");try{const s=await getDocs(collection(db,"presencia"));if(s.empty){c.innerHTML='<div style="font-size:0.75rem;color:#9aab9e">Sin usuarios aún</div>';return;}c.innerHTML="";let n=0;s.forEach(d=>{if(n>=5)return;const u=d.data();const lt=(u.nombre||"U").charAt(0).toUpperCase();const cols=["#e8f5e9","#e3f2fd","#fff3e0","#fce4ec","#f3e5f5"];const col=cols[(u.nombre||"").charCodeAt(0)%cols.length]||"#e8f5e9";const row=document.createElement("div");row.className="urow";row.innerHTML=`<div class="uav" style="background:${col}">${u.foto?`<img src="${u.foto}">`:"<span>"+lt+"</span>"}</div><span class="unm">${(u.nombre||"U").split(" ")[0]}</span><div class="udot"></div>`;c.appendChild(row);n++;});}catch(e){c.innerHTML='<div style="font-size:0.75rem;color:#9aab9e">Cargando...</div>';}}
+async function loadOnline(){const c=document.getElementById("online-list");try{const s=await getDocs(collection(db,"presencia"));if(s.empty){c.innerHTML='<div style="font-size:0.75rem;color:#9aab9e">Sin usuarios aún</div>';return;}c.innerHTML="";let n=0;s.forEach(d=>{if(n>=5)return;const u=d.data();const lt=(u.nombre||"U").charAt(0).toUpperCase();const cols=["#e8f5e9","#e3f2fd","#fff3e0","#fce4ec","#f3e5f5"];const col=cols[(u.nombre||"").charCodeAt(0)%cols.length]||"#e8f5e9";const row=document.createElement("div");row.className="ur";row.innerHTML=`<div class="ua" style="background:${col}">${u.foto?`<img src="${u.foto}">`:"<span>"+lt+"</span>"}</div><span class="un">${(u.nombre||"U").split(" ")[0]}</span><div class="ud"></div>`;c.appendChild(row);n++;});}catch(e){c.innerHTML='<div style="font-size:0.75rem;color:#9aab9e">Cargando...</div>';}}
 function esc(t){return t?.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")||"";}
-</script></body></html>
+</script>
+</body>
+</html>
