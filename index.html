@@ -7,243 +7,281 @@
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--vd:#1a6b3c;--vm:#2db86b;--vn:#39e87c;--os:#0d1f15}
-body{font-family:'DM Sans',sans-serif;background:#f0f4f1;color:var(--os)}
-#screen-load{min-height:100vh;display:flex;align-items:center;justify-content:center;background:#0d2b1a}
-.spin{width:40px;height:40px;border:3px solid rgba(57,232,124,0.2);border-top-color:#39e87c;border-radius:50%;animation:sp 0.8s linear infinite}
+:root{--bg0:#080d0a;--bg1:#0e1712;--bg2:#131f16;--bg3:#182518;--gr1:#1a6b3c;--gr2:#2db86b;--gr3:#39e87c;--tx0:#f0f7f2;--tx1:#a8c4b0;--tx2:#5a7a62;--tx3:#2e4a34;--bd1:rgba(57,232,124,0.08);--bd2:rgba(57,232,124,0.15);--bd3:rgba(57,232,124,0.3)}
+body{font-family:'DM Sans',sans-serif;background:var(--bg0);color:var(--tx0);min-height:100vh}
+#screen-load{min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--bg0)}
+.spin{width:36px;height:36px;border:2px solid var(--bd2);border-top-color:var(--gr3);border-radius:50%;animation:sp 0.7s linear infinite}
 @keyframes sp{to{transform:rotate(360deg)}}
-#screen-login{display:none;min-height:100vh;align-items:center;justify-content:center;background:#0d2b1a;position:relative;overflow:hidden}
+#screen-login{display:none;min-height:100vh;align-items:center;justify-content:center;background:var(--bg0);position:relative;overflow:hidden}
 #screen-login.show{display:flex}
 #screen-app{display:none}
 #screen-app.show{display:block}
-.ltree{position:absolute;font-size:200px;opacity:0.05;pointer-events:none;line-height:1}
-.ltree.t1{bottom:-20px;left:-30px;transform:rotate(-8deg)}
-.ltree.t2{bottom:-20px;right:-30px;transform:rotate(8deg);font-size:150px}
-.ltree.t3{top:-40px;left:38%;font-size:120px;opacity:0.03}
-.lcard{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:20px;padding:2.5rem 2rem;width:340px;max-width:92vw;position:relative;z-index:2;text-align:center}
-.badge{display:inline-flex;align-items:center;gap:6px;background:rgba(57,232,124,0.15);border:1px solid rgba(57,232,124,0.3);border-radius:20px;padding:4px 12px;margin-bottom:1.2rem}
-.badge-dot{width:6px;height:6px;border-radius:50%;background:#39e87c;animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
-.badge-txt{font-size:0.68rem;color:#39e87c;font-weight:600;letter-spacing:0.5px;text-transform:uppercase}
-.llogo{font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;color:#fff;line-height:1.1;margin-bottom:0.3rem}
-.llogo span{color:#39e87c}
-.lsub{font-size:0.8rem;color:rgba(255,255,255,0.5);margin-bottom:1.6rem;line-height:1.5}
-.feats{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;margin-bottom:1.6rem}
-.feat{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:3px 10px;font-size:0.65rem;color:rgba(255,255,255,0.5)}
-.divider{display:flex;align-items:center;gap:10px;margin-bottom:1rem}
-.divider-line{flex:1;height:0.5px;background:rgba(255,255,255,0.12)}
-.divider-txt{font-size:0.68rem;color:rgba(255,255,255,0.35)}
-.lbtn{display:flex;align-items:center;gap:10px;width:100%;padding:0.8rem 1rem;border-radius:12px;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.06);color:#fff;font-family:'DM Sans',sans-serif;font-size:0.85rem;font-weight:500;cursor:pointer;transition:all 0.2s;margin-bottom:10px}
-.lbtn:hover{background:rgba(255,255,255,0.14);border-color:rgba(255,255,255,0.28);transform:translateY(-1px)}
-.lbtn:last-of-type{margin-bottom:0}
-.lbtn-ico{width:20px;height:20px;border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.lbtn-txt{flex:1;text-align:left}
-.lbtn-arr{font-size:0.75rem;opacity:0.4}
-.lnote{font-size:0.65rem;color:rgba(255,255,255,0.22);margin-top:1.2rem;line-height:1.5}
-.topbar{background:var(--vd);color:#fff;display:flex;align-items:center;padding:0 1.4rem;height:54px;gap:12px;position:sticky;top:0;z-index:100}
-.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.15rem;flex-shrink:0}
-.logo span{color:var(--vn)}
-.ntabs{display:flex;gap:2px;flex:1;overflow-x:auto;scrollbar-width:none}
+.bg-grid{position:absolute;inset:0;background-image:linear-gradient(var(--bd1) 1px,transparent 1px),linear-gradient(90deg,var(--bd1) 1px,transparent 1px);background-size:40px 40px;pointer-events:none}
+.bg-glow{position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(45,184,107,0.05) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+.lcard{position:relative;z-index:2;width:360px;max-width:92vw;text-align:center}
+.l-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(57,232,124,0.08);border:1px solid var(--bd3);border-radius:20px;padding:5px 14px;margin-bottom:2rem}
+.l-badge-dot{width:5px;height:5px;border-radius:50%;background:var(--gr3);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}
+.l-badge-txt{font-size:0.65rem;color:var(--gr3);font-weight:600;letter-spacing:0.08em;text-transform:uppercase}
+.l-logo{font-family:'Syne',sans-serif;font-size:2.2rem;font-weight:800;color:var(--tx0);line-height:1;margin-bottom:0.5rem}
+.l-logo span{color:var(--gr3)}
+.l-sub{font-size:0.85rem;color:var(--tx2);margin-bottom:2rem;line-height:1.6}
+.l-feats{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;margin-bottom:2rem}
+.l-feat{background:var(--bd1);border:1px solid var(--bd2);border-radius:20px;padding:4px 12px;font-size:0.65rem;color:var(--tx1)}
+.l-sep{display:flex;align-items:center;gap:10px;margin-bottom:1.2rem}
+.l-sep-line{flex:1;height:0.5px;background:var(--bd2)}
+.l-sep-txt{font-size:0.65rem;color:var(--tx3)}
+.l-btn{display:flex;align-items:center;gap:12px;width:100%;padding:0.85rem 1.2rem;border-radius:12px;border:1px solid var(--bd2);background:var(--bd1);color:var(--tx0);font-family:'DM Sans',sans-serif;font-size:0.85rem;font-weight:500;cursor:pointer;transition:all 0.2s;margin-bottom:10px}
+.l-btn:hover{background:var(--bd2);border-color:var(--bd3);transform:translateY(-2px)}
+.l-btn-ico{width:22px;height:22px;flex-shrink:0}
+.l-btn-txt{flex:1;text-align:left}
+.l-btn-arr{font-size:0.8rem;color:var(--tx2)}
+.l-note{font-size:0.62rem;color:var(--tx3);margin-top:1.4rem;line-height:1.5}
+.topbar{background:rgba(8,13,10,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--bd1);color:var(--tx0);display:flex;align-items:center;padding:0 1.6rem;height:56px;gap:14px;position:sticky;top:0;z-index:200}
+.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem;flex-shrink:0}
+.logo span{color:var(--gr3)}
+.ntabs{display:flex;gap:1px;flex:1;overflow-x:auto;scrollbar-width:none}
 .ntabs::-webkit-scrollbar{display:none}
-.ntab{background:none;border:none;color:rgba(255,255,255,0.6);padding:0 13px;height:54px;font-size:0.78rem;cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap;font-family:'DM Sans',sans-serif;transition:all 0.2s}
-.ntab.active,.ntab:hover{color:#fff;border-bottom-color:var(--vn)}
-.tr{display:flex;align-items:center;gap:8px;flex-shrink:0}
-.uav{width:32px;height:32px;border-radius:50%;background:var(--vn);color:var(--os);display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700;overflow:hidden}
+.ntab{background:none;border:none;color:var(--tx2);padding:0 14px;height:56px;font-size:0.78rem;font-weight:500;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;font-family:'DM Sans',sans-serif;transition:all 0.2s}
+.ntab:hover{color:var(--tx1)}
+.ntab.active{color:var(--gr3);border-bottom-color:var(--gr3)}
+.topbar-right{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.uav{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--gr1),var(--gr2));display:flex;align-items:center;justify-content:center;font-size:0.68rem;font-weight:700;overflow:hidden;border:1.5px solid var(--bd3);flex-shrink:0}
 .uav img{width:100%;height:100%;object-fit:cover;border-radius:50%}
-.unm{font-size:0.75rem;color:rgba(255,255,255,0.85);max-width:90px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.obtn{background:rgba(255,255,255,0.15);border:none;color:#fff;border-radius:50%;width:32px;height:32px;cursor:pointer;font-size:0.8rem;display:flex;align-items:center;justify-content:center}
+.unm{font-size:0.75rem;color:var(--tx1);max-width:90px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.obtn{background:var(--bd1);border:1px solid var(--bd2);color:var(--tx2);border-radius:8px;width:32px;height:32px;cursor:pointer;font-size:0.8rem;display:flex;align-items:center;justify-content:center;transition:all 0.2s}
+.obtn:hover{background:var(--bd2);color:var(--tx0)}
 .page{display:none}.page.active{display:block}
-.portal{display:grid;grid-template-columns:1fr 290px;gap:14px;padding:16px;max-width:1100px;margin:0 auto}
-@media(max-width:780px){.portal{grid-template-columns:1fr}.scol{display:none}}
-.card{background:#fff;border-radius:14px;border:0.5px solid rgba(26,107,60,0.12);overflow:hidden;transition:all 0.2s;cursor:pointer}
-.card:hover{transform:translateY(-2px);border-color:var(--vm)}
-.hgrid{display:grid;grid-template-columns:2fr 1fr;gap:12px;margin-bottom:14px}
-@media(max-width:580px){.hgrid{grid-template-columns:1fr}}
-.himg{height:160px;display:flex;align-items:center;justify-content:center;font-size:3.5rem}
-.hbody{padding:14px}
-.hbody h3{font-size:0.95rem;font-weight:700;line-height:1.3;margin:6px 0 5px;color:var(--os)}
-.hbody p{font-size:0.74rem;color:#5f6b62;line-height:1.45}
-.nstk{display:flex;flex-direction:column;gap:8px}
-.nmini{display:flex;gap:9px;align-items:flex-start;padding:10px}
-.nth{width:50px;height:50px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
-.nth.az{background:#e3f2fd}.nth.ro{background:#fce4ec}.nth.na{background:#fff3e0}
-.ntxt h4{font-size:0.76rem;font-weight:600;color:var(--os);line-height:1.3}
-.ntxt p{font-size:0.65rem;color:#9aab9e;margin-top:2px}
-.tag{display:inline-block;font-size:0.63rem;font-weight:700;padding:2px 8px;border-radius:20px;margin-bottom:4px;text-transform:uppercase;letter-spacing:0.3px}
-.tag.vd{background:#e8f5e9;color:#2e7d32}.tag.az{background:#e3f2fd;color:#1565c0}
-.tag.ro{background:#fce4ec;color:#880e4f}.tag.na{background:#fff3e0;color:#bf360c}.tag.mo{background:#f3e5f5;color:#6a1b9a}
-.sgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-@media(max-width:580px){.sgrid{grid-template-columns:repeat(2,1fr)}}
-.sc{background:#fff;border-radius:14px;border:0.5px solid rgba(26,107,60,0.12);padding:16px;text-align:center;transition:all 0.2s;cursor:pointer}
-.sc:hover{transform:translateY(-3px);border-color:var(--vm)}
-.sci{font-size:1.8rem;margin-bottom:7px}
-.sct{font-size:0.8rem;font-weight:700;color:var(--os)}
-.scd{font-size:0.68rem;color:#7a8c7e;margin-top:3px}
-.scol{display:flex;flex-direction:column;gap:12px}
-.wc{background:#fff;border-radius:14px;border:0.5px solid rgba(26,107,60,0.12);overflow:hidden}
-.wh{background:var(--vd);color:#fff;padding:9px 13px;font-size:0.75rem;font-weight:700}
-.wb{padding:11px 13px}
-.cr2{display:flex;align-items:center;gap:10px}
-.ci{font-size:2.2rem}
-.ct{font-size:1.6rem;font-weight:800;color:var(--vd)}
-.cn{font-size:0.7rem;color:#5f6b62;line-height:1.4}
-.pw{border:1.5px dashed rgba(230,81,0,0.3);background:#fff;border-radius:14px;padding:12px;cursor:pointer}
-.pl{font-size:0.6rem;color:#ccc;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
-.pi{background:#fff3e0;border-radius:10px;padding:14px;text-align:center}
-.pio{font-size:1.6rem;margin-bottom:4px}
-.pt2{font-size:0.85rem;font-weight:700;color:#e65100}
-.ps{font-size:0.7rem;color:#bf360c;margin-top:2px}
-.pb2{background:#e65100;color:#fff;border:none;border-radius:20px;padding:5px 15px;font-size:0.7rem;margin-top:8px;cursor:pointer;font-family:'DM Sans',sans-serif}
-.ur{display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:0.5px solid rgba(26,107,60,0.07)}
-.ur:last-child{border:none}
-.ua{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.6rem;font-weight:700;flex-shrink:0;overflow:hidden}
-.ua img{width:100%;height:100%;object-fit:cover;border-radius:50%}
-.un{font-size:0.76rem;font-weight:500;color:var(--os);flex:1}
-.ud{width:7px;height:7px;border-radius:50%;background:var(--vn);flex-shrink:0}
-.bc{background:var(--vd);color:#fff;border:none;border-radius:20px;padding:5px 16px;font-size:0.72rem;cursor:pointer;font-family:'DM Sans',sans-serif;margin-top:8px;width:100%}
-.chat-layout{display:grid;grid-template-columns:210px 1fr 200px;height:calc(100vh - 54px);overflow:hidden}
-@media(max-width:900px){.chat-layout{grid-template-columns:160px 1fr}.panel-usuarios{display:none !important}}
-@media(max-width:600px){.chat-layout{grid-template-columns:1fr}.panel-salas{display:none !important}}
-.panel-salas{background:#fff;border-right:0.5px solid rgba(26,107,60,0.1);overflow-y:auto;display:flex;flex-direction:column}
-.panel-salas-header{padding:13px;font-size:0.78rem;font-weight:700;color:var(--vd);border-bottom:0.5px solid rgba(26,107,60,0.1);position:sticky;top:0;background:#fff;z-index:2}
-.sala{display:flex;align-items:center;gap:7px;padding:9px 13px;cursor:pointer;border-left:3px solid transparent;transition:all 0.15s}
-.sala:hover,.sala.active{background:#f0f7f3;border-left-color:var(--vm)}
-.sala-dot{width:6px;height:6px;border-radius:50%;background:var(--vn);flex-shrink:0}
-.sala-emoji{font-size:0.95rem}
-.sala-nombre{font-size:0.78rem;font-weight:500;color:var(--os);flex:1}
-.panel-centro{display:flex;flex-direction:column;height:calc(100vh - 54px);overflow:hidden;background:#f8faf8}
-.chat-header{background:#fff;border-bottom:0.5px solid rgba(26,107,60,0.1);padding:10px 15px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
-.chat-header-titulo{font-weight:700;font-size:0.92rem;color:var(--os)}
-.chat-header-sub{font-size:0.68rem;color:#7a8c7e;margin-top:1px}
+.hero-banner{position:relative;overflow:hidden;background:linear-gradient(135deg,#050d07 0%,#091409 40%,#0a1f0e 100%);border-bottom:1px solid var(--bd1);padding:40px 20px 36px}
+.hero-banner-bg{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 60% 80% at 20% 50%,rgba(45,184,107,0.07) 0%,transparent 60%),radial-gradient(ellipse 40% 60% at 80% 30%,rgba(57,232,124,0.04) 0%,transparent 50%)}
+.hero-banner-grid{position:absolute;inset:0;background-image:linear-gradient(var(--bd1) 1px,transparent 1px),linear-gradient(90deg,var(--bd1) 1px,transparent 1px);background-size:50px 50px;pointer-events:none;opacity:0.4}
+.hero-inner{max-width:1200px;margin:0 auto;position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:6px;background:rgba(57,232,124,0.08);border:1px solid var(--bd2);border-radius:20px;padding:4px 12px;margin-bottom:14px}
+.hero-eyebrow-dot{width:5px;height:5px;border-radius:50%;background:var(--gr3);animation:pulse 2s infinite}
+.hero-eyebrow-txt{font-size:0.62rem;color:var(--gr3);font-weight:600;letter-spacing:0.1em;text-transform:uppercase}
+.hero-h1{font-family:'Syne',sans-serif;font-size:2.4rem;font-weight:800;color:var(--tx0);line-height:1.1;margin-bottom:10px}
+.hero-h1 span{color:var(--gr3)}
+.hero-h1-sub{font-size:0.85rem;color:var(--tx2);line-height:1.6;max-width:480px;margin-bottom:20px}
+.hero-ctas{display:flex;gap:10px;flex-wrap:wrap}
+.hero-cta-main{background:linear-gradient(135deg,var(--gr2),var(--gr1));color:#fff;border:none;border-radius:10px;padding:10px 22px;font-size:0.82rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s;box-shadow:0 4px 20px rgba(45,184,107,0.3)}
+.hero-cta-main:hover{transform:translateY(-2px);box-shadow:0 6px 28px rgba(45,184,107,0.45)}
+.hero-cta-sec{background:var(--bd1);color:var(--tx1);border:1px solid var(--bd2);border-radius:10px;padding:10px 20px;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s}
+.hero-cta-sec:hover{background:var(--bd2);color:var(--tx0)}
+.hero-stats{display:flex;gap:28px}
+.hero-stat-val{font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;color:var(--gr3);line-height:1}
+.hero-stat-lbl{font-size:0.65rem;color:var(--tx2);margin-top:3px;text-transform:uppercase;letter-spacing:0.06em}
+.inicio-wrap{max-width:1200px;margin:0 auto;padding:20px;display:grid;grid-template-columns:1fr 290px;gap:18px}
+@media(max-width:960px){.inicio-wrap{grid-template-columns:1fr}.inicio-sidebar{display:none}}
+.h-tag{display:inline-block;font-size:0.58rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:3px 8px;border-radius:6px;margin-bottom:8px}
+.h-tag.vd{background:rgba(57,232,124,0.1);color:var(--gr3);border:1px solid var(--bd2)}
+.h-tag.az{background:rgba(59,130,246,0.1);color:#60a5fa;border:1px solid rgba(59,130,246,0.2)}
+.h-tag.ro{background:rgba(236,72,153,0.1);color:#f472b6;border:1px solid rgba(236,72,153,0.2)}
+.h-tag.na{background:rgba(251,146,60,0.1);color:#fb923c;border:1px solid rgba(251,146,60,0.2)}
+.h-tag.mo{background:rgba(167,139,250,0.1);color:#a78bfa;border:1px solid rgba(167,139,250,0.2)}
+.sec-label{font-size:0.62rem;font-weight:700;color:var(--tx2);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--bd1)}
+.noticias-grid{display:grid;grid-template-columns:1.8fr 1fr;gap:12px;margin-bottom:20px}
+@media(max-width:680px){.noticias-grid{grid-template-columns:1fr}}
+.noticia-main{background:var(--bg1);border:1px solid var(--bd1);border-radius:16px;overflow:hidden;cursor:pointer;transition:all 0.25s}
+.noticia-main:hover{border-color:var(--bd3);transform:translateY(-3px);box-shadow:0 8px 32px rgba(0,0,0,0.4)}
+.noticia-main-img{height:200px;background:linear-gradient(135deg,#061209,#0d2416,#071a0b);display:flex;align-items:center;justify-content:center;font-size:3.5rem}
+.noticia-main-body{padding:16px}
+.noticia-main-title{font-size:1rem;font-weight:700;color:var(--tx0);line-height:1.4;margin-bottom:6px}
+.noticia-main-desc{font-size:0.74rem;color:var(--tx2);line-height:1.5}
+.noticia-main-footer{display:flex;align-items:center;margin-top:12px;padding-top:12px;border-top:1px solid var(--bd1)}
+.noticia-autor{font-size:0.65rem;color:var(--tx3)}
+.noticia-tiempo{font-size:0.65rem;color:var(--tx3);margin-left:auto}
+.noticia-stack{display:flex;flex-direction:column;gap:8px}
+.noticia-mini{background:var(--bg1);border:1px solid var(--bd1);border-radius:12px;display:flex;gap:12px;align-items:center;padding:12px;cursor:pointer;transition:all 0.2s}
+.noticia-mini:hover{border-color:var(--bd2);background:var(--bg2);transform:translateX(4px)}
+.noticia-mini-ico{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+.noticia-mini-ico.az{background:rgba(59,130,246,0.08);border:1px solid rgba(59,130,246,0.1)}
+.noticia-mini-ico.ro{background:rgba(236,72,153,0.08);border:1px solid rgba(236,72,153,0.1)}
+.noticia-mini-ico.na{background:rgba(251,146,60,0.08);border:1px solid rgba(251,146,60,0.1)}
+.noticia-mini-title{font-size:0.78rem;font-weight:600;color:var(--tx0);line-height:1.3}
+.noticia-mini-time{font-size:0.63rem;color:var(--tx3);margin-top:3px}
+.accesos{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+@media(max-width:580px){.accesos{grid-template-columns:repeat(2,1fr)}}
+.acceso{background:var(--bg1);border:1px solid var(--bd1);border-radius:14px;padding:18px 12px;text-align:center;cursor:pointer;transition:all 0.2s;position:relative;overflow:hidden}
+.acceso::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(57,232,124,0.03),transparent);opacity:0;transition:opacity 0.2s}
+.acceso:hover{border-color:var(--bd3);transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,0.3)}
+.acceso:hover::before{opacity:1}
+.acceso-icon{font-size:1.8rem;margin-bottom:10px;display:block}
+.acceso-title{font-size:0.78rem;font-weight:700;color:var(--tx0)}
+.acceso-sub{font-size:0.63rem;color:var(--tx3);margin-top:3px}
+.inicio-sidebar{display:flex;flex-direction:column;gap:14px}
+.widget{background:var(--bg1);border:1px solid var(--bd1);border-radius:16px;overflow:hidden}
+.widget-header{padding:11px 14px;border-bottom:1px solid var(--bd1);display:flex;align-items:center;gap:8px}
+.widget-header-ico{font-size:1rem}
+.widget-header-title{font-size:0.65rem;font-weight:700;color:var(--tx2);letter-spacing:0.08em;text-transform:uppercase}
+.widget-body{padding:14px}
+.clima-top{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.clima-ico{font-size:2.8rem;line-height:1}
+.clima-temp{font-family:'Syne',sans-serif;font-size:2.4rem;font-weight:800;color:var(--tx0);line-height:1}
+.clima-ciudad{font-size:0.72rem;color:var(--gr3);font-weight:600;margin-bottom:2px}
+.clima-desc{font-size:0.7rem;color:var(--tx2)}
+.clima-extra{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding-top:12px;border-top:1px solid var(--bd1)}
+.clima-stat{background:var(--bg2);border-radius:10px;padding:8px 6px;text-align:center}
+.clima-stat-val{font-size:0.82rem;font-weight:700;color:var(--gr3)}
+.clima-stat-lbl{font-size:0.58rem;color:var(--tx3);text-transform:uppercase;letter-spacing:0.05em;margin-top:2px}
+.pub-widget{background:linear-gradient(135deg,rgba(251,146,60,0.06),rgba(251,146,60,0.02));border:1px solid rgba(251,146,60,0.15);border-radius:16px;padding:14px;cursor:pointer;transition:all 0.2s}
+.pub-widget:hover{border-color:rgba(251,146,60,0.3);transform:translateY(-2px)}
+.pub-label{font-size:0.58rem;color:rgba(251,146,60,0.5);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px}
+.pub-inner{text-align:center;padding:4px 0}
+.pub-emoji{font-size:1.8rem;margin-bottom:6px}
+.pub-name{font-size:0.88rem;font-weight:700;color:#fb923c;margin-bottom:3px}
+.pub-desc{font-size:0.68rem;color:var(--tx2);margin-bottom:10px}
+.pub-btn{background:linear-gradient(135deg,#fb923c,#ea580c);color:#fff;border:none;border-radius:8px;padding:7px 16px;font-size:0.72rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;width:100%}
+.online-row{display:flex;align-items:center;gap:9px;padding:6px 0;border-bottom:1px solid var(--bd1)}
+.online-row:last-child{border:none}
+.online-av{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.6rem;font-weight:700;flex-shrink:0;overflow:hidden;border:1px solid var(--bd2)}
+.online-av img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.online-name{font-size:0.76rem;font-weight:500;color:var(--tx0);flex:1}
+.online-dot{width:7px;height:7px;border-radius:50%;background:var(--gr3);flex-shrink:0;box-shadow:0 0 6px var(--gr3)}
+.ir-chat-btn{background:linear-gradient(135deg,var(--gr1),var(--gr2));color:#fff;border:none;border-radius:10px;padding:9px;font-size:0.75rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;margin-top:12px;width:100%;box-shadow:0 4px 16px rgba(45,184,107,0.25)}
+.ir-chat-btn:hover{opacity:0.88}
+.chat-layout{display:grid;grid-template-columns:210px 1fr 200px;height:calc(100vh - 56px);overflow:hidden}
+@media(max-width:900px){.chat-layout{grid-template-columns:160px 1fr}.panel-usuarios{display:none!important}}
+@media(max-width:600px){.chat-layout{grid-template-columns:1fr}.panel-salas{display:none!important}}
+.panel-salas{background:var(--bg1);border-right:1px solid var(--bd1);overflow-y:auto;display:flex;flex-direction:column}
+.panel-salas-header{padding:14px;font-size:0.65rem;font-weight:700;color:var(--tx2);letter-spacing:0.1em;text-transform:uppercase;border-bottom:1px solid var(--bd1);position:sticky;top:0;background:var(--bg1);z-index:2}
+.sala{display:flex;align-items:center;gap:8px;padding:9px 14px;cursor:pointer;border-left:2px solid transparent;transition:all 0.15s}
+.sala:hover{background:var(--bd1)}
+.sala.active{background:rgba(57,232,124,0.06);border-left-color:var(--gr3)}
+.sala-dot{width:5px;height:5px;border-radius:50%;background:var(--gr2);flex-shrink:0}
+.sala-emoji{font-size:0.9rem}
+.sala-nombre{font-size:0.78rem;font-weight:500;color:var(--tx1);flex:1}
+.sala.active .sala-nombre{color:var(--tx0);font-weight:600}
+.panel-centro{display:flex;flex-direction:column;height:calc(100vh - 56px);overflow:hidden;background:var(--bg0)}
+.chat-header{background:var(--bg1);border-bottom:1px solid var(--bd1);padding:11px 16px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.chat-header-titulo{font-weight:700;font-size:0.92rem;color:var(--tx0)}
+.chat-header-sub{font-size:0.65rem;color:var(--tx2);margin-top:1px}
 .chat-acciones{display:flex;gap:6px}
-.hb{background:none;border:1px solid rgba(26,107,60,0.18);border-radius:8px;padding:5px 10px;font-size:0.73rem;cursor:pointer;color:#4a6b56;font-family:'DM Sans',sans-serif}
-.hb:hover{background:#f0f7f3;border-color:var(--vm)}
-.msgs{flex:1;overflow-y:auto;padding:13px 15px;display:flex;flex-direction:column;gap:10px}
-.mph{text-align:center;color:#9aab9e;font-size:0.82rem;margin:auto;padding:2rem}
+.hb{background:var(--bd1);border:1px solid var(--bd2);border-radius:8px;padding:5px 11px;font-size:0.72rem;cursor:pointer;color:var(--tx1);font-family:'DM Sans',sans-serif;transition:all 0.2s}
+.hb:hover{background:var(--bd2);color:var(--tx0)}
+.msgs{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px}
+.mph{text-align:center;color:var(--tx3);font-size:0.82rem;margin:auto;padding:2rem}
 .mr2{display:flex;gap:8px;align-items:flex-end;max-width:76%}
 .mr2.me{align-self:flex-end;flex-direction:row-reverse}
-.av{width:29px;height:29px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.6rem;font-weight:700;flex-shrink:0;overflow:hidden}
+.av{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.6rem;font-weight:700;flex-shrink:0;overflow:hidden;border:1px solid var(--bd2)}
 .av img{width:100%;height:100%;object-fit:cover;border-radius:50%}
-.bub{background:#fff;border:0.5px solid rgba(26,107,60,0.12);border-radius:12px 12px 12px 3px;padding:7px 12px;font-size:0.82rem;line-height:1.45;word-break:break-word}
-.mr2.me .bub{background:var(--vd);color:#fff;border-radius:12px 12px 3px 12px;border-color:transparent}
-.mm{font-size:0.6rem;color:#aaa;margin-top:2px}
-.mr2.me .mm{color:rgba(255,255,255,0.6)}
-.snm{font-size:0.62rem;font-weight:600;color:var(--vd);margin-bottom:2px}
+.bub{background:var(--bg2);border:1px solid var(--bd1);border-radius:12px 12px 12px 3px;padding:8px 12px;font-size:0.82rem;line-height:1.5;word-break:break-word;color:var(--tx0)}
+.mr2.me .bub{background:linear-gradient(135deg,var(--gr1),#0f4a28);border-color:var(--bd2);border-radius:12px 12px 3px 12px}
+.mm{font-size:0.58rem;color:var(--tx3);margin-top:3px}
+.mr2.me .mm{color:rgba(168,196,176,0.5)}
+.snm{font-size:0.6rem;font-weight:600;color:var(--gr2);margin-bottom:3px}
 .mr2.me .snm{display:none}
-.dd{text-align:center;font-size:0.65rem;color:#9aab9e;position:relative;margin:2px 0;align-self:center}
-.dd span{background:#f8faf8;padding:0 8px;position:relative;z-index:1}
-.dd::before{content:'';position:absolute;top:50%;left:0;right:0;height:0.5px;background:rgba(26,107,60,0.12)}
-.ab{background:#fff;border:0.5px solid rgba(26,107,60,0.15);border-radius:12px;padding:8px 11px;display:flex;align-items:center;gap:9px;min-width:170px}
-.ppb{width:30px;height:30px;border-radius:50%;background:var(--vd);border:none;color:#fff;font-size:0.75rem;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.wf{flex:1;height:24px;display:flex;align-items:center;gap:2px}
-.wb2{width:3px;border-radius:2px;background:rgba(45,184,107,0.45)}
-.ad{font-size:0.62rem;color:#7a8c7e;white-space:nowrap}
-.ib{background:#fff;border:0.5px solid rgba(26,107,60,0.12);border-radius:12px;overflow:hidden;max-width:200px}
+.dd{text-align:center;font-size:0.62rem;color:var(--tx3);position:relative;margin:4px 0;align-self:center}
+.dd span{background:var(--bg0);padding:0 10px;position:relative;z-index:1}
+.dd::before{content:'';position:absolute;top:50%;left:0;right:0;height:0.5px;background:var(--bd1)}
+.ab{background:var(--bg2);border:1px solid var(--bd1);border-radius:12px;padding:8px 12px;display:flex;align-items:center;gap:9px;min-width:170px}
+.ppb{width:28px;height:28px;border-radius:50%;background:var(--gr1);border:none;color:#fff;font-size:0.75rem;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.wf{flex:1;height:22px;display:flex;align-items:center;gap:2px}
+.wb2{width:3px;border-radius:2px;background:rgba(45,184,107,0.35)}
+.ad{font-size:0.6rem;color:var(--tx3);white-space:nowrap}
+.ib{background:var(--bg2);border:1px solid var(--bd1);border-radius:12px;overflow:hidden;max-width:200px}
 .ib img{width:100%;max-height:160px;object-fit:cover;display:block}
-.ic{padding:5px 9px;font-size:0.7rem;color:#5f6b62}
-.fb2{background:#fff;border:0.5px solid rgba(26,107,60,0.12);border-radius:12px;padding:8px 11px;display:flex;align-items:center;gap:9px;min-width:170px}
-.fi{width:34px;height:34px;border-radius:7px;background:#e8f5e9;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
-.fn{font-size:0.73rem;font-weight:600;color:var(--os)}
-.fz{font-size:0.62rem;color:#7a8c7e}
-.cft{background:#fff;border-top:0.5px solid rgba(26,107,60,0.1);padding:9px 13px;flex-shrink:0}
-.mt{display:flex;gap:5px;margin-bottom:7px;flex-wrap:wrap}
-.mtl{background:none;border:1px solid rgba(26,107,60,0.18);border-radius:7px;padding:4px 9px;font-size:0.73rem;cursor:pointer;color:#4a6b56;font-family:'DM Sans',sans-serif}
-.mtl:hover{background:#f0f7f3;border-color:var(--vm)}
-.mtl.rec{background:#ffebee;border-color:#f44336;color:#c62828}
-.ir{display:flex;gap:7px;align-items:flex-end}
-.mi{flex:1;border:1.5px solid rgba(26,107,60,0.2);border-radius:18px;padding:7px 14px;font-size:0.85rem;outline:none;resize:none;background:#f8faf8;color:var(--os);font-family:'DM Sans',sans-serif;transition:border-color 0.2s;max-height:100px}
-.mi:focus{border-color:var(--vm)}
-.sb{background:var(--vd);color:#fff;border:none;border-radius:50%;width:37px;height:37px;cursor:pointer;font-size:0.85rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.sb:hover{background:var(--vm);transform:scale(1.08)}
-.panel-usuarios{background:#fff;border-left:0.5px solid rgba(26,107,60,0.1);overflow-y:auto;display:flex;flex-direction:column}
-.panel-usuarios-header{padding:11px 12px;font-size:0.75rem;font-weight:700;color:var(--vd);border-bottom:0.5px solid rgba(26,107,60,0.1);position:sticky;top:0;background:#fff;z-index:2}
-.online-badge{display:inline-flex;align-items:center;gap:5px;margin-top:4px;font-size:0.65rem;color:#5f8a6a;font-weight:400}
-.online-badge-dot{width:6px;height:6px;border-radius:50%;background:#39e87c;animation:pulse 2s infinite}
+.ic{padding:5px 9px;font-size:0.68rem;color:var(--tx2)}
+.fb2{background:var(--bg2);border:1px solid var(--bd1);border-radius:12px;padding:8px 12px;display:flex;align-items:center;gap:9px;min-width:170px}
+.fi{width:32px;height:32px;border-radius:8px;background:rgba(57,232,124,0.08);display:flex;align-items:center;justify-content:center;font-size:0.9rem;flex-shrink:0}
+.fn{font-size:0.72rem;font-weight:600;color:var(--tx0)}
+.fz{font-size:0.6rem;color:var(--tx3)}
+.cft{background:var(--bg1);border-top:1px solid var(--bd1);padding:10px 14px;flex-shrink:0}
+.mt{display:flex;gap:5px;margin-bottom:8px;flex-wrap:wrap}
+.mtl{background:var(--bd1);border:1px solid var(--bd2);border-radius:8px;padding:4px 10px;font-size:0.7rem;cursor:pointer;color:var(--tx1);font-family:'DM Sans',sans-serif;transition:all 0.2s}
+.mtl:hover{background:var(--bd2);color:var(--tx0)}
+.mtl.rec{background:rgba(239,68,68,0.1);border-color:rgba(239,68,68,0.3);color:#f87171}
+.ir{display:flex;gap:8px;align-items:flex-end}
+.mi{flex:1;border:1px solid var(--bd2);border-radius:14px;padding:8px 14px;font-size:0.85rem;outline:none;resize:none;background:var(--bg2);color:var(--tx0);font-family:'DM Sans',sans-serif;transition:border-color 0.2s;max-height:100px}
+.mi::placeholder{color:var(--tx3)}
+.mi:focus{border-color:var(--bd3)}
+.sb{background:linear-gradient(135deg,var(--gr1),var(--gr2));color:#fff;border:none;border-radius:50%;width:36px;height:36px;cursor:pointer;font-size:0.85rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sb:hover{opacity:0.85}
+.panel-usuarios{background:var(--bg1);border-left:1px solid var(--bd1);overflow-y:auto;display:flex;flex-direction:column}
+.panel-usuarios-header{padding:12px 13px;font-size:0.65rem;font-weight:700;color:var(--tx2);letter-spacing:0.1em;text-transform:uppercase;border-bottom:1px solid var(--bd1);position:sticky;top:0;background:var(--bg1);z-index:2}
+.online-badge{display:inline-flex;align-items:center;gap:5px;margin-top:5px;font-size:0.65rem;color:var(--gr2);font-weight:400;text-transform:none;letter-spacing:0}
+.online-badge-dot{width:5px;height:5px;border-radius:50%;background:var(--gr3);box-shadow:0 0 5px var(--gr3)}
 .user-en-linea{display:flex;align-items:center;gap:8px;padding:8px 12px;cursor:pointer;transition:background 0.15s;border-radius:8px;margin:1px 6px}
-.user-en-linea:hover{background:#f0f7f3}
-.user-av{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.62rem;font-weight:700;flex-shrink:0;overflow:hidden}
+.user-en-linea:hover{background:var(--bd1)}
+.user-av{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.6rem;font-weight:700;flex-shrink:0;overflow:hidden;border:1px solid var(--bd2)}
 .user-av img{width:100%;height:100%;object-fit:cover;border-radius:50%}
-.user-estado-dot{position:absolute;bottom:0;right:0;width:8px;height:8px;border-radius:50%;border:1.5px solid #fff}
+.user-estado-dot{position:absolute;bottom:0;right:0;width:8px;height:8px;border-radius:50%;border:2px solid var(--bg1)}
 .user-av-wrap{position:relative;flex-shrink:0}
 .user-info{flex:1;min-width:0}
-.user-nombre{font-size:0.73rem;font-weight:600;color:var(--os);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.user-ciudad{font-size:0.62rem;color:#9aab9e;margin-top:1px}
-.seccion-estado{font-size:0.6rem;font-weight:700;color:#9aab9e;text-transform:uppercase;letter-spacing:0.08em;padding:8px 12px 3px}
-.priv-chat{position:fixed;bottom:16px;right:16px;width:310px;background:#fff;border:0.5px solid rgba(26,107,60,0.2);border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.18);z-index:400;display:flex;flex-direction:column;overflow:hidden;animation:slideUp 0.25s ease-out}
-@keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-.priv-header{background:var(--vd);color:#fff;padding:10px 12px;display:flex;align-items:center;gap:9px;flex-shrink:0}
-.priv-av{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.62rem;font-weight:700;background:var(--vn);color:var(--os);flex-shrink:0;overflow:hidden}
+.user-nombre{font-size:0.72rem;font-weight:600;color:var(--tx0);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.user-ciudad{font-size:0.6rem;color:var(--tx3);margin-top:1px}
+.seccion-estado{font-size:0.58rem;font-weight:700;color:var(--tx3);text-transform:uppercase;letter-spacing:0.1em;padding:8px 12px 3px}
+.priv-chat{position:fixed;bottom:16px;right:16px;width:310px;background:var(--bg1);border:1px solid var(--bd2);border-radius:16px;box-shadow:0 16px 48px rgba(0,0,0,0.7);z-index:400;display:flex;flex-direction:column;overflow:hidden;animation:slideUp 0.25s cubic-bezier(0.34,1.56,0.64,1)}
+@keyframes slideUp{from{opacity:0;transform:translateY(24px) scale(0.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+.priv-header{background:var(--bg2);border-bottom:1px solid var(--bd2);padding:11px 13px;display:flex;align-items:center;gap:9px;flex-shrink:0}
+.priv-av{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.62rem;font-weight:700;flex-shrink:0;overflow:hidden;border:1.5px solid var(--bd3)}
 .priv-av img{width:100%;height:100%;object-fit:cover;border-radius:50%}
-.priv-nombre{font-size:0.82rem;font-weight:700;flex:1}
-.priv-acciones{display:flex;gap:4px}
-.priv-btn{background:rgba(255,255,255,0.2);border:none;color:#fff;border-radius:6px;padding:4px 7px;font-size:0.75rem;cursor:pointer;transition:background 0.15s}
-.priv-btn:hover{background:rgba(255,255,255,0.35)}
-.priv-msgs{height:240px;overflow-y:auto;padding:10px 12px;display:flex;flex-direction:column;gap:8px;background:#f8faf8}
-.priv-bub{max-width:80%;padding:7px 11px;border-radius:12px;font-size:0.8rem;line-height:1.4;word-break:break-word}
-.priv-bub.ellos{background:#fff;border:0.5px solid rgba(26,107,60,0.12);border-radius:12px 12px 12px 3px;align-self:flex-start}
-.priv-bub.yo{background:var(--vd);color:#fff;border-radius:12px 12px 3px 12px;align-self:flex-end}
-.priv-hora{font-size:0.58rem;color:#aaa;margin-top:2px;display:block}
-.priv-input-area{padding:8px 10px;border-top:0.5px solid rgba(26,107,60,0.1);display:flex;align-items:center;gap:6px;background:#fff}
-.priv-opciones{display:flex;gap:3px}
-.priv-opt{background:none;border:none;font-size:1rem;cursor:pointer;padding:4px;border-radius:6px;transition:background 0.15s;color:#4a6b56}
-.priv-opt:hover{background:#f0f7f3}
-.priv-inp{flex:1;border:1.5px solid rgba(26,107,60,0.2);border-radius:14px;padding:5px 11px;font-size:0.8rem;outline:none;background:#f8faf8;color:var(--os);font-family:'DM Sans',sans-serif}
-.priv-inp:focus{border-color:var(--vm)}
-.priv-send{background:var(--vd);color:#fff;border:none;border-radius:50%;width:30px;height:30px;cursor:pointer;font-size:0.8rem;flex-shrink:0;display:flex;align-items:center;justify-content:center}
-.priv-send:hover{background:var(--vm)}
-.mw{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.65);z-index:500;align-items:center;justify-content:center}
+.priv-nombre{font-size:0.82rem;font-weight:700;flex:1;color:var(--tx0)}
+.priv-acciones{display:flex;gap:3px}
+.priv-btn{background:var(--bd1);border:1px solid var(--bd2);color:var(--tx1);border-radius:6px;padding:4px 7px;font-size:0.75rem;cursor:pointer;transition:all 0.15s}
+.priv-btn:hover{background:var(--bd2);color:var(--tx0)}
+.priv-msgs{height:240px;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:8px;background:var(--bg0)}
+.priv-bub{max-width:80%;padding:7px 11px;border-radius:12px;font-size:0.78rem;line-height:1.45;word-break:break-word}
+.priv-bub.ellos{background:var(--bg2);border:1px solid var(--bd1);border-radius:12px 12px 12px 3px;align-self:flex-start;color:var(--tx0)}
+.priv-bub.yo{background:linear-gradient(135deg,var(--gr1),#0f4a28);border-radius:12px 12px 3px 12px;align-self:flex-end;color:#fff}
+.priv-hora{font-size:0.56rem;color:var(--tx3);margin-top:3px;display:block}
+.priv-input-area{padding:9px 10px;border-top:1px solid var(--bd1);display:flex;align-items:center;gap:6px;background:var(--bg1)}
+.priv-opciones{display:flex;gap:2px}
+.priv-opt{background:none;border:none;font-size:1rem;cursor:pointer;padding:5px;border-radius:7px;transition:background 0.15s;color:var(--tx2)}
+.priv-opt:hover{background:var(--bd1);color:var(--tx0)}
+.priv-inp{flex:1;border:1px solid var(--bd2);border-radius:12px;padding:6px 11px;font-size:0.78rem;outline:none;background:var(--bg2);color:var(--tx0);font-family:'DM Sans',sans-serif}
+.priv-inp::placeholder{color:var(--tx3)}
+.priv-inp:focus{border-color:var(--bd3)}
+.priv-send{background:linear-gradient(135deg,var(--gr1),var(--gr2));color:#fff;border:none;border-radius:50%;width:30px;height:30px;cursor:pointer;font-size:0.8rem;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.mw{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.8);z-index:500;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
 .mw.show{display:flex}
-.mb2{background:#fff;border-radius:16px;width:360px;overflow:hidden;max-width:95vw}
-.mhd{background:var(--vd);color:#fff;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;font-size:0.85rem;font-weight:600}
-.mc{background:none;border:none;color:#fff;font-size:1rem;cursor:pointer}
-.cp{padding:16px;max-width:1000px;margin:0 auto}
-.ptt{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;color:var(--vd);margin-bottom:14px}
+.mb2{background:var(--bg1);border:1px solid var(--bd2);border-radius:20px;width:380px;overflow:hidden;max-width:95vw}
+.mhd{background:var(--bg2);border-bottom:1px solid var(--bd1);color:var(--tx0);padding:12px 16px;display:flex;justify-content:space-between;align-items:center;font-size:0.85rem;font-weight:600}
+.mc{background:var(--bd1);border:1px solid var(--bd2);color:var(--tx1);width:28px;height:28px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:0.85rem}
+.cp{padding:20px;max-width:1100px;margin:0 auto}
+.ptt{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;color:var(--tx0);margin-bottom:16px}
 .ng{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.icard{background:var(--bg2);border:1px solid var(--bd1);border-radius:14px;overflow:hidden;cursor:pointer;transition:all 0.2s}
+.icard:hover{border-color:var(--bd3);transform:translateY(-2px)}
 .ni{height:100px;display:flex;align-items:center;justify-content:center;font-size:2.2rem}
-.nb{padding:10px}
-.nt{font-size:0.8rem;font-weight:600;color:var(--os);line-height:1.3;margin:3px 0}
-.nd{font-size:0.65rem;color:#9aab9e;margin-top:4px}
-.pbn{background:#fff3e0;border-radius:14px;border:1px solid rgba(230,81,0,0.2);padding:15px;margin-bottom:14px;display:flex;align-items:center;gap:13px;flex-wrap:wrap}
-.pbn h3{font-size:0.9rem;font-weight:700;color:#bf360c}
-.pbn p{font-size:0.72rem;color:#7a8c7e}
-.pbb{background:#e65100;color:#fff;border:none;border-radius:20px;padding:8px 18px;font-size:0.78rem;cursor:pointer;margin-left:auto;font-family:'DM Sans',sans-serif}
+.nb{padding:12px}
+.nt{font-size:0.8rem;font-weight:600;color:var(--tx0);line-height:1.35;margin:4px 0}
+.nd{font-size:0.65rem;color:var(--tx3);margin-top:4px}
+.pbn{background:rgba(251,146,60,0.06);border:1px solid rgba(251,146,60,0.15);border-radius:14px;padding:16px;margin-bottom:16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.pbn h3{font-size:0.9rem;font-weight:700;color:#fb923c}
+.pbn p{font-size:0.72rem;color:var(--tx2)}
+.pbb{background:#fb923c;color:#1a0a00;border:none;border-radius:20px;padding:8px 18px;font-size:0.78rem;font-weight:700;cursor:pointer;margin-left:auto;font-family:'DM Sans',sans-serif}
 .pg{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
-.pc{background:#fff;border-radius:14px;border:1.5px dashed rgba(230,81,0,0.2);overflow:hidden;cursor:pointer;transition:all 0.2s}
-.pc:hover{border-color:#e65100;transform:translateY(-2px)}
+.pc{background:var(--bg2);border:1px solid rgba(251,146,60,0.12);border-radius:14px;overflow:hidden;cursor:pointer;transition:all 0.2s}
+.pc:hover{border-color:rgba(251,146,60,0.35);transform:translateY(-2px)}
 .pci{height:90px;display:flex;align-items:center;justify-content:center;font-size:2.2rem}
-.pcb{padding:10px}
-.pct{font-size:0.62rem;font-weight:700;color:#e65100;text-transform:uppercase}
-.pcn{font-size:0.83rem;font-weight:700;color:var(--os);margin:3px 0}
-.pcd{font-size:0.7rem;color:#7a8c7e;line-height:1.4}
-.pcbtn{background:#e65100;color:#fff;border:none;border-radius:20px;padding:5px 13px;font-size:0.7rem;margin-top:7px;cursor:pointer;font-family:'DM Sans',sans-serif}
+.pcb{padding:12px}
+.pct{font-size:0.6rem;font-weight:700;color:#fb923c;text-transform:uppercase;letter-spacing:0.06em}
+.pcn{font-size:0.83rem;font-weight:700;color:var(--tx0);margin:3px 0}
+.pcd{font-size:0.7rem;color:var(--tx2);line-height:1.4}
+.pcbtn{background:#fb923c;color:#1a0a00;border:none;border-radius:20px;padding:5px 14px;font-size:0.7rem;font-weight:700;margin-top:8px;cursor:pointer;font-family:'DM Sans',sans-serif}
 ::-webkit-scrollbar{width:4px;height:4px}
 ::-webkit-scrollbar-track{background:transparent}
-::-webkit-scrollbar-thumb{background:rgba(26,107,60,0.2);border-radius:4px}
+::-webkit-scrollbar-thumb{background:var(--bd2);border-radius:4px}
 </style>
 </head>
 <body>
-
 <div id="screen-load"><div class="spin"></div></div>
-
 <div id="screen-login">
-  <div class="ltree t1">🌿</div>
-  <div class="ltree t2">🍃</div>
-  <div class="ltree t3">🌱</div>
+  <div class="bg-grid"></div><div class="bg-glow"></div>
   <div class="lcard">
-    <div class="badge"><span class="badge-dot"></span><span class="badge-txt">Comunidad del Caquetá</span></div>
-    <div class="llogo">Caquet<span>á</span>Chat</div>
-    <p class="lsub">Conecta con tu región. Comparte, conversa y descubre.</p>
-    <div class="feats"><span class="feat">💬 Chat</span><span class="feat">🎙️ Audio</span><span class="feat">📷 Cámara</span><span class="feat">📰 Noticias</span></div>
-    <div class="divider"><div class="divider-line"></div><span class="divider-txt">Elige cómo entrar</span><div class="divider-line"></div></div>
-    <button id="btn-login" class="lbtn">
-      <div class="lbtn-ico"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg></div>
-      <span class="lbtn-txt">Continuar con Google</span>
-      <span class="lbtn-arr">→</span>
+    <div class="l-badge"><span class="l-badge-dot"></span><span class="l-badge-txt">Comunidad del Caquetá</span></div>
+    <div class="l-logo">Caquet<span>á</span>Chat</div>
+    <p class="l-sub">Conecta con tu región.<br>Comparte, conversa y descubre.</p>
+    <div class="l-feats"><span class="l-feat">💬 Chat</span><span class="l-feat">🎙️ Audio</span><span class="l-feat">📷 Cámara</span><span class="l-feat">📰 Noticias</span></div>
+    <div class="l-sep"><div class="l-sep-line"></div><span class="l-sep-txt">Elige cómo entrar</span><div class="l-sep-line"></div></div>
+    <button id="btn-login" class="l-btn">
+      <div class="l-btn-ico"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg></div>
+      <span class="l-btn-txt">Continuar con Google</span><span class="l-btn-arr">→</span>
     </button>
-    <p class="lnote">Al entrar aceptas los términos de uso de CaquetáChat. Tu privacidad está protegida.</p>
+    <p class="l-note">Al entrar aceptas los términos de uso de CaquetáChat. Tu privacidad está protegida.</p>
   </div>
 </div>
-
 <div id="screen-app">
   <nav class="topbar">
     <div class="logo">Caquet<span>á</span>Chat</div>
@@ -254,47 +292,86 @@ body{font-family:'DM Sans',sans-serif;background:#f0f4f1;color:var(--os)}
       <button class="ntab" data-p="publicidad">📢 Publicidad</button>
       <button class="ntab" data-p="eventos">🎉 Eventos</button>
     </div>
-    <div class="tr">
+    <div class="topbar-right">
       <div id="uav" class="uav">?</div>
       <span id="unm" class="unm"></span>
       <button id="btn-out" class="obtn">⏻</button>
     </div>
   </nav>
-
   <div class="page active" id="page-inicio">
-    <div class="portal">
-      <div>
-        <div class="hgrid">
-          <div class="card" onclick="gp('noticias')"><div class="himg" style="background:#1a6b3c">🌿</div><div class="hbody"><span class="tag vd">Departamento</span><h3>Caquetá avanza en conectividad digital para zonas rurales</h3><p>El gobierno lanzó un plan para llevar internet a más de 40 veredas...</p></div></div>
-          <div class="nstk">
-            <div class="card nmini" onclick="gp('noticias')"><div class="nth az">🐟</div><div class="ntxt"><span class="tag az">Naturaleza</span><h4>Rescate de tortugas en el Caguán</h4><p>Hace 2 horas</p></div></div>
-            <div class="card nmini" onclick="gp('noticias')"><div class="nth ro">🎭</div><div class="ntxt"><span class="tag ro">Cultura</span><h4>Festival de teatro llega a Florencia</h4><p>Hace 4 horas</p></div></div>
-            <div class="card nmini" onclick="gp('noticias')"><div class="nth na">⚽</div><div class="ntxt"><span class="tag na">Deportes</span><h4>Caquetá FC clasifica a la final</h4><p>Ayer</p></div></div>
+    <div class="hero-banner">
+      <div class="hero-banner-bg"></div><div class="hero-banner-grid"></div>
+      <div class="hero-inner">
+        <div>
+          <div class="hero-eyebrow"><span class="hero-eyebrow-dot"></span><span class="hero-eyebrow-txt">Comunidad del Caquetá</span></div>
+          <div class="hero-h1">Conecta con tu<br><span>región</span> hoy</div>
+          <div class="hero-h1-sub">El espacio digital de la comunidad caqueteña. Chat en tiempo real, noticias locales, directorio de negocios y más.</div>
+          <div class="hero-ctas">
+            <button class="hero-cta-main" onclick="gp('chat')">💬 Entrar al Chat</button>
+            <button class="hero-cta-sec" onclick="gp('noticias')">📰 Ver Noticias</button>
           </div>
         </div>
-        <div class="sgrid">
-          <div class="sc" onclick="gp('chat')"><div class="sci">💬</div><div class="sct">Chat</div><div class="scd">Salas en tiempo real</div></div>
-          <div class="sc" onclick="gp('noticias')"><div class="sci">📰</div><div class="sct">Noticias</div><div class="scd">Lo más reciente</div></div>
-          <div class="sc" onclick="gp('publicidad')"><div class="sci">📢</div><div class="sct">Directorio</div><div class="scd">Negocios locales</div></div>
-          <div class="sc" onclick="gp('eventos')"><div class="sci">🎉</div><div class="sct">Eventos</div><div class="scd">Agenda cultural</div></div>
+        <div class="hero-stats">
+          <div><div class="hero-stat-val">6</div><div class="hero-stat-lbl">Salas activas</div></div>
+          <div><div class="hero-stat-val" id="hero-online-count">—</div><div class="hero-stat-lbl">En línea</div></div>
+          <div><div class="hero-stat-val">∞</div><div class="hero-stat-lbl">Mensajes</div></div>
         </div>
       </div>
-      <div class="scol">
-        <div class="wc"><div class="wh">🌤️ Clima — Florencia</div><div class="wb"><div class="cr2"><span class="ci">⛅</span><div><div class="ct">28°C</div><div class="cn">Parcialmente nublado<br>Hum. 82%</div></div></div></div></div>
-        <div class="pw" onclick="gp('publicidad')"><div class="pl">Publicidad</div><div class="pi"><div class="pio">🛒</div><div class="pt2">Mercado Caquetá</div><div class="ps">Productos frescos de tu región</div><button class="pb2">Ver oferta →</button></div></div>
-        <div class="wc">
-          <div class="wh">👥 En línea ahora</div>
-          <div class="wb" id="online-list"><div style="font-size:0.75rem;color:#9aab9e">Cargando...</div></div>
-          <div style="padding:0 13px 10px"><button class="bc" onclick="gp('chat')">Ir al chat →</button></div>
+    </div>
+    <div class="inicio-wrap">
+      <div>
+        <div class="sec-label">Noticias destacadas</div>
+        <div class="noticias-grid">
+          <div class="noticia-main" onclick="gp('noticias')">
+            <div class="noticia-main-img">🌿</div>
+            <div class="noticia-main-body">
+              <span class="h-tag vd">Departamento</span>
+              <div class="noticia-main-title">Caquetá avanza en conectividad digital para zonas rurales</div>
+              <div class="noticia-main-desc">El gobierno lanzó un plan para llevar internet a más de 40 veredas del departamento.</div>
+              <div class="noticia-main-footer"><span class="noticia-autor">Redacción CaquetáChat</span><span class="noticia-tiempo">Hace 1 hora</span></div>
+            </div>
+          </div>
+          <div class="noticia-stack">
+            <div class="noticia-mini" onclick="gp('noticias')"><div class="noticia-mini-ico az">🐟</div><div><div class="h-tag az" style="margin-bottom:4px">Naturaleza</div><div class="noticia-mini-title">Rescate de tortugas en el Caguán</div><div class="noticia-mini-time">Hace 2 horas</div></div></div>
+            <div class="noticia-mini" onclick="gp('noticias')"><div class="noticia-mini-ico ro">🎭</div><div><div class="h-tag ro" style="margin-bottom:4px">Cultura</div><div class="noticia-mini-title">Festival de teatro llega a Florencia</div><div class="noticia-mini-time">Hace 4 horas</div></div></div>
+            <div class="noticia-mini" onclick="gp('noticias')"><div class="noticia-mini-ico na">⚽</div><div><div class="h-tag na" style="margin-bottom:4px">Deportes</div><div class="noticia-mini-title">Caquetá FC clasifica a la final</div><div class="noticia-mini-time">Ayer</div></div></div>
+          </div>
+        </div>
+        <div class="sec-label" style="margin-top:20px">Accesos rápidos</div>
+        <div class="accesos">
+          <div class="acceso" onclick="gp('chat')"><span class="acceso-icon">💬</span><div class="acceso-title">Chat</div><div class="acceso-sub">Salas en vivo</div></div>
+          <div class="acceso" onclick="gp('noticias')"><span class="acceso-icon">📰</span><div class="acceso-title">Noticias</div><div class="acceso-sub">Lo más reciente</div></div>
+          <div class="acceso" onclick="gp('publicidad')"><span class="acceso-icon">📢</span><div class="acceso-title">Directorio</div><div class="acceso-sub">Negocios locales</div></div>
+          <div class="acceso" onclick="gp('eventos')"><span class="acceso-icon">🎉</span><div class="acceso-title">Eventos</div><div class="acceso-sub">Agenda cultural</div></div>
+        </div>
+      </div>
+      <div class="inicio-sidebar">
+        <div class="widget">
+          <div class="widget-header"><span class="widget-header-ico">🌤️</span><span class="widget-header-title">Clima — Florencia</span></div>
+          <div class="widget-body">
+            <div class="clima-top"><span class="clima-ico">⛅</span><div><div class="clima-ciudad">Florencia, Caquetá</div><div class="clima-temp">28°C</div><div class="clima-desc">Parcialmente nublado</div></div></div>
+            <div class="clima-extra">
+              <div class="clima-stat"><div class="clima-stat-val">82%</div><div class="clima-stat-lbl">Humedad</div></div>
+              <div class="clima-stat"><div class="clima-stat-val">18km/h</div><div class="clima-stat-lbl">Viento</div></div>
+              <div class="clima-stat"><div class="clima-stat-val">26°C</div><div class="clima-stat-lbl">Sensación</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="pub-widget" onclick="gp('publicidad')">
+          <div class="pub-label">Publicidad</div>
+          <div class="pub-inner"><div class="pub-emoji">🛒</div><div class="pub-name">Mercado Caquetá</div><div class="pub-desc">Productos frescos de tu región a precios del campo</div><button class="pub-btn">Ver oferta →</button></div>
+        </div>
+        <div class="widget">
+          <div class="widget-header"><span class="widget-header-ico">👥</span><span class="widget-header-title">En línea ahora</span></div>
+          <div class="widget-body"><div id="online-list"><div style="font-size:0.75rem;color:var(--tx3)">Cargando...</div></div><button class="ir-chat-btn" onclick="gp('chat')">Ir al chat →</button></div>
         </div>
       </div>
     </div>
   </div>
-
   <div class="page" id="page-chat">
     <div class="chat-layout">
       <div class="panel-salas">
-        <div class="panel-salas-header">💬 Salas de Chat</div>
+        <div class="panel-salas-header">Salas de Chat</div>
         <div class="sala active" onclick="cs('plaza','🌿 Plaza Caquetá',this)"><span class="sala-dot"></span><span class="sala-emoji">🌿</span><span class="sala-nombre">Plaza Caquetá</span></div>
         <div class="sala" onclick="cs('cultura','🎵 Cultura',this)"><span class="sala-dot"></span><span class="sala-emoji">🎵</span><span class="sala-nombre">Cultura y Arte</span></div>
         <div class="sala" onclick="cs('empleo','💼 Empleo',this)"><span class="sala-dot"></span><span class="sala-emoji">💼</span><span class="sala-nombre">Empleo</span></div>
@@ -304,14 +381,8 @@ body{font-family:'DM Sans',sans-serif;background:#f0f4f1;color:var(--os)}
       </div>
       <div class="panel-centro">
         <div class="chat-header">
-          <div>
-            <div class="chat-header-titulo" id="rnm">🌿 Plaza Caquetá</div>
-            <div class="chat-header-sub" id="rst">Cargando...</div>
-          </div>
-          <div class="chat-acciones">
-            <button class="hb" onclick="document.getElementById('vm').classList.add('show')">📹 Video</button>
-            <button class="hb" onclick="alert('Próximamente')">📞 Llamar</button>
-          </div>
+          <div><div class="chat-header-titulo" id="rnm">🌿 Plaza Caquetá</div><div class="chat-header-sub" id="rst">Cargando...</div></div>
+          <div class="chat-acciones"><button class="hb" onclick="document.getElementById('vm').classList.add('show')">📹 Video</button><button class="hb" onclick="alert('Próximamente')">📞 Llamar</button></div>
         </div>
         <div class="msgs" id="msgs"><div class="mph">Selecciona una sala 👋</div></div>
         <div class="cft">
@@ -322,46 +393,28 @@ body{font-family:'DM Sans',sans-serif;background:#f0f4f1;color:var(--os)}
             <button class="mtl" onclick="document.getElementById('img-in').click()">🖼️ Imagen</button>
             <button class="mtl" onclick="addEmoji()">😄 Emoji</button>
           </div>
-          <div class="ir">
-            <textarea id="minp" class="mi" rows="1" placeholder="Escribe un mensaje..."></textarea>
-            <button class="sb" onclick="enviar()">➤</button>
-          </div>
+          <div class="ir"><textarea id="minp" class="mi" rows="1" placeholder="Escribe un mensaje..."></textarea><button class="sb" onclick="enviar()">➤</button></div>
         </div>
         <input type="file" id="file-in" style="display:none" onchange="upFile(this)">
         <input type="file" id="img-in" accept="image/*" style="display:none" onchange="upImg(this)">
         <input type="file" id="cam-in" accept="image/*" capture="environment" style="display:none" onchange="upImg(this)">
       </div>
       <div class="panel-usuarios" id="panel-usuarios">
-        <div class="panel-usuarios-header">
-          👥 Comunidad
-          <div class="online-badge">
-            <span class="online-badge-dot"></span>
-            <span id="contador-online">0 en línea</span>
-          </div>
-        </div>
-        <div id="lista-usuarios-chat" style="padding-top:6px">
-          <div style="font-size:0.72rem;color:#9aab9e;padding:12px">Cargando...</div>
-        </div>
+        <div class="panel-usuarios-header">Comunidad<div class="online-badge"><span class="online-badge-dot"></span><span id="contador-online">0 en línea</span></div></div>
+        <div id="lista-usuarios-chat" style="padding-top:6px"><div style="font-size:0.72rem;color:var(--tx3);padding:12px">Cargando...</div></div>
       </div>
     </div>
   </div>
-
-  <div class="page" id="page-noticias"><div class="cp"><div class="ptt">📰 Noticias del Caquetá</div><div class="ng"><div class="card"><div class="ni" style="background:#e8f5e9">🌿</div><div class="nb"><span class="tag vd">Departamento</span><div class="nt">Conectividad digital llega a 40 veredas rurales</div><div class="nd">Hace 1 hora</div></div></div><div class="card"><div class="ni" style="background:#e3f2fd">🐟</div><div class="nb"><span class="tag az">Naturaleza</span><div class="nt">Rescate masivo de tortugas en el río Caguán</div><div class="nd">Hace 2 horas</div></div></div><div class="card"><div class="ni" style="background:#fce4ec">🎭</div><div class="nb"><span class="tag ro">Cultura</span><div class="nt">Festival de teatro internacional en Florencia</div><div class="nd">Hace 4 horas</div></div></div><div class="card"><div class="ni" style="background:#fff3e0">⚽</div><div class="nb"><span class="tag na">Deportes</span><div class="nt">Caquetá FC clasifica a la final regional</div><div class="nd">Ayer</div></div></div><div class="card"><div class="ni" style="background:#e8f5e9">🌾</div><div class="nb"><span class="tag vd">Economía</span><div class="nt">Cacao caquetano conquista mercados europeos</div><div class="nd">Ayer</div></div></div><div class="card"><div class="ni" style="background:#f3e5f5">🏥</div><div class="nb"><span class="tag mo">Salud</span><div class="nt">Nueva unidad de salud en San Vicente</div><div class="nd">Hace 2 días</div></div></div></div></div></div>
-
-  <div class="page" id="page-publicidad"><div class="cp"><div class="pbn"><div style="font-size:2rem">📢</div><div><h3>¿Tienes un negocio en el Caquetá?</h3><p>Llega a miles de usuarios de tu región</p></div><button class="pbb">Publicar aviso</button></div><div class="ptt">🛒 Directorio comercial</div><div class="pg"><div class="pc"><div class="pci" style="background:#fff3e0">🛒</div><div class="pcb"><div class="pct">Mercado</div><div class="pcn">Mercado Caquetá Fresco</div><div class="pcd">Frutas y verduras a precios del campo.</div><button class="pcbtn">Ver más</button></div></div><div class="pc"><div class="pci" style="background:#e8f5e9">🏠</div><div class="pcb"><div class="pct">Finca Raíz</div><div class="pcn">Inmobiliaria Amazonia</div><div class="pcd">Lotes, fincas y casas.</div><button class="pcbtn">Ver más</button></div></div><div class="pc"><div class="pci" style="background:#e3f2fd">🚌</div><div class="pcb"><div class="pct">Transporte</div><div class="pcn">Transportes del Sur</div><div class="pcd">Rutas desde Florencia.</div><button class="pcbtn">Ver más</button></div></div><div class="pc"><div class="pci" style="background:#fce4ec">🍽️</div><div class="pcb"><div class="pct">Restaurante</div><div class="pcn">Sabor Amazónico</div><div class="pcd">Gastronomía típica caquetana.</div><button class="pcbtn">Ver más</button></div></div><div class="pc"><div class="pci" style="background:#f3e5f5">💻</div><div class="pcb"><div class="pct">Tecnología</div><div class="pcn">TechCaquetá</div><div class="pcd">Reparación de equipos.</div><button class="pcbtn">Ver más</button></div></div><div class="pc"><div class="pci" style="background:#e8f5e9">🌿</div><div class="pcb"><div class="pct">Turismo</div><div class="pcn">Ecoturismo Caguán</div><div class="pcd">Tours por la selva amazónica.</div><button class="pcbtn">Ver más</button></div></div></div></div></div>
-
-  <div class="page" id="page-eventos"><div class="cp"><div class="ptt">🎉 Eventos en el Caquetá</div><div class="ng"><div class="card"><div class="ni" style="background:#fff3e0;font-size:2.5rem">🎭</div><div class="nb"><span class="tag na">Festival</span><div class="nt">Festival de Teatro Internacional Florencia</div><div class="nd">📅 15-20 Oct 2025</div></div></div><div class="card"><div class="ni" style="background:#e8f5e9;font-size:2.5rem">🌾</div><div class="nb"><span class="tag vd">Feria</span><div class="nt">Feria del Cacao Caquetano</div><div class="nd">📅 8 Nov 2025</div></div></div><div class="card"><div class="ni" style="background:#e3f2fd;font-size:2.5rem">⚽</div><div class="nb"><span class="tag az">Deportes</span><div class="nt">Final Regional de Fútbol</div><div class="nd">📅 2 Nov 2025</div></div></div><div class="card"><div class="ni" style="background:#fce4ec;font-size:2.5rem">🎶</div><div class="nb"><span class="tag ro">Música</span><div class="nt">Noche de Llaneras — San Vicente</div><div class="nd">📅 28 Sep 2025</div></div></div></div></div></div>
-
-  <div class="mw" id="vm"><div class="mb2"><div class="mhd">📹 Videollamada <button class="mc" onclick="document.getElementById('vm').classList.remove('show')">✕</button></div><div style="background:#111;min-height:200px;display:flex;align-items:center;justify-content:center;color:#666;font-size:0.82rem;border-radius:0 0 14px 14px">Iniciando videollamada...</div></div></div>
-
+  <div class="page" id="page-noticias"><div class="cp"><div class="ptt">📰 Noticias del Caquetá</div><div class="ng"><div class="icard"><div class="ni" style="background:rgba(57,232,124,0.06)">🌿</div><div class="nb"><span class="h-tag vd">Departamento</span><div class="nt">Conectividad digital llega a 40 veredas rurales</div><div class="nd">Hace 1 hora</div></div></div><div class="icard"><div class="ni" style="background:rgba(59,130,246,0.06)">🐟</div><div class="nb"><span class="h-tag az">Naturaleza</span><div class="nt">Rescate masivo de tortugas en el río Caguán</div><div class="nd">Hace 2 horas</div></div></div><div class="icard"><div class="ni" style="background:rgba(236,72,153,0.06)">🎭</div><div class="nb"><span class="h-tag ro">Cultura</span><div class="nt">Festival de teatro internacional en Florencia</div><div class="nd">Hace 4 horas</div></div></div><div class="icard"><div class="ni" style="background:rgba(251,146,60,0.06)">⚽</div><div class="nb"><span class="h-tag na">Deportes</span><div class="nt">Caquetá FC clasifica a la final regional</div><div class="nd">Ayer</div></div></div><div class="icard"><div class="ni" style="background:rgba(57,232,124,0.06)">🌾</div><div class="nb"><span class="h-tag vd">Economía</span><div class="nt">Cacao caquetano conquista mercados europeos</div><div class="nd">Ayer</div></div></div><div class="icard"><div class="ni" style="background:rgba(167,139,250,0.06)">🏥</div><div class="nb"><span class="h-tag mo">Salud</span><div class="nt">Nueva unidad de salud en San Vicente</div><div class="nd">Hace 2 días</div></div></div></div></div></div>
+  <div class="page" id="page-publicidad"><div class="cp"><div class="pbn"><div style="font-size:2rem">📢</div><div><h3>¿Tienes un negocio en el Caquetá?</h3><p>Llega a miles de usuarios de tu región</p></div><button class="pbb">Publicar aviso</button></div><div class="ptt">🛒 Directorio comercial</div><div class="pg"><div class="pc"><div class="pci" style="background:rgba(251,146,60,0.06)">🛒</div><div class="pcb"><div class="pct">Mercado</div><div class="pcn">Mercado Caquetá Fresco</div><div class="pcd">Frutas y verduras a precios del campo.</div><button class="pcbtn">Ver más</button></div></div><div class="pc"><div class="pci" style="background:rgba(57,232,124,0.06)">🏠</div><div class="pcb"><div class="pct">Finca Raíz</div><div class="pcn">Inmobiliaria Amazonia</div><div class="pcd">Lotes, fincas y casas.</div><button class="pcbtn">Ver más</button></div></div><div class="pc"><div class="pci" style="background:rgba(59,130,246,0.06)">🚌</div><div class="pcb"><div class="pct">Transporte</div><div class="pcn">Transportes del Sur</div><div class="pcd">Rutas desde Florencia.</div><button class="pcbtn">Ver más</button></div></div><div class="pc"><div class="pci" style="background:rgba(236,72,153,0.06)">🍽️</div><div class="pcb"><div class="pct">Restaurante</div><div class="pcn">Sabor Amazónico</div><div class="pcd">Gastronomía típica caquetana.</div><button class="pcbtn">Ver más</button></div></div><div class="pc"><div class="pci" style="background:rgba(167,139,250,0.06)">💻</div><div class="pcb"><div class="pct">Tecnología</div><div class="pcn">TechCaquetá</div><div class="pcd">Reparación de equipos.</div><button class="pcbtn">Ver más</button></div></div><div class="pc"><div class="pci" style="background:rgba(57,232,124,0.06)">🌿</div><div class="pcb"><div class="pct">Turismo</div><div class="pcn">Ecoturismo Caguán</div><div class="pcd">Tours por la selva amazónica.</div><button class="pcbtn">Ver más</button></div></div></div></div></div>
+  <div class="page" id="page-eventos"><div class="cp"><div class="ptt">🎉 Eventos en el Caquetá</div><div class="ng"><div class="icard"><div class="ni" style="background:rgba(251,146,60,0.06);font-size:2.5rem">🎭</div><div class="nb"><span class="h-tag na">Festival</span><div class="nt">Festival de Teatro Internacional Florencia</div><div class="nd">📅 15-20 Oct 2025</div></div></div><div class="icard"><div class="ni" style="background:rgba(57,232,124,0.06);font-size:2.5rem">🌾</div><div class="nb"><span class="h-tag vd">Feria</span><div class="nt">Feria del Cacao Caquetano</div><div class="nd">📅 8 Nov 2025</div></div></div><div class="icard"><div class="ni" style="background:rgba(59,130,246,0.06);font-size:2.5rem">⚽</div><div class="nb"><span class="h-tag az">Deportes</span><div class="nt">Final Regional de Fútbol</div><div class="nd">📅 2 Nov 2025</div></div></div><div class="icard"><div class="ni" style="background:rgba(236,72,153,0.06);font-size:2.5rem">🎶</div><div class="nb"><span class="h-tag ro">Música</span><div class="nt">Noche de Llaneras — San Vicente</div><div class="nd">📅 28 Sep 2025</div></div></div></div></div></div>
+  <div class="mw" id="vm"><div class="mb2"><div class="mhd">📹 Videollamada <button class="mc" onclick="document.getElementById('vm').classList.remove('show')">✕</button></div><div style="background:var(--bg0);min-height:200px;display:flex;align-items:center;justify-content:center;color:var(--tx3);font-size:0.82rem">Iniciando...</div></div></div>
   <div id="contenedor-privado"></div>
 </div>
-
 <script type="module">
 import{initializeApp}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import{getAuth,GoogleAuthProvider,signInWithPopup,signOut,onAuthStateChanged}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 import{getFirestore,collection,addDoc,query,orderBy,limit,onSnapshot,serverTimestamp,doc,setDoc,getDocs}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-
 const app=initializeApp({apiKey:"AIzaSyDehFdJAKNzvCGPRB3rca6VmEMTvdpO-2M",authDomain:"caquetachat.firebaseapp.com",projectId:"caquetachat",storageBucket:"caquetachat.firebasestorage.app",messagingSenderId:"911518784033",appId:"1:911518784033:web:9c003be112ad6880a1e160"});
 const auth=getAuth(app),db=getFirestore(app);
 let user=null,sala="plaza",unsub=null,unsubU=null,rec=false,mr=null,chunks=[],privAbierto=null,unsubPriv=null;
@@ -369,20 +422,12 @@ const SL=document.getElementById("screen-load"),SLG=document.getElementById("scr
 function show(s){SL.style.display="none";SLG.classList.remove("show");SA.classList.remove("show");if(s==="login")SLG.classList.add("show");else SA.classList.add("show");}
 document.getElementById("btn-login").onclick=async()=>{try{await signInWithPopup(auth,new GoogleAuthProvider());}catch(e){alert("Error: "+e.message);}};
 document.getElementById("btn-out").onclick=()=>signOut(auth);
-onAuthStateChanged(auth,async u=>{
-  if(u){user=u;show("app");
-    const av=document.getElementById("uav");
-    if(u.photoURL){av.innerHTML=`<img src="${u.photoURL}">`;}else{av.textContent=u.displayName?.charAt(0)||"U";}
-    document.getElementById("unm").textContent=u.displayName?.split(" ")[0]||"";
-    await setDoc(doc(db,"presencia",u.uid),{nombre:u.displayName||"Usuario",foto:u.photoURL||"",online:true,ts:serverTimestamp()},{merge:true});
-    loadOnline();loadUsuariosChat();loadChat("plaza");
-  }else{user=null;show("login");}
-});
+onAuthStateChanged(auth,async u=>{if(u){user=u;show("app");const av=document.getElementById("uav");if(u.photoURL){av.innerHTML=`<img src="${u.photoURL}">`;}else{av.textContent=u.displayName?.charAt(0)||"U";}document.getElementById("unm").textContent=u.displayName?.split(" ")[0]||"";await setDoc(doc(db,"presencia",u.uid),{nombre:u.displayName||"Usuario",foto:u.photoURL||"",online:true,ts:serverTimestamp()},{merge:true});loadOnline();loadUsuariosChat();loadChat("plaza");}else{user=null;show("login");}});
 document.querySelectorAll(".ntab").forEach(b=>b.onclick=()=>{document.querySelectorAll(".ntab").forEach(x=>x.classList.remove("active"));b.classList.add("active");document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));document.getElementById("page-"+b.dataset.p).classList.add("active");if(b.dataset.p==="chat")loadChat(sala);});
 window.gp=p=>{document.querySelectorAll(".ntab").forEach(b=>b.classList.toggle("active",b.dataset.p===p));document.querySelectorAll(".page").forEach(x=>x.classList.remove("active"));document.getElementById("page-"+p).classList.add("active");if(p==="chat")loadChat(sala);};
 window.cs=(s,nm,el)=>{document.querySelectorAll(".sala").forEach(x=>x.classList.remove("active"));el.classList.add("active");sala=s;document.getElementById("rnm").textContent=nm;loadChat(s);};
 function loadChat(s){if(unsub)unsub();const c=document.getElementById("msgs");c.innerHTML='<div class="mph">Cargando...</div>';const q=query(collection(db,"salas",s,"mensajes"),orderBy("timestamp","asc"),limit(60));unsub=onSnapshot(q,snap=>{c.innerHTML="";let ld="";snap.forEach(d=>{const m=d.data();const fd=m.timestamp?.toDate();const fs=fd?fd.toLocaleDateString("es-CO",{weekday:"long",day:"numeric",month:"long"}):"";if(fs&&fs!==ld){const dv=document.createElement("div");dv.className="dd";dv.innerHTML=`<span>${fs}</span>`;c.appendChild(dv);ld=fs;}c.appendChild(mkBub(m));});c.scrollTop=c.scrollHeight;document.getElementById("rst").textContent=snap.size+" mensajes en esta sala";});}
-function mkBub(m){const me=m.uid===user?.uid;const row=document.createElement("div");row.className="mr2"+(me?" me":"");const hr=m.timestamp?.toDate()?.toLocaleTimeString("es-CO",{hour:"2-digit",minute:"2-digit"})||"";const lt=(m.nombre||"U").charAt(0).toUpperCase();const cols=["#e8f5e9","#e3f2fd","#fff3e0","#fce4ec","#f3e5f5"];const col=cols[(m.nombre||"").charCodeAt(0)%cols.length]||"#e8f5e9";const avH=m.foto?`<div class="av"><img src="${m.foto}"></div>`:`<div class="av" style="background:${col}">${lt}</div>`;let cont="";if(m.tipo==="texto")cont=`<div class="snm">${m.nombre||"U"}</div><div class="bub">${esc(m.texto)}</div><div class="mm">${hr}${me?" ✓✓":""}</div>`;else if(m.tipo==="imagen")cont=`<div class="snm">${m.nombre||"U"}</div><div class="ib"><img src="${m.url}" loading="lazy"><div class="ic">${esc(m.nf||"Img")}</div></div><div class="mm">${hr}</div>`;else if(m.tipo==="archivo")cont=`<div class="snm">${m.nombre||"U"}</div><div class="fb2"><div class="fi">📄</div><div><div class="fn">${esc(m.nf||"Archivo")}</div><div class="fz">${m.sz||""}</div></div><a href="${m.url}" target="_blank" style="font-size:0.75rem;color:var(--vm);text-decoration:none;margin-left:4px">⬇</a></div><div class="mm">${hr}</div>`;else if(m.tipo==="audio"){const wv=Array.from({length:18},(_,i)=>`<div class="wb2" style="height:${[10,16,22,14,26,18,12,20,16,24,10,18,14,22,16,12,20,8][i]}px"></div>`).join("");cont=`<div class="snm">${m.nombre||"U"}</div><div class="ab"><button class="ppb" onclick="new Audio('${m.url}').play()">▶</button><div class="wf">${wv}</div><span class="ad">${m.dur||"0:10"}</span></div><div class="mm">${hr}</div>`;}
+function mkBub(m){const me=m.uid===user?.uid;const row=document.createElement("div");row.className="mr2"+(me?" me":"");const hr=m.timestamp?.toDate()?.toLocaleTimeString("es-CO",{hour:"2-digit",minute:"2-digit"})||"";const lt=(m.nombre||"U").charAt(0).toUpperCase();const cols=["#1a3a2a","#1a2a3a","#2a1a3a","#3a2a1a","#1a3a3a"];const col=cols[(m.nombre||"").charCodeAt(0)%cols.length];const avH=m.foto?`<div class="av"><img src="${m.foto}"></div>`:`<div class="av" style="background:${col};color:#a8c4b0">${lt}</div>`;let cont="";if(m.tipo==="texto")cont=`<div class="snm">${m.nombre||"U"}</div><div class="bub">${esc(m.texto)}</div><div class="mm">${hr}${me?" ✓✓":""}</div>`;else if(m.tipo==="imagen")cont=`<div class="snm">${m.nombre||"U"}</div><div class="ib"><img src="${m.url}" loading="lazy"><div class="ic">${esc(m.nf||"Img")}</div></div><div class="mm">${hr}</div>`;else if(m.tipo==="archivo")cont=`<div class="snm">${m.nombre||"U"}</div><div class="fb2"><div class="fi">📄</div><div><div class="fn">${esc(m.nf||"Archivo")}</div><div class="fz">${m.sz||""}</div></div><a href="${m.url}" target="_blank" style="font-size:0.75rem;color:var(--gr3);text-decoration:none;margin-left:4px">⬇</a></div><div class="mm">${hr}</div>`;else if(m.tipo==="audio"){const wv=Array.from({length:18},(_,i)=>`<div class="wb2" style="height:${[10,16,22,14,26,18,12,20,16,24,10,18,14,22,16,12,20,8][i]}px"></div>`).join("");cont=`<div class="snm">${m.nombre||"U"}</div><div class="ab"><button class="ppb" onclick="new Audio('${m.url}').play()">▶</button><div class="wf">${wv}</div><span class="ad">${m.dur||"0:10"}</span></div><div class="mm">${hr}</div>`;}
 row.innerHTML=avH+`<div>${cont}</div>`;return row;}
 window.enviar=async()=>{const inp=document.getElementById("minp");const txt=inp.value.trim();if(!txt||!user)return;inp.value="";await addDoc(collection(db,"salas",sala,"mensajes"),{tipo:"texto",texto:txt,uid:user.uid,nombre:user.displayName||"Usuario",foto:user.photoURL||"",timestamp:serverTimestamp()});};
 document.getElementById("minp").addEventListener("keydown",e=>{if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();enviar();}});
@@ -391,14 +436,14 @@ window.upImg=async inp=>{const f=inp.files[0];if(!f||!user)return;inp.value="";c
 window.upFile=async inp=>{const f=inp.files[0];if(!f||!user)return;inp.value="";const r=new FileReader();r.onloadend=async()=>{if(r.result.length>900000){alert("Archivo muy grande. Máx 700KB");return;}const kb=Math.round(f.size/1024);const sz=kb>1024?(kb/1024).toFixed(1)+" MB":kb+" KB";await addDoc(collection(db,"salas",sala,"mensajes"),{tipo:"archivo",url:r.result,nf:f.name,sz,uid:user.uid,nombre:user.displayName||"Usuario",foto:user.photoURL||"",timestamp:serverTimestamp()});};r.readAsDataURL(f);};
 const emjs=["🌿","🐟","🦜","🌺","🌅","😊","🎉","👋","❤️","🌱"];
 window.addEmoji=()=>{const i=document.getElementById("minp");i.value+=emjs[Math.floor(Math.random()*emjs.length)];i.focus();};
-function loadUsuariosChat(){const lista=document.getElementById("lista-usuarios-chat");const contador=document.getElementById("contador-online");if(unsubU)unsubU();unsubU=onSnapshot(collection(db,"presencia"),snap=>{lista.innerHTML="";const colores=["#e8f5e9","#e3f2fd","#fff3e0","#fce4ec","#f3e5f5"];let count=0;const tit=document.createElement("div");tit.className="seccion-estado";tit.textContent="En línea";lista.appendChild(tit);snap.forEach(d=>{const u=d.data();if(d.id===user?.uid)return;count++;const lt=(u.nombre||"U").charAt(0).toUpperCase();const col=colores[(u.nombre||"").charCodeAt(0)%colores.length];const el=document.createElement("div");el.className="user-en-linea";el.title=`Chatear con ${u.nombre||"Usuario"}`;el.innerHTML=`<div class="user-av-wrap"><div class="user-av" style="background:${col}">${u.foto?`<img src="${u.foto}">`:`<span>${lt}</span>`}</div><div class="user-estado-dot" style="background:#39e87c"></div></div><div class="user-info"><div class="user-nombre">${esc(u.nombre||"Usuario")}</div><div class="user-ciudad">📍 Caquetá</div></div><span style="font-size:0.7rem;color:var(--vm)">💬</span>`;el.onclick=()=>abrirChatPrivado(d.id,u);lista.appendChild(el);});contador.textContent=count+" en línea";if(count===0){lista.innerHTML+='<div style="font-size:0.72rem;color:#9aab9e;padding:12px">Nadie más en línea</div>';}});}
-function abrirChatPrivado(otroUid,otroUser){if(privAbierto===otroUid)return;privAbierto=otroUid;const chatId=[user.uid,otroUid].sort().join("_");if(unsubPriv)unsubPriv();const c=document.getElementById("contenedor-privado");const lt=(otroUser.nombre||"U").charAt(0).toUpperCase();const cols=["#e8f5e9","#e3f2fd","#fff3e0","#fce4ec","#f3e5f5"];const col=cols[(otroUser.nombre||"").charCodeAt(0)%cols.length];c.innerHTML=`<div class="priv-chat" id="ventana-privada"><div class="priv-header"><div class="priv-av" style="background:${col}">${otroUser.foto?`<img src="${otroUser.foto}">`:`<span>${lt}</span>`}</div><span class="priv-nombre">${esc(otroUser.nombre||"Usuario")}</span><div class="priv-acciones"><button class="priv-btn" onclick="alert('Videollamada próximamente')" title="Videollamada">📹</button><button class="priv-btn" onclick="alert('Llamada próximamente')" title="Llamada">📞</button><button class="priv-btn" onclick="cerrarPrivado()" title="Cerrar">✕</button></div></div><div class="priv-msgs" id="priv-msgs"><div style="text-align:center;color:#9aab9e;font-size:0.75rem;margin:auto">Cargando...</div></div><div class="priv-input-area"><div class="priv-opciones"><button class="priv-opt" onclick="document.getElementById('priv-img').click()" title="Imagen">📷</button></div><input type="file" id="priv-img" accept="image/*" style="display:none" onchange="privEnviarImg(this,'${chatId}')"><textarea id="priv-inp" class="priv-inp" rows="1" placeholder="Mensaje privado..."></textarea><button class="priv-send" onclick="privEnviar('${chatId}')">➤</button></div></div>`;
+function loadUsuariosChat(){const lista=document.getElementById("lista-usuarios-chat");const contador=document.getElementById("contador-online");if(unsubU)unsubU();unsubU=onSnapshot(collection(db,"presencia"),snap=>{lista.innerHTML="";const cols=["#1a3a2a","#1a2a3a","#2a1a3a","#3a2a1a","#1a3a3a"];let count=0;const tit=document.createElement("div");tit.className="seccion-estado";tit.textContent="En línea";lista.appendChild(tit);snap.forEach(d=>{const u=d.data();if(d.id===user?.uid)return;count++;const lt=(u.nombre||"U").charAt(0).toUpperCase();const col=cols[(u.nombre||"").charCodeAt(0)%cols.length];const el=document.createElement("div");el.className="user-en-linea";el.title=`Chatear con ${u.nombre||"Usuario"}`;el.innerHTML=`<div class="user-av-wrap"><div class="user-av" style="background:${col};color:#a8c4b0">${u.foto?`<img src="${u.foto}">`:`<span>${lt}</span>`}</div><div class="user-estado-dot" style="background:#39e87c"></div></div><div class="user-info"><div class="user-nombre">${esc(u.nombre||"Usuario")}</div><div class="user-ciudad">📍 Caquetá</div></div><span style="font-size:0.7rem;color:var(--gr2)">💬</span>`;el.onclick=()=>abrirChatPrivado(d.id,u);lista.appendChild(el);});contador.textContent=count+" en línea";if(count===0){lista.innerHTML+='<div style="font-size:0.72rem;color:var(--tx3);padding:12px">Nadie más en línea</div>';}});}
+function abrirChatPrivado(otroUid,otroUser){if(privAbierto===otroUid)return;privAbierto=otroUid;const chatId=[user.uid,otroUid].sort().join("_");if(unsubPriv)unsubPriv();const c=document.getElementById("contenedor-privado");const lt=(otroUser.nombre||"U").charAt(0).toUpperCase();const cols=["#1a3a2a","#1a2a3a","#2a1a3a","#3a2a1a","#1a3a3a"];const col=cols[(otroUser.nombre||"").charCodeAt(0)%cols.length];c.innerHTML=`<div class="priv-chat" id="ventana-privada"><div class="priv-header"><div class="priv-av" style="background:${col};color:#a8c4b0">${otroUser.foto?`<img src="${otroUser.foto}">`:`<span>${lt}</span>`}</div><span class="priv-nombre">${esc(otroUser.nombre||"Usuario")}</span><div class="priv-acciones"><button class="priv-btn" onclick="alert('Videollamada próximamente')">📹</button><button class="priv-btn" onclick="alert('Llamada próximamente')">📞</button><button class="priv-btn" onclick="cerrarPrivado()">✕</button></div></div><div class="priv-msgs" id="priv-msgs"><div style="text-align:center;color:var(--tx3);font-size:0.75rem;margin:auto">Cargando...</div></div><div class="priv-input-area"><div class="priv-opciones"><button class="priv-opt" onclick="document.getElementById('priv-img').click()">📷</button></div><input type="file" id="priv-img" accept="image/*" style="display:none" onchange="privEnviarImg(this,'${chatId}')"><textarea id="priv-inp" class="priv-inp" rows="1" placeholder="Mensaje privado..."></textarea><button class="priv-send" onclick="privEnviar('${chatId}')">➤</button></div></div>`;
 document.getElementById("priv-inp").addEventListener("keydown",e=>{if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();privEnviar(chatId);}});
-const q=query(collection(db,"privados",chatId,"mensajes"),orderBy("timestamp","asc"),limit(100));unsubPriv=onSnapshot(q,snap=>{const box=document.getElementById("priv-msgs");if(!box)return;box.innerHTML="";if(snap.empty){box.innerHTML='<div style="text-align:center;color:#9aab9e;font-size:0.75rem;margin:auto;padding:20px">Di hola 👋</div>';return;}snap.forEach(d=>{const m=d.data();const yo=m.uid===user.uid;const hr=m.timestamp?.toDate()?.toLocaleTimeString("es-CO",{hour:"2-digit",minute:"2-digit"})||"";const bub=document.createElement("div");bub.style.display="flex";bub.style.flexDirection="column";bub.style.alignItems=yo?"flex-end":"flex-start";if(m.tipo==="imagen"){bub.innerHTML=`<img src="${m.url}" style="max-width:170px;border-radius:10px"><span class="priv-hora">${hr}</span>`;}else{bub.innerHTML=`<div class="priv-bub ${yo?'yo':'ellos'}">${esc(m.texto||"")}</div><span class="priv-hora">${hr}</span>`;}box.appendChild(bub);});box.scrollTop=box.scrollHeight;});}
+const q=query(collection(db,"privados",chatId,"mensajes"),orderBy("timestamp","asc"),limit(100));unsubPriv=onSnapshot(q,snap=>{const box=document.getElementById("priv-msgs");if(!box)return;box.innerHTML="";if(snap.empty){box.innerHTML='<div style="text-align:center;color:var(--tx3);font-size:0.75rem;margin:auto;padding:20px">Di hola 👋</div>';return;}snap.forEach(d=>{const m=d.data();const yo=m.uid===user.uid;const hr=m.timestamp?.toDate()?.toLocaleTimeString("es-CO",{hour:"2-digit",minute:"2-digit"})||"";const bub=document.createElement("div");bub.style.display="flex";bub.style.flexDirection="column";bub.style.alignItems=yo?"flex-end":"flex-start";if(m.tipo==="imagen"){bub.innerHTML=`<img src="${m.url}" style="max-width:170px;border-radius:10px;border:1px solid var(--bd1)"><span class="priv-hora">${hr}</span>`;}else{bub.innerHTML=`<div class="priv-bub ${yo?'yo':'ellos'}">${esc(m.texto||"")}</div><span class="priv-hora">${hr}</span>`;}box.appendChild(bub);});box.scrollTop=box.scrollHeight;});}
 window.privEnviar=async(chatId)=>{const inp=document.getElementById("priv-inp");const txt=inp?.value.trim();if(!txt||!user)return;inp.value="";await addDoc(collection(db,"privados",chatId,"mensajes"),{tipo:"texto",texto:txt,uid:user.uid,nombre:user.displayName||"Usuario",timestamp:serverTimestamp()});};
 window.privEnviarImg=async(inp,chatId)=>{const f=inp.files[0];if(!f||!user)return;inp.value="";const r=new FileReader();r.onloadend=async()=>{if(r.result.length>900000){alert("Imagen muy grande");return;}await addDoc(collection(db,"privados",chatId,"mensajes"),{tipo:"imagen",url:r.result,uid:user.uid,nombre:user.displayName||"Usuario",timestamp:serverTimestamp()});};r.readAsDataURL(f);};
 window.cerrarPrivado=()=>{if(unsubPriv){unsubPriv();unsubPriv=null;}privAbierto=null;document.getElementById("contenedor-privado").innerHTML="";};
-async function loadOnline(){const c=document.getElementById("online-list");try{const s=await getDocs(collection(db,"presencia"));if(s.empty){c.innerHTML='<div style="font-size:0.75rem;color:#9aab9e">Sin usuarios aún</div>';return;}c.innerHTML="";let n=0;s.forEach(d=>{if(n>=5)return;const u=d.data();const lt=(u.nombre||"U").charAt(0).toUpperCase();const cols=["#e8f5e9","#e3f2fd","#fff3e0","#fce4ec","#f3e5f5"];const col=cols[(u.nombre||"").charCodeAt(0)%cols.length];const row=document.createElement("div");row.className="ur";row.innerHTML=`<div class="ua" style="background:${col}">${u.foto?`<img src="${u.foto}">`:`<span>${lt}</span>`}</div><span class="un">${(u.nombre||"U").split(" ")[0]}</span><div class="ud"></div>`;c.appendChild(row);n++;});}catch(e){c.innerHTML='<div style="font-size:0.75rem;color:#9aab9e">Cargando...</div>';}}
+async function loadOnline(){const c=document.getElementById("online-list");try{const s=await getDocs(collection(db,"presencia"));const hc=document.getElementById("hero-online-count");if(hc)hc.textContent=s.size;if(s.empty){c.innerHTML='<div style="font-size:0.75rem;color:var(--tx3)">Sin usuarios aún</div>';return;}c.innerHTML="";let n=0;s.forEach(d=>{if(n>=5)return;const u=d.data();const lt=(u.nombre||"U").charAt(0).toUpperCase();const cols=["#1a3a2a","#1a2a3a","#2a1a3a","#3a2a1a","#1a3a3a"];const col=cols[(u.nombre||"").charCodeAt(0)%cols.length];const row=document.createElement("div");row.className="online-row";row.innerHTML=`<div class="online-av" style="background:${col};color:#a8c4b0">${u.foto?`<img src="${u.foto}">`:`<span style="font-size:0.6rem;font-weight:700">${lt}</span>`}</div><span class="online-name">${(u.nombre||"U").split(" ")[0]}</span><div class="online-dot"></div>`;c.appendChild(row);n++;});}catch(e){c.innerHTML='<div style="font-size:0.75rem;color:var(--tx3)">Cargando...</div>';}}
 function esc(t){return t?.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")||"";}
 </script>
 </body>
