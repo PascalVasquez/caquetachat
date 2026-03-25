@@ -9,8 +9,13 @@
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--vd:#1a6b3c;--vm:#2db86b;--vn:#39e87c;--cr:#f8f4ec;--os:#0d1f15}
 body{font-family:'DM Sans',sans-serif;background:#f0f4f1;color:var(--os)}
-.screen{display:none}.screen.active{display:block}
-#screen-login{min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--cr);position:relative;overflow:hidden}
+#screen-login{display:none;min-height:100vh;align-items:center;justify-content:center;background:var(--cr);position:relative;overflow:hidden}
+#screen-login.show{display:flex}
+#screen-app{display:none}
+#screen-app.show{display:block}
+#screen-load{min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--cr)}
+.spin{width:40px;height:40px;border:3px solid rgba(26,107,60,0.2);border-top-color:var(--vd);border-radius:50%;animation:sp 0.8s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
 .ll{position:absolute;font-size:220px;opacity:0.07;pointer-events:none}
 .ll.a{top:-60px;left:-80px;transform:rotate(-15deg)}
 .ll.b{bottom:-60px;right:-80px;transform:rotate(20deg)}
@@ -74,9 +79,9 @@ body{font-family:'DM Sans',sans-serif;background:#f0f4f1;color:var(--os)}
 .pl{font-size:0.6rem;color:#ccc;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
 .pi{background:#fff3e0;border-radius:10px;padding:14px;text-align:center}
 .pio{font-size:1.6rem;margin-bottom:4px}
-.pt{font-size:0.85rem;font-weight:700;color:#e65100}
+.pt2{font-size:0.85rem;font-weight:700;color:#e65100}
 .ps{font-size:0.7rem;color:#bf360c;margin-top:2px}
-.pb{background:#e65100;color:#fff;border:none;border-radius:20px;padding:5px 15px;font-size:0.7rem;margin-top:8px;cursor:pointer;font-family:'DM Sans',sans-serif}
+.pb2{background:#e65100;color:#fff;border:none;border-radius:20px;padding:5px 15px;font-size:0.7rem;margin-top:8px;cursor:pointer;font-family:'DM Sans',sans-serif}
 .ur{display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:0.5px solid rgba(26,107,60,0.07)}
 .ur:last-child{border:none}
 .ua{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.6rem;font-weight:700;flex-shrink:0;overflow:hidden}
@@ -90,7 +95,7 @@ body{font-family:'DM Sans',sans-serif;background:#f0f4f1;color:var(--os)}
 .spt{padding:11px 13px;font-size:0.78rem;font-weight:700;color:var(--vd);border-bottom:0.5px solid rgba(26,107,60,0.1);position:sticky;top:0;background:#fff}
 .sala{display:flex;align-items:center;gap:7px;padding:9px 13px;cursor:pointer;border-left:3px solid transparent;transition:all 0.15s}
 .sala:hover,.sala.active{background:#f0f7f3;border-left-color:var(--vm)}
-.sd{width:6px;height:6px;border-radius:50%;background:var(--vn);flex-shrink:0}
+.sd2{width:6px;height:6px;border-radius:50%;background:var(--vn);flex-shrink:0}
 .se{font-size:0.95rem}
 .sn{font-size:0.78rem;font-weight:500;color:var(--os)}
 .cm{display:flex;flex-direction:column;height:calc(100vh - 54px);overflow:hidden}
@@ -98,7 +103,7 @@ body{font-family:'DM Sans',sans-serif;background:#f0f4f1;color:var(--os)}
 .rn{font-weight:700;font-size:0.92rem;color:var(--os)}
 .rs{font-size:0.68rem;color:#7a8c7e;margin-top:1px}
 .ca{display:flex;gap:6px}
-.hb{background:none;border:1px solid rgba(26,107,60,0.18);border-radius:8px;padding:5px 10px;font-size:0.73rem;cursor:pointer;color:#4a6b56;font-family:'DM Sans',sans-serif;transition:all 0.15s}
+.hb{background:none;border:1px solid rgba(26,107,60,0.18);border-radius:8px;padding:5px 10px;font-size:0.73rem;cursor:pointer;color:#4a6b56;font-family:'DM Sans',sans-serif}
 .hb:hover{background:#f0f7f3;border-color:var(--vm)}
 .msgs{flex:1;overflow-y:auto;padding:13px 15px;display:flex;flex-direction:column;gap:10px;background:#f8faf8}
 .mph{text-align:center;color:#9aab9e;font-size:0.82rem;margin:auto;padding:2rem}
@@ -126,16 +131,16 @@ body{font-family:'DM Sans',sans-serif;background:#f0f4f1;color:var(--os)}
 .fb{background:#fff;border:0.5px solid rgba(26,107,60,0.12);border-radius:12px;padding:8px 11px;display:flex;align-items:center;gap:9px;min-width:170px}
 .fi{width:34px;height:34px;border-radius:7px;background:#e8f5e9;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
 .fn{font-size:0.73rem;font-weight:600;color:var(--os)}
-.fs{font-size:0.62rem;color:#7a8c7e}
+.fz{font-size:0.62rem;color:#7a8c7e}
 .cft{background:#fff;border-top:0.5px solid rgba(26,107,60,0.1);padding:9px 13px;flex-shrink:0}
 .mt{display:flex;gap:5px;margin-bottom:7px;flex-wrap:wrap}
-.mtl{background:none;border:1px solid rgba(26,107,60,0.18);border-radius:7px;padding:4px 9px;font-size:0.73rem;cursor:pointer;color:#4a6b56;font-family:'DM Sans',sans-serif;transition:all 0.15s}
+.mtl{background:none;border:1px solid rgba(26,107,60,0.18);border-radius:7px;padding:4px 9px;font-size:0.73rem;cursor:pointer;color:#4a6b56;font-family:'DM Sans',sans-serif}
 .mtl:hover{background:#f0f7f3;border-color:var(--vm)}
 .mtl.rec{background:#ffebee;border-color:#f44336;color:#c62828}
 .ir{display:flex;gap:7px;align-items:flex-end}
 .mi{flex:1;border:1.5px solid rgba(26,107,60,0.2);border-radius:18px;padding:7px 14px;font-size:0.85rem;outline:none;resize:none;background:#f8faf8;color:var(--os);font-family:'DM Sans',sans-serif;transition:border-color 0.2s;max-height:100px}
 .mi:focus{border-color:var(--vm)}
-.sb{background:var(--vd);color:#fff;border:none;border-radius:50%;width:37px;height:37px;cursor:pointer;font-size:0.85rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.2s}
+.sb{background:var(--vd);color:#fff;border:none;border-radius:50%;width:37px;height:37px;cursor:pointer;font-size:0.85rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .sb:hover{background:var(--vm);transform:scale(1.08)}
 .cp{padding:16px;max-width:1000px;margin:0 auto}
 .ptt{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;color:var(--vd);margin-bottom:14px}
@@ -159,7 +164,7 @@ body{font-family:'DM Sans',sans-serif;background:#f0f4f1;color:var(--os)}
 .pcbtn{background:#e65100;color:#fff;border:none;border-radius:20px;padding:5px 13px;font-size:0.7rem;margin-top:7px;cursor:pointer;font-family:'DM Sans',sans-serif}
 .mw{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.65);z-index:500;align-items:center;justify-content:center}
 .mw.show{display:flex}
-.mb{background:#fff;border-radius:16px;width:360px;overflow:hidden;max-width:95vw}
+.mb2{background:#fff;border-radius:16px;width:360px;overflow:hidden;max-width:95vw}
 .mhd{background:var(--vd);color:#fff;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;font-size:0.85rem;font-weight:600}
 .mc{background:none;border:none;color:#fff;font-size:1rem;cursor:pointer}
 ::-webkit-scrollbar{width:4px;height:4px}
@@ -168,21 +173,19 @@ body{font-family:'DM Sans',sans-serif;background:#f0f4f1;color:var(--os)}
 </style>
 </head>
 <body>
-<div id="screen-login" class="screen active">
+<div id="screen-load"><div class="spin"></div></div>
+<div id="screen-login">
   <div class="ll a">🌿</div>
   <div class="ll b">🍃</div>
   <div class="lbox">
     <div class="llogo">Caquet<span>á</span>Chat</div>
     <p class="ltag">La comunidad digital del departamento del Caquetá</p>
     <div class="lfeats"><span>💬 Chat</span><span>🎙️ Audio</span><span>📷 Cámara</span><span>📰 Noticias</span></div>
-    <button id="btn-login" class="gbtn">
-      <svg width="18" height="18" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-      Continuar con Google
-    </button>
+    <button id="btn-login" class="gbtn"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>Continuar con Google</button>
     <p class="lnote">Al entrar aceptas los términos de uso de CaquetáChat</p>
   </div>
 </div>
-<div id="screen-app" class="screen">
+<div id="screen-app">
   <nav class="topbar">
     <div class="logo">Caquet<span>á</span>Chat</div>
     <div class="ntabs">
@@ -192,20 +195,13 @@ body{font-family:'DM Sans',sans-serif;background:#f0f4f1;color:var(--os)}
       <button class="ntab" data-p="publicidad">📢 Publicidad</button>
       <button class="ntab" data-p="eventos">🎉 Eventos</button>
     </div>
-    <div class="tr">
-      <div id="uav" class="uav">?</div>
-      <span id="unm" class="unm"></span>
-      <button id="btn-out" class="obtn">⏻</button>
-    </div>
+    <div class="tr"><div id="uav" class="uav">?</div><span id="unm" class="unm"></span><button id="btn-out" class="obtn">⏻</button></div>
   </nav>
   <div class="page active" id="page-inicio">
     <div class="portal">
       <div>
         <div class="hgrid">
-          <div class="card" onclick="gp('noticias')">
-            <div class="himg" style="background:#1a6b3c">🌿</div>
-            <div class="hbody"><span class="tag vd">Departamento</span><h3>Caquetá avanza en conectividad digital para zonas rurales</h3><p>El gobierno departamental lanzó un plan para llevar internet de alta velocidad a más de 40 veredas...</p></div>
-          </div>
+          <div class="card" onclick="gp('noticias')"><div class="himg" style="background:#1a6b3c">🌿</div><div class="hbody"><span class="tag vd">Departamento</span><h3>Caquetá avanza en conectividad digital para zonas rurales</h3><p>El gobierno lanzó un plan para llevar internet a más de 40 veredas...</p></div></div>
           <div class="nstk">
             <div class="card nmini" onclick="gp('noticias')"><div class="nth az">🐟</div><div class="ntxt"><span class="tag az">Naturaleza</span><h4>Rescate de tortugas en el Caguán</h4><p>Hace 2 horas</p></div></div>
             <div class="card nmini" onclick="gp('noticias')"><div class="nth ro">🎭</div><div class="ntxt"><span class="tag ro">Cultura</span><h4>Festival de teatro llega a Florencia</h4><p>Hace 4 horas</p></div></div>
@@ -221,7 +217,7 @@ body{font-family:'DM Sans',sans-serif;background:#f0f4f1;color:var(--os)}
       </div>
       <div class="scol">
         <div class="wc"><div class="wh">🌤️ Clima — Florencia</div><div class="wb"><div class="cr2"><span class="ci">⛅</span><div><div class="ct">28°C</div><div class="cn">Parcialmente nublado<br>Hum. 82%</div></div></div></div></div>
-        <div class="pw" onclick="gp('publicidad')"><div class="pl">Publicidad</div><div class="pi"><div class="pio">🛒</div><div class="pt">Mercado Caquetá</div><div class="ps">Productos frescos de tu región</div><button class="pb">Ver oferta →</button></div></div>
+        <div class="pw" onclick="gp('publicidad')"><div class="pl">Publicidad</div><div class="pi"><div class="pio">🛒</div><div class="pt2">Mercado Caquetá</div><div class="ps">Productos frescos de tu región</div><button class="pb2">Ver oferta →</button></div></div>
         <div class="wc"><div class="wh">👥 En línea ahora</div><div class="wb" id="online-list"><div style="font-size:0.75rem;color:#9aab9e">Cargando...</div></div><div style="padding:0 13px 10px"><button class="bc" onclick="gp('chat')">Ir al chat →</button></div></div>
       </div>
     </div>
@@ -230,21 +226,15 @@ body{font-family:'DM Sans',sans-serif;background:#f0f4f1;color:var(--os)}
     <div class="chat-layout">
       <div class="sp">
         <div class="spt">💬 Salas</div>
-        <div class="sala active" onclick="cs('plaza','🌿 Plaza Caquetá',this)"><span class="sd"></span><span class="se">🌿</span><span class="sn">Plaza Caquetá</span></div>
-        <div class="sala" onclick="cs('cultura','🎵 Cultura',this)"><span class="sd"></span><span class="se">🎵</span><span class="sn">Cultura y Arte</span></div>
-        <div class="sala" onclick="cs('empleo','💼 Empleo',this)"><span class="sd"></span><span class="se">💼</span><span class="sn">Empleo</span></div>
-        <div class="sala" onclick="cs('naturaleza','🐟 Naturaleza',this)"><span class="sd"></span><span class="se">🐟</span><span class="sn">Naturaleza</span></div>
-        <div class="sala" onclick="cs('deportes','⚽ Deportes',this)"><span class="sd"></span><span class="se">⚽</span><span class="sn">Deportes</span></div>
-        <div class="sala" onclick="cs('salud','🏥 Salud',this)"><span class="sd"></span><span class="se">🏥</span><span class="sn">Salud</span></div>
+        <div class="sala active" onclick="cs('plaza','🌿 Plaza Caquetá',this)"><span class="sd2"></span><span class="se">🌿</span><span class="sn">Plaza Caquetá</span></div>
+        <div class="sala" onclick="cs('cultura','🎵 Cultura',this)"><span class="sd2"></span><span class="se">🎵</span><span class="sn">Cultura y Arte</span></div>
+        <div class="sala" onclick="cs('empleo','💼 Empleo',this)"><span class="sd2"></span><span class="se">💼</span><span class="sn">Empleo</span></div>
+        <div class="sala" onclick="cs('naturaleza','🐟 Naturaleza',this)"><span class="sd2"></span><span class="se">🐟</span><span class="sn">Naturaleza</span></div>
+        <div class="sala" onclick="cs('deportes','⚽ Deportes',this)"><span class="sd2"></span><span class="se">⚽</span><span class="sn">Deportes</span></div>
+        <div class="sala" onclick="cs('salud','🏥 Salud',this)"><span class="sd2"></span><span class="se">🏥</span><span class="sn">Salud</span></div>
       </div>
       <div class="cm">
-        <div class="chd">
-          <div><div class="rn" id="rnm">🌿 Plaza Caquetá</div><div class="rs" id="rst">Cargando...</div></div>
-          <div class="ca">
-            <button class="hb" onclick="document.getElementById('vm').classList.add('show')">📹 Video</button>
-            <button class="hb" onclick="alert('Llamadas próximamente')">📞 Llamar</button>
-          </div>
-        </div>
+        <div class="chd"><div><div class="rn" id="rnm">🌿 Plaza Caquetá</div><div class="rs" id="rst">Cargando...</div></div><div class="ca"><button class="hb" onclick="document.getElementById('vm').classList.add('show')">📹 Video</button><button class="hb" onclick="alert('Próximamente')">📞 Llamar</button></div></div>
         <div class="msgs" id="msgs"><div class="mph">Selecciona una sala 👋</div></div>
         <div class="cft">
           <div class="mt">
@@ -254,57 +244,18 @@ body{font-family:'DM Sans',sans-serif;background:#f0f4f1;color:var(--os)}
             <button class="mtl" onclick="document.getElementById('img-in').click()">🖼️ Imagen</button>
             <button class="mtl" onclick="addEmoji()">😄 Emoji</button>
           </div>
-          <div class="ir">
-            <textarea id="minp" class="mi" rows="1" placeholder="Escribe un mensaje..."></textarea>
-            <button class="sb" onclick="enviar()">➤</button>
-          </div>
+          <div class="ir"><textarea id="minp" class="mi" rows="1" placeholder="Escribe un mensaje..."></textarea><button class="sb" onclick="enviar()">➤</button></div>
         </div>
         <input type="file" id="file-in" style="display:none" onchange="upFile(this)">
         <input type="file" id="img-in" accept="image/*" style="display:none" onchange="upImg(this)">
         <input type="file" id="cam-in" accept="image/*" capture="environment" style="display:none" onchange="upImg(this)">
       </div>
     </div>
-    <div class="mw" id="vm">
-      <div class="mb">
-        <div class="mhd">📹 Videollamada <button class="mc" onclick="document.getElementById('vm').classList.remove('show')">✕</button></div>
-        <div style="background:#111;min-height:200px;display:flex;align-items:center;justify-content:center;color:#666;font-size:0.82rem;border-radius:0 0 14px 14px">Iniciando...</div>
-      </div>
-    </div>
+    <div class="mw" id="vm"><div class="mb2"><div class="mhd">📹 Videollamada <button class="mc" onclick="document.getElementById('vm').classList.remove('show')">✕</button></div><div style="background:#111;min-height:200px;display:flex;align-items:center;justify-content:center;color:#666;font-size:0.82rem;border-radius:0 0 14px 14px">Iniciando...</div></div></div>
   </div>
-  <div class="page" id="page-noticias">
-    <div class="cp"><div class="ptt">📰 Noticias del Caquetá</div>
-    <div class="ng">
-      <div class="card"><div class="ni" style="background:#e8f5e9">🌿</div><div class="nb"><span class="tag vd">Departamento</span><div class="nt">Conectividad digital llega a 40 veredas rurales</div><div class="nd">Hace 1 hora</div></div></div>
-      <div class="card"><div class="ni" style="background:#e3f2fd">🐟</div><div class="nb"><span class="tag az">Naturaleza</span><div class="nt">Rescate masivo de tortugas en el río Caguán</div><div class="nd">Hace 2 horas</div></div></div>
-      <div class="card"><div class="ni" style="background:#fce4ec">🎭</div><div class="nb"><span class="tag ro">Cultura</span><div class="nt">Festival de teatro internacional en Florencia</div><div class="nd">Hace 4 horas</div></div></div>
-      <div class="card"><div class="ni" style="background:#fff3e0">⚽</div><div class="nb"><span class="tag na">Deportes</span><div class="nt">Caquetá FC clasifica a la final regional</div><div class="nd">Ayer</div></div></div>
-      <div class="card"><div class="ni" style="background:#e8f5e9">🌾</div><div class="nb"><span class="tag vd">Economía</span><div class="nt">Cacao caquetano conquista mercados europeos</div><div class="nd">Ayer</div></div></div>
-      <div class="card"><div class="ni" style="background:#f3e5f5">🏥</div><div class="nb"><span class="tag mo">Salud</span><div class="nt">Nueva unidad de salud en San Vicente del Caguán</div><div class="nd">Hace 2 días</div></div></div>
-    </div></div>
-  </div>
-  <div class="page" id="page-publicidad">
-    <div class="cp">
-      <div class="pbn"><div style="font-size:2rem">📢</div><div><h3>¿Tienes un negocio en el Caquetá?</h3><p>Llega a miles de usuarios de tu región</p></div><button class="pbb">Publicar aviso</button></div>
-      <div class="ptt">🛒 Directorio comercial</div>
-      <div class="pg">
-        <div class="pc"><div class="pci" style="background:#fff3e0">🛒</div><div class="pcb"><div class="pct">Mercado</div><div class="pcn">Mercado Caquetá Fresco</div><div class="pcd">Frutas y verduras a precios del campo.</div><button class="pcbtn">Ver más</button></div></div>
-        <div class="pc"><div class="pci" style="background:#e8f5e9">🏠</div><div class="pcb"><div class="pct">Finca Raíz</div><div class="pcn">Inmobiliaria Amazonia</div><div class="pcd">Lotes, fincas y casas en el departamento.</div><button class="pcbtn">Ver más</button></div></div>
-        <div class="pc"><div class="pci" style="background:#e3f2fd">🚌</div><div class="pcb"><div class="pct">Transporte</div><div class="pcn">Transportes del Sur</div><div class="pcd">Rutas desde Florencia.</div><button class="pcbtn">Ver más</button></div></div>
-        <div class="pc"><div class="pci" style="background:#fce4ec">🍽️</div><div class="pcb"><div class="pct">Restaurante</div><div class="pcn">Sabor Amazónico</div><div class="pcd">Gastronomía típica caquetana.</div><button class="pcbtn">Ver más</button></div></div>
-        <div class="pc"><div class="pci" style="background:#f3e5f5">💻</div><div class="pcb"><div class="pct">Tecnología</div><div class="pcn">TechCaquetá</div><div class="pcd">Reparación de equipos y accesorios.</div><button class="pcbtn">Ver más</button></div></div>
-        <div class="pc"><div class="pci" style="background:#e8f5e9">🌿</div><div class="pcb"><div class="pct">Turismo</div><div class="pcn">Ecoturismo Caguán</div><div class="pcd">Tours por la selva amazónica.</div><button class="pcbtn">Ver más</button></div></div>
-      </div>
-    </div>
-  </div>
-  <div class="page" id="page-eventos">
-    <div class="cp"><div class="ptt">🎉 Eventos en el Caquetá</div>
-    <div class="ng">
-      <div class="card"><div class="ni" style="background:#fff3e0;font-size:2.5rem">🎭</div><div class="nb"><span class="tag na">Festival</span><div class="nt">Festival de Teatro Internacional Florencia</div><div class="nd">📅 15-20 Oct 2025</div></div></div>
-      <div class="card"><div class="ni" style="background:#e8f5e9;font-size:2.5rem">🌾</div><div class="nb"><span class="tag vd">Feria</span><div class="nt">Feria del Cacao Caquetano</div><div class="nd">📅 8 Nov 2025</div></div></div>
-      <div class="card"><div class="ni" style="background:#e3f2fd;font-size:2.5rem">⚽</div><div class="nb"><span class="tag az">Deportes</span><div class="nt">Final Regional de Fútbol</div><div class="nd">📅 2 Nov 2025</div></div></div>
-      <div class="card"><div class="ni" style="background:#fce4ec;font-size:2.5rem">🎶</div><div class="nb"><span class="tag ro">Música</span><div class="nt">Noche de Llaneras — San Vicente</div><div class="nd">📅 28 Sep 2025</div></div></div>
-    </div></div>
-  </div>
+  <div class="page" id="page-noticias"><div class="cp"><div class="ptt">📰 Noticias del Caquetá</div><div class="ng"><div class="card"><div class="ni" style="background:#e8f5e9">🌿</div><div class="nb"><span class="tag vd">Departamento</span><div class="nt">Conectividad digital llega a 40 veredas rurales</div><div class="nd">Hace 1 hora</div></div></div><div class="card"><div class="ni" style="background:#e3f2fd">🐟</div><div class="nb"><span class="tag az">Naturaleza</span><div class="nt">Rescate masivo de tortugas en el río Caguán</div><div class="nd">Hace 2 horas</div></div></div><div class="card"><div class="ni" style="background:#fce4ec">🎭</div><div class="nb"><span class="tag ro">Cultura</span><div class="nt">Festival de teatro internacional en Florencia</div><div class="nd">Hace 4 horas</div></div></div><div class="card"><div class="ni" style="background:#fff3e0">⚽</div><div class="nb"><span class="tag na">Deportes</span><div class="nt">Caquetá FC clasifica a la final regional</div><div class="nd">Ayer</div></div></div><div class="card"><div class="ni" style="background:#e8f5e9">🌾</div><div class="nb"><span class="tag vd">Economía</span><div class="nt">Cacao caquetano conquista mercados europeos</div><div class="nd">Ayer</div></div></div><div class="card"><div class="ni" style="background:#f3e5f5">🏥</div><div class="nb"><span class="tag mo">Salud</span><div class="nt">Nueva unidad de salud en San Vicente</div><div class="nd">Hace 2 días</div></div></div></div></div></div>
+  <div class="page" id="page-publicidad"><div class="cp"><div class="pbn"><div style="font-size:2rem">📢</div><div><h3>¿Tienes un negocio en el Caquetá?</h3><p>Llega a miles de usuarios de tu región</p></div><button class="pbb">Publicar aviso</button></div><div class="ptt">🛒 Directorio comercial</div><div class="pg"><div class="pc"><div class="pci" style="background:#fff3e0">🛒</div><div class="pcb"><div class="pct">Mercado</div><div class="pcn">Mercado Caquetá Fresco</div><div class="pcd">Frutas y verduras a precios del campo.</div><button class="pcbtn">Ver más</button></div></div><div class="pc"><div class="pci" style="background:#e8f5e9">🏠</div><div class="pcb"><div class="pct">Finca Raíz</div><div class="pcn">Inmobiliaria Amazonia</div><div class="pcd">Lotes, fincas y casas.</div><button class="pcbtn">Ver más</button></div></div><div class="pc"><div class="pci" style="background:#e3f2fd">🚌</div><div class="pcb"><div class="pct">Transporte</div><div class="pcn">Transportes del Sur</div><div class="pcd">Rutas desde Florencia.</div><button class="pcbtn">Ver más</button></div></div><div class="pc"><div class="pci" style="background:#fce4ec">🍽️</div><div class="pcb"><div class="pct">Restaurante</div><div class="pcn">Sabor Amazónico</div><div class="pcd">Gastronomía típica caquetana.</div><button class="pcbtn">Ver más</button></div></div><div class="pc"><div class="pci" style="background:#f3e5f5">💻</div><div class="pcb"><div class="pct">Tecnología</div><div class="pcn">TechCaquetá</div><div class="pcd">Reparación de equipos.</div><button class="pcbtn">Ver más</button></div></div><div class="pc"><div class="pci" style="background:#e8f5e9">🌿</div><div class="pcb"><div class="pct">Turismo</div><div class="pcn">Ecoturismo Caguán</div><div class="pcd">Tours por la selva amazónica.</div><button class="pcbtn">Ver más</button></div></div></div></div></div>
+  <div class="page" id="page-eventos"><div class="cp"><div class="ptt">🎉 Eventos en el Caquetá</div><div class="ng"><div class="card"><div class="ni" style="background:#fff3e0;font-size:2.5rem">🎭</div><div class="nb"><span class="tag na">Festival</span><div class="nt">Festival de Teatro Internacional Florencia</div><div class="nd">📅 15-20 Oct 2025</div></div></div><div class="card"><div class="ni" style="background:#e8f5e9;font-size:2.5rem">🌾</div><div class="nb"><span class="tag vd">Feria</span><div class="nt">Feria del Cacao Caquetano</div><div class="nd">📅 8 Nov 2025</div></div></div><div class="card"><div class="ni" style="background:#e3f2fd;font-size:2.5rem">⚽</div><div class="nb"><span class="tag az">Deportes</span><div class="nt">Final Regional de Fútbol</div><div class="nd">📅 2 Nov 2025</div></div></div><div class="card"><div class="ni" style="background:#fce4ec;font-size:2.5rem">🎶</div><div class="nb"><span class="tag ro">Música</span><div class="nt">Noche de Llaneras — San Vicente</div><div class="nd">📅 28 Sep 2025</div></div></div></div></div></div>
 </div>
 <script type="module">
 import{initializeApp}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
@@ -313,29 +264,27 @@ import{getFirestore,collection,addDoc,query,orderBy,limit,onSnapshot,serverTimes
 const app=initializeApp({apiKey:"AIzaSyDehFdJAKNzvCGPRB3rca6VmEMTvdpO-2M",authDomain:"caquetachat.firebaseapp.com",projectId:"caquetachat",storageBucket:"caquetachat.firebasestorage.app",messagingSenderId:"911518784033",appId:"1:911518784033:web:9c003be112ad6880a1e160"});
 const auth=getAuth(app),db=getFirestore(app);
 let user=null,sala="plaza",unsub=null,rec=false,mr=null,chunks=[];
+const SL=document.getElementById("screen-load");
+const SLG=document.getElementById("screen-login");
+const SA=document.getElementById("screen-app");
+function show(s){SL.style.display="none";SLG.classList.remove("show");SA.classList.remove("show");if(s==="login")SLG.classList.add("show");else SA.classList.add("show");}
 document.getElementById("btn-login").onclick=async()=>{try{await signInWithPopup(auth,new GoogleAuthProvider());}catch(e){alert("Error: "+e.message);}};
 document.getElementById("btn-out").onclick=()=>signOut(auth);
 onAuthStateChanged(auth,async u=>{
 if(u){
-user=u;
-document.getElementById("screen-login").classList.remove("active");
-document.getElementById("screen-app").classList.add("active");
+user=u;show("app");
 const av=document.getElementById("uav");
 if(u.photoURL){av.innerHTML=`<img src="${u.photoURL}">`;}else{av.textContent=u.displayName?.charAt(0)||"U";}
 document.getElementById("unm").textContent=u.displayName?.split(" ")[0]||"";
 await setDoc(doc(db,"presencia",u.uid),{nombre:u.displayName||"Usuario",foto:u.photoURL||"",online:true,ts:serverTimestamp()},{merge:true});
 loadOnline();loadChat("plaza");
-}else{
-user=null;
-document.getElementById("screen-app").classList.remove("active");
-document.getElementById("screen-login").classList.add("active");
-}
+}else{user=null;show("login");}
 });
 document.querySelectorAll(".ntab").forEach(b=>b.onclick=()=>{document.querySelectorAll(".ntab").forEach(x=>x.classList.remove("active"));b.classList.add("active");document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));document.getElementById("page-"+b.dataset.p).classList.add("active");if(b.dataset.p==="chat")loadChat(sala);});
 window.gp=p=>{document.querySelectorAll(".ntab").forEach(b=>{b.classList.toggle("active",b.dataset.p===p);});document.querySelectorAll(".page").forEach(x=>x.classList.remove("active"));document.getElementById("page-"+p).classList.add("active");if(p==="chat")loadChat(sala);};
 window.cs=(s,nm,el)=>{document.querySelectorAll(".sala").forEach(x=>x.classList.remove("active"));el.classList.add("active");sala=s;document.getElementById("rnm").textContent=nm;loadChat(s);};
 function loadChat(s){if(unsub)unsub();const c=document.getElementById("msgs");c.innerHTML='<div class="mph">Cargando...</div>';const q=query(collection(db,"salas",s,"mensajes"),orderBy("timestamp","asc"),limit(60));unsub=onSnapshot(q,snap=>{c.innerHTML="";let ld="";snap.forEach(d=>{const m=d.data();const fd=m.timestamp?.toDate();const fs=fd?fd.toLocaleDateString("es-CO",{weekday:"long",day:"numeric",month:"long"}):"";if(fs&&fs!==ld){const dv=document.createElement("div");dv.className="dd";dv.innerHTML=`<span>${fs}</span>`;c.appendChild(dv);ld=fs;}c.appendChild(mkBub(m));});c.scrollTop=c.scrollHeight;document.getElementById("rst").textContent=snap.size+" mensajes";});}
-function mkBub(m){const me=m.uid===user?.uid;const row=document.createElement("div");row.className="mr2"+(me?" me":"");const hr=m.timestamp?.toDate()?.toLocaleTimeString("es-CO",{hour:"2-digit",minute:"2-digit"})||"";const lt=(m.nombre||"U").charAt(0).toUpperCase();const cols=["#e8f5e9","#e3f2fd","#fff3e0","#fce4ec","#f3e5f5"];const col=cols[(m.nombre||"").charCodeAt(0)%cols.length]||"#e8f5e9";const avH=m.foto?`<div class="av"><img src="${m.foto}"></div>`:`<div class="av" style="background:${col}">${lt}</div>`;let cont="";if(m.tipo==="texto")cont=`<div class="snm">${m.nombre||"U"}</div><div class="bub">${esc(m.texto)}</div><div class="mm">${hr}${me?" ✓✓":""}</div>`;else if(m.tipo==="imagen")cont=`<div class="snm">${m.nombre||"U"}</div><div class="ib"><img src="${m.url}" loading="lazy"><div class="ic">${esc(m.nf||"Imagen")}</div></div><div class="mm">${hr}</div>`;else if(m.tipo==="archivo")cont=`<div class="snm">${m.nombre||"U"}</div><div class="fb"><div class="fi">📄</div><div><div class="fn">${esc(m.nf||"Archivo")}</div><div class="fs">${m.sz||""}</div></div><a href="${m.url}" target="_blank" style="font-size:0.75rem;color:var(--vm);text-decoration:none;margin-left:4px">⬇</a></div><div class="mm">${hr}</div>`;else if(m.tipo==="audio"){const wv=Array.from({length:18},(_,i)=>`<div class="wb2" style="height:${[10,16,22,14,26,18,12,20,16,24,10,18,14,22,16,12,20,8][i]}px"></div>`).join("");cont=`<div class="snm">${m.nombre||"U"}</div><div class="ab"><button class="ppb" onclick="new Audio('${m.url}').play()">▶</button><div class="wf">${wv}</div><span class="ad">${m.dur||"0:10"}</span></div><div class="mm">${hr}</div>`;}
+function mkBub(m){const me=m.uid===user?.uid;const row=document.createElement("div");row.className="mr2"+(me?" me":"");const hr=m.timestamp?.toDate()?.toLocaleTimeString("es-CO",{hour:"2-digit",minute:"2-digit"})||"";const lt=(m.nombre||"U").charAt(0).toUpperCase();const cols=["#e8f5e9","#e3f2fd","#fff3e0","#fce4ec","#f3e5f5"];const col=cols[(m.nombre||"").charCodeAt(0)%cols.length]||"#e8f5e9";const avH=m.foto?`<div class="av"><img src="${m.foto}"></div>`:`<div class="av" style="background:${col}">${lt}</div>`;let cont="";if(m.tipo==="texto")cont=`<div class="snm">${m.nombre||"U"}</div><div class="bub">${esc(m.texto)}</div><div class="mm">${hr}${me?" ✓✓":""}</div>`;else if(m.tipo==="imagen")cont=`<div class="snm">${m.nombre||"U"}</div><div class="ib"><img src="${m.url}" loading="lazy"><div class="ic">${esc(m.nf||"Img")}</div></div><div class="mm">${hr}</div>`;else if(m.tipo==="archivo")cont=`<div class="snm">${m.nombre||"U"}</div><div class="fb"><div class="fi">📄</div><div><div class="fn">${esc(m.nf||"Archivo")}</div><div class="fz">${m.sz||""}</div></div><a href="${m.url}" target="_blank" style="font-size:0.75rem;color:var(--vm);text-decoration:none;margin-left:4px">⬇</a></div><div class="mm">${hr}</div>`;else if(m.tipo==="audio"){const wv=Array.from({length:18},(_,i)=>`<div class="wb2" style="height:${[10,16,22,14,26,18,12,20,16,24,10,18,14,22,16,12,20,8][i]}px"></div>`).join("");cont=`<div class="snm">${m.nombre||"U"}</div><div class="ab"><button class="ppb" onclick="new Audio('${m.url}').play()">▶</button><div class="wf">${wv}</div><span class="ad">${m.dur||"0:10"}</span></div><div class="mm">${hr}</div>`;}
 row.innerHTML=avH+`<div>${cont}</div>`;return row;}
 window.enviar=async()=>{const inp=document.getElementById("minp");const txt=inp.value.trim();if(!txt||!user)return;inp.value="";await addDoc(collection(db,"salas",sala,"mensajes"),{tipo:"texto",texto:txt,uid:user.uid,nombre:user.displayName||"Usuario",foto:user.photoURL||"",timestamp:serverTimestamp()});};
 document.getElementById("minp").addEventListener("keydown",e=>{if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();enviar();}});
