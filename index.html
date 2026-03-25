@@ -8,111 +8,78 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
-  /* PALETA CLARA Y VIBRANTE */
-  --bg0:#f4f7f5; /* Gris verdoso muy claro */
+  --bg0:#f0f2f1; /* Gris verdoso muy claro */
   --bg1:#ffffff; /* Blanco puro */
-  --bg2:#e9efeb; /* Gris suave para inputs */
-  --bg3:#d1dbd4;
-  --gr1:#15803d; /* Verde bosque profundo */
-  --gr2:#22c55e; /* Verde selva vibrante */
+  --bg2:#f9fafb; /* Fondo para mensajes */
+  --gr1:#15803d; /* Verde bosque */
+  --gr2:#22c55e; /* Verde selva */
   --gr3:#16a34a; /* Verde acento */
-  --tx0:#1a2e21; /* Texto casi negro pero verdoso */
+  --tx0:#111827; /* Texto negro */
   --tx1:#4b5563; /* Gris principal */
   --tx2:#6b7280; /* Gris secundario */
   --tx3:#9ca3af;
-  --bd1:rgba(22,163,74,0.1);
-  --bd2:rgba(22,163,74,0.2);
-  --bd3:rgba(22,163,74,0.4);
-  --shadow:0 4px 12px rgba(0,0,0,0.05);
-  --shadow-lg:0 10px 30px rgba(0,0,0,0.08);
+  --bd1:rgba(0,0,0,0.05);
+  --bd2:rgba(22,163,74,0.15);
+  --shadow:0 2px 10px rgba(0,0,0,0.05);
 }
 
 body{font-family:'DM Sans',sans-serif;background:var(--bg0);color:var(--tx0);min-height:100vh}
 
 /* LOADER */
-#screen-load{min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--bg1)}
-.spin{width:36px;height:36px;border:3px solid var(--bg2);border-top-color:var(--gr2);border-radius:50%;animation:sp 0.7s linear infinite}
+#screen-load{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:var(--bg1);z-index:999}
+.spin{width:40px;height:40px;border:3px solid #eee;border-top-color:var(--gr2);border-radius:50%;animation:sp 0.8s linear infinite}
 @keyframes sp{to{transform:rotate(360deg)}}
 
 /* LOGIN */
-#screen-login{display:none;min-height:100vh;align-items:center;justify-content:center;background:var(--bg1);position:relative;overflow:hidden}
+#screen-login{display:none;min-height:100vh;align-items:center;justify-content:center;background:var(--bg0);position:relative}
 #screen-login.show{display:flex}
 #screen-app{display:none}
 #screen-app.show{display:block}
-.bg-grid{position:absolute;inset:0;background-image:linear-gradient(var(--bd1) 1px,transparent 1px),linear-gradient(90deg,var(--bd1) 1px,transparent 1px);background-size:44px 44px;pointer-events:none}
-.bg-glow{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(34,197,94,0.1) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
 
-.lcard{position:relative;z-index:2;width:380px;background:var(--bg1);padding:40px;border-radius:24px;box-shadow:var(--shadow-lg);text-align:center;border:1px solid var(--bd1)}
-.l-badge{display:inline-flex;align-items:center;gap:6px;background:var(--bd1);border:1px solid var(--bd2);border-radius:20px;padding:6px 16px;margin-bottom:1.5rem}
-.l-badge-txt{font-size:0.7rem;color:var(--gr1);font-weight:700;text-transform:uppercase;letter-spacing:1px}
-.l-logo{font-family:'Syne',sans-serif;font-size:2.5rem;font-weight:800;color:var(--tx0);margin-bottom:0.5rem}
+.lcard{background:var(--bg1);padding:40px;border-radius:24px;box-shadow:0 20px 40px rgba(0,0,0,0.05);width:380px;text-align:center;border:1px solid var(--bd1)}
+.l-logo{font-family:'Syne',sans-serif;font-size:2.4rem;font-weight:800;color:var(--tx0);margin-bottom:10px}
 .l-logo span{color:var(--gr2)}
-.l-sub{color:var(--tx1);margin-bottom:2rem}
+.l-btn{display:flex;align-items:center;gap:12px;width:100%;padding:14px;border-radius:12px;border:1px solid #e5e7eb;background:white;font-weight:600;cursor:pointer;transition:0.2s}
+.l-btn:hover{background:#f9fafb;border-color:var(--gr2)}
 
-.l-btn{display:flex;align-items:center;gap:12px;width:100%;padding:1rem;border-radius:14px;border:1px solid #e5e7eb;background:white;color:var(--tx0);font-weight:600;cursor:pointer;transition:all 0.3s;box-shadow:var(--shadow)}
-.l-btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,0.1);border-color:var(--gr2)}
-
-/* TOPBAR CLARA */
-.topbar{background:rgba(255,255,255,0.8);backdrop-filter:blur(12px);border-bottom:1px solid #e5e7eb;color:var(--tx0);display:flex;align-items:center;padding:0 1.6rem;height:64px;position:sticky;top:0;z-index:200}
-.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.4rem;color:var(--tx0)}
+/* TOPBAR */
+.topbar{background:var(--bg1);border-bottom:1px solid #eee;display:flex;align-items:center;padding:0 20px;height:64px;position:sticky;top:0;z-index:100}
+.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.3rem}
 .logo span{color:var(--gr2)}
-.ntabs{display:flex;margin-left:2rem;gap:4px}
-.ntab{background:none;border:none;color:var(--tx2);padding:0 16px;height:64px;font-weight:600;cursor:pointer;transition:0.2s;border-bottom:3px solid transparent}
-.ntab.active{color:var(--gr1);border-bottom-color:var(--gr2)}
+.ntabs{display:flex;margin-left:30px;gap:5px;flex:1}
+.ntab{background:none;border:none;padding:10px 15px;cursor:pointer;font-weight:600;color:var(--tx2);border-radius:8px}
+.ntab.active{color:var(--gr1);background:var(--bd2)}
 
-/* HERO BANNER - ILUMINADO */
-.hero-banner{background:linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);padding:60px 20px;border-bottom:1px solid var(--bd2);position:relative}
-.hero-h1{font-family:'Syne',sans-serif;font-size:3rem;color:var(--tx0);line-height:1;margin-bottom:1rem}
-.hero-h1 span{color:var(--gr1)}
-.hero-h1-sub{color:var(--tx1);max-width:500px;margin-bottom:2rem}
-.hero-cta-main{background:var(--gr1);color:white;padding:14px 28px;border-radius:12px;border:none;font-weight:700;cursor:pointer;box-shadow:0 4px 15px rgba(21,128,61,0.3)}
+/* CHAT LAYOUT */
+.chat-layout{display:grid;grid-template-columns:240px 1fr 240px;height:calc(100vh - 64px);background:var(--bg1)}
+.panel-salas, .panel-usuarios{border-inline:1px solid #eee; padding:20px; overflow-y:auto}
+.panel-centro{background:var(--bg2);display:flex;flex-direction:column}
+.chat-header{padding:15px 20px;background:var(--bg1);border-bottom:1px solid #eee}
+.msgs{flex:1;padding:20px;overflow-y:auto;display:flex;flex-direction:column;gap:12px}
 
-/* WIDGETS Y TARJETAS */
-.widget, .noticia-main, .noticia-mini, .acceso, .icard, .pc{
-  background:var(--bg1) !important;
-  border:1px solid #e5e7eb !important;
-  box-shadow:var(--shadow) !important;
-  color:var(--tx0) !important;
-}
-.noticia-main-title, .noticia-mini-title, .acceso-title, .pcn, .nt{ color:var(--tx0) !important; }
-.noticia-main-desc, .clima-desc, .acceso-sub, .pcd, .nd{ color:var(--tx1) !important; }
-
-/* CHAT PANEL - CLARO */
-.panel-salas, .panel-usuarios{background:var(--bg1);border-color:#e5e7eb}
-.panel-centro{background:#f9fafb}
-.chat-header{background:var(--bg1);border-bottom:1px solid #e5e7eb}
-.bub{background:white;color:var(--tx0);border:1px solid #e5e7eb;box-shadow:0 2px 5px rgba(0,0,0,0.03)}
+/* BURBUJAS CLARAS */
+.bub{background:var(--bg1);color:var(--tx0);border:1px solid #eee;padding:10px 14px;border-radius:14px;box-shadow:var(--shadow)}
 .mr2.me .bub{background:var(--gr1);color:white;border:none}
-.cft{background:white;border-top:1px solid #e5e7eb}
-.mi{background:var(--bg0);color:var(--tx0);border:1px solid #e5e7eb}
+.cft{padding:15px;background:var(--bg1);border-top:1px solid #eee}
+.mi{width:100%;padding:12px;border-radius:10px;border:1px solid #ddd;outline:none}
 
-/* SCROLLBARS */
-::-webkit-scrollbar-thumb{background:var(--bg3)}
-
-/* ESTILO PARA LOS TAGS COLORIDOS */
-.h-tag.vd{background:#dcfce7;color:#166534;border:none}
-.h-tag.az{background:#dbeafe;color:#1e40af;border:none}
-
-/* REUTILIZACIÓN DE ANIMACIONES Y LÓGICA ORIGINAL */
-@keyframes msgIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.mr2{animation:msgIn 0.3s ease-out}
+/* HERO BANNER ILUMINADO */
+.hero-banner{background:linear-gradient(135deg, #dcfce7 0%, #ffffff 100%);padding:50px 20px;border-bottom:1px solid #eee;text-align:center}
+.hero-h1{font-family:'Syne',sans-serif;font-size:2.8rem;color:var(--tx0)}
 
 </style>
 </head>
 <body>
 
-<!-- (Mantenemos la estructura de divs del HTML original para no romper tu script) -->
 <div id="screen-load"><div class="spin"></div></div>
 
 <div id="screen-login">
-  <div class="bg-grid"></div><div class="bg-glow"></div>
   <div class="lcard">
-    <div class="l-badge"><span class="l-badge-txt">📍 Caquetá, Colombia</span></div>
     <div class="l-logo">Caquet<span>á</span>Chat</div>
-    <p class="l-sub">La red social de nuestra tierra.<br>Luminosa, rápida y segura.</p>
+    <p style="color:var(--tx2); margin-bottom:25px">Bienvenido a la comunidad del Caquetá</p>
     <button id="btn-login" class="l-btn">
-      <img src="https://www.gstatic.com/images/branding/product/1x/gsa_512dp.png" width="20">
-      <span class="l-btn-txt">Entrar con Google</span>
+      <img src="https://www.gstatic.com/images/branding/product/1x/gsa_512dp.png" width="18">
+      <span>Continuar con Google</span>
     </button>
   </div>
 </div>
@@ -123,76 +90,35 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg0);color:var(--tx0);min
     <div class="ntabs">
       <button class="ntab active" data-p="inicio">Inicio</button>
       <button class="ntab" data-p="chat">Chat</button>
-      <button class="ntab" data-p="noticias">Noticias</button>
     </div>
-    <div style="margin-left:auto; display:flex; align-items:center; gap:12px">
-        <div id="uav" class="uav" style="width:35px; height:35px; border-radius:50%; background:#ddd; overflow:hidden"></div>
-        <button id="btn-out" style="background:none; border:none; cursor:pointer; font-size:1.2rem">✕</button>
+    <div class="topbar-right" style="display:flex; align-items:center; gap:10px">
+      <div id="uav" style="width:32px; height:32px; border-radius:50%; background:#ddd; overflow:hidden"></div>
+      <button id="btn-out" style="background:none; border:none; cursor:pointer">Salir</button>
     </div>
   </nav>
 
-  <!-- SECCIÓN INICIO -->
   <div class="page active" id="page-inicio">
     <div class="hero-banner">
-      <div class="hero-inner" style="max-width:1100px; margin:0 auto">
-        <div class="hero-h1">Conecta con tu<br><span>comunidad</span></div>
-        <p class="hero-h1-sub">Explora lo que pasa en el Caquetá, habla con amigos en tiempo real y descubre negocios locales en un entorno limpio y moderno.</p>
-        <button class="hero-cta-main" onclick="gp('chat')">Abrir Chat en Vivo</button>
-      </div>
-    </div>
-
-    <div style="max-width:1100px; margin:2rem auto; padding:0 20px; display:grid; grid-template-columns: 2fr 1fr; gap:2rem">
-      <!-- Noticias -->
-      <div>
-        <h3 style="margin-bottom:1rem">Noticias Recientes</h3>
-        <div class="noticia-main" style="border-radius:15px; overflow:hidden; cursor:pointer" onclick="gp('noticias')">
-            <div style="height:200px; background:#22c55e; display:flex; align-items:center; justify-content:center; color:white; font-size:4rem">🌿</div>
-            <div style="padding:20px">
-                <span class="h-tag vd">DEPARTAMENTO</span>
-                <h2 style="margin:10px 0">Nuevos proyectos de reforestación en Florencia</h2>
-                <p style="color:var(--tx1)">La comunidad se une para plantar más de 5,000 árboles nativos...</p>
-            </div>
-        </div>
-      </div>
-      <!-- Sidebar -->
-      <div>
-        <div class="widget" style="padding:20px; border-radius:15px">
-            <h4 style="color:var(--gr1)">🌤️ Clima en Florencia</h4>
-            <div style="font-size:2.5rem; font-weight:800; margin:10px 0">29°C</div>
-            <p style="font-size:0.9rem">Soleado con brisa de montaña</p>
-        </div>
-        <br>
-        <div class="widget" style="padding:20px; border-radius:15px">
-            <h4>👥 Comunidad Online</h4>
-            <div id="online-list" style="margin-top:10px">Cargando...</div>
-        </div>
-      </div>
+      <h1 class="hero-h1">Conecta con tu <span>región</span></h1>
+      <p style="margin:15px 0 25px">Noticias, comunidad y chat en tiempo real.</p>
+      <button onclick="gp('chat')" style="background:var(--gr1); color:white; border:none; padding:12px 25px; border-radius:10px; cursor:pointer; font-weight:700">Entrar al Chat</button>
     </div>
   </div>
 
-  <!-- SECCIÓN CHAT (Mantenemos la lógica de paneles pero con colores claros) -->
   <div class="page" id="page-chat">
-    <div class="chat-layout" style="display:grid; grid-template-columns: 240px 1fr 240px; height:calc(100vh - 64px)">
-        <div class="panel-salas" style="border-right:1px solid #eee; padding:20px">
-            <h5 style="text-transform:uppercase; font-size:0.7rem; color:var(--tx3); margin-bottom:1rem">Salas</h5>
-            <div class="sala active" style="padding:10px; border-radius:10px; cursor:pointer; background:var(--bd1); color:var(--gr1); font-weight:700">🌿 Plaza Caquetá</div>
-            <div class="sala" style="padding:10px; color:var(--tx2)">☕ Café Regional</div>
-        </div>
-        
-        <div class="panel-centro" style="display:flex; flex-direction:column">
-            <div class="chat-header" style="padding:15px 25px">
-                <strong id="rnm">Plaza Caquetá</strong>
-                <div id="rst" style="font-size:0.7rem; color:var(--tx3)">Chat activo</div>
-            </div>
-            <div id="msgs" style="flex:1; overflow-y:auto; padding:20px; display:flex; flex-direction:column; gap:10px">
-                <!-- Mensajes aquí -->
-            </div>
-            <div class="cft" style="padding:20px">
-                <div style="display:flex; gap:10px">
-                    <input id="minp" class="mi" style="flex:1; padding:12px; border-radius:10px; border:1px solid #ddd" placeholder="Escribe un mensaje...">
-                    <button class="sb" onclick="enviar()" style="background:var(--gr1); color:white; border:none; padding:0 20px; border-radius:10px; cursor:pointer">Enviar</button>
-                </div>
+    <div class="chat-layout">
+      <div class="panel-salas">
+        <h4 style="margin-bottom:15px">Salas</h4>
+        <div class="sala active" onclick="cs('plaza','Plaza Caquetá',this)" style="padding:10px; border-radius:8px; cursor:pointer; background:var(--bd2); color:var(--gr1); font-weight:700">🌿 Plaza Caquetá</div>
+      </div>
+      <div class="panel-centro">
+        <div class="chat-header"><strong id="rnm">Plaza Caquetá</strong></div>
+        <div class="msgs" id="msgs"></div>
+        <div class="cft">
+            <div style="display:flex; gap:10px">
+                <input id="minp" class="mi" placeholder="Escribe un mensaje...">
+                <button onclick="enviar()" style="background:var(--gr1); color:white; border:none; padding:0 20px; border-radius:10px; cursor:pointer">➤</button>
             </div>
         </div>
-
-        <div class="panel-usuarios
+      </div>
+      <div class="panel-
