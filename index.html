@@ -101,23 +101,24 @@ body{font-family:'DM Sans',sans-serif;background:#f0f4f1;color:var(--os)}
 .un{font-size:0.76rem;font-weight:500;color:var(--os);flex:1}
 .ud{width:7px;height:7px;border-radius:50%;background:var(--vn);flex-shrink:0}
 .bc{background:var(--vd);color:#fff;border:none;border-radius:20px;padding:5px 16px;font-size:0.72rem;cursor:pointer;font-family:'DM Sans',sans-serif;margin-top:8px;width:100%}
-.chat-layout{display:grid;grid-template-columns:210px 1fr;height:calc(100vh - 54px)}
-@media(max-width:600px){.chat-layout{grid-template-columns:1fr}.sp{display:none}}
-.sp{background:#fff;border-right:0.5px solid rgba(26,107,60,0.1);overflow-y:auto}
-.spt{padding:11px 13px;font-size:0.78rem;font-weight:700;color:var(--vd);border-bottom:0.5px solid rgba(26,107,60,0.1);position:sticky;top:0;background:#fff}
+.chat-layout{display:grid;grid-template-columns:210px 1fr 200px;height:calc(100vh - 54px);overflow:hidden}
+@media(max-width:900px){.chat-layout{grid-template-columns:160px 1fr}.panel-usuarios{display:none !important}}
+@media(max-width:600px){.chat-layout{grid-template-columns:1fr}.panel-salas{display:none !important}}
+.panel-salas{background:#fff;border-right:0.5px solid rgba(26,107,60,0.1);overflow-y:auto;display:flex;flex-direction:column}
+.panel-salas-header{padding:13px;font-size:0.78rem;font-weight:700;color:var(--vd);border-bottom:0.5px solid rgba(26,107,60,0.1);position:sticky;top:0;background:#fff;z-index:2}
 .sala{display:flex;align-items:center;gap:7px;padding:9px 13px;cursor:pointer;border-left:3px solid transparent;transition:all 0.15s}
 .sala:hover,.sala.active{background:#f0f7f3;border-left-color:var(--vm)}
-.sd2{width:6px;height:6px;border-radius:50%;background:var(--vn);flex-shrink:0}
-.se{font-size:0.95rem}
-.sn{font-size:0.78rem;font-weight:500;color:var(--os)}
-.cm{display:flex;flex-direction:column;height:calc(100vh - 54px);overflow:hidden}
-.chd{background:#fff;border-bottom:0.5px solid rgba(26,107,60,0.1);padding:10px 15px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
-.rn{font-weight:700;font-size:0.92rem;color:var(--os)}
-.rs{font-size:0.68rem;color:#7a8c7e;margin-top:1px}
-.ca{display:flex;gap:6px}
+.sala-dot{width:6px;height:6px;border-radius:50%;background:var(--vn);flex-shrink:0}
+.sala-emoji{font-size:0.95rem}
+.sala-nombre{font-size:0.78rem;font-weight:500;color:var(--os);flex:1}
+.panel-centro{display:flex;flex-direction:column;height:calc(100vh - 54px);overflow:hidden;background:#f8faf8}
+.chat-header{background:#fff;border-bottom:0.5px solid rgba(26,107,60,0.1);padding:10px 15px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.chat-header-titulo{font-weight:700;font-size:0.92rem;color:var(--os)}
+.chat-header-sub{font-size:0.68rem;color:#7a8c7e;margin-top:1px}
+.chat-acciones{display:flex;gap:6px}
 .hb{background:none;border:1px solid rgba(26,107,60,0.18);border-radius:8px;padding:5px 10px;font-size:0.73rem;cursor:pointer;color:#4a6b56;font-family:'DM Sans',sans-serif}
 .hb:hover{background:#f0f7f3;border-color:var(--vm)}
-.msgs{flex:1;overflow-y:auto;padding:13px 15px;display:flex;flex-direction:column;gap:10px;background:#f8faf8}
+.msgs{flex:1;overflow-y:auto;padding:13px 15px;display:flex;flex-direction:column;gap:10px}
 .mph{text-align:center;color:#9aab9e;font-size:0.82rem;margin:auto;padding:2rem}
 .mr2{display:flex;gap:8px;align-items:flex-end;max-width:76%}
 .mr2.me{align-self:flex-end;flex-direction:row-reverse}
@@ -154,6 +155,47 @@ body{font-family:'DM Sans',sans-serif;background:#f0f4f1;color:var(--os)}
 .mi:focus{border-color:var(--vm)}
 .sb{background:var(--vd);color:#fff;border:none;border-radius:50%;width:37px;height:37px;cursor:pointer;font-size:0.85rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .sb:hover{background:var(--vm);transform:scale(1.08)}
+.panel-usuarios{background:#fff;border-left:0.5px solid rgba(26,107,60,0.1);overflow-y:auto;display:flex;flex-direction:column}
+.panel-usuarios-header{padding:11px 12px;font-size:0.75rem;font-weight:700;color:var(--vd);border-bottom:0.5px solid rgba(26,107,60,0.1);position:sticky;top:0;background:#fff;z-index:2}
+.online-badge{display:inline-flex;align-items:center;gap:5px;margin-top:4px;font-size:0.65rem;color:#5f8a6a;font-weight:400}
+.online-badge-dot{width:6px;height:6px;border-radius:50%;background:#39e87c;animation:pulse 2s infinite}
+.user-en-linea{display:flex;align-items:center;gap:8px;padding:8px 12px;cursor:pointer;transition:background 0.15s;border-radius:8px;margin:1px 6px}
+.user-en-linea:hover{background:#f0f7f3}
+.user-av{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.62rem;font-weight:700;flex-shrink:0;overflow:hidden}
+.user-av img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.user-estado-dot{position:absolute;bottom:0;right:0;width:8px;height:8px;border-radius:50%;border:1.5px solid #fff}
+.user-av-wrap{position:relative;flex-shrink:0}
+.user-info{flex:1;min-width:0}
+.user-nombre{font-size:0.73rem;font-weight:600;color:var(--os);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.user-ciudad{font-size:0.62rem;color:#9aab9e;margin-top:1px}
+.seccion-estado{font-size:0.6rem;font-weight:700;color:#9aab9e;text-transform:uppercase;letter-spacing:0.08em;padding:8px 12px 3px}
+.priv-chat{position:fixed;bottom:16px;right:16px;width:310px;background:#fff;border:0.5px solid rgba(26,107,60,0.2);border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.18);z-index:400;display:flex;flex-direction:column;overflow:hidden;animation:slideUp 0.25s ease-out}
+@keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.priv-header{background:var(--vd);color:#fff;padding:10px 12px;display:flex;align-items:center;gap:9px;flex-shrink:0}
+.priv-av{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.62rem;font-weight:700;background:var(--vn);color:var(--os);flex-shrink:0;overflow:hidden}
+.priv-av img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.priv-nombre{font-size:0.82rem;font-weight:700;flex:1}
+.priv-acciones{display:flex;gap:4px}
+.priv-btn{background:rgba(255,255,255,0.2);border:none;color:#fff;border-radius:6px;padding:4px 7px;font-size:0.75rem;cursor:pointer;transition:background 0.15s}
+.priv-btn:hover{background:rgba(255,255,255,0.35)}
+.priv-msgs{height:240px;overflow-y:auto;padding:10px 12px;display:flex;flex-direction:column;gap:8px;background:#f8faf8}
+.priv-bub{max-width:80%;padding:7px 11px;border-radius:12px;font-size:0.8rem;line-height:1.4;word-break:break-word}
+.priv-bub.ellos{background:#fff;border:0.5px solid rgba(26,107,60,0.12);border-radius:12px 12px 12px 3px;align-self:flex-start}
+.priv-bub.yo{background:var(--vd);color:#fff;border-radius:12px 12px 3px 12px;align-self:flex-end}
+.priv-hora{font-size:0.58rem;color:#aaa;margin-top:2px;display:block}
+.priv-input-area{padding:8px 10px;border-top:0.5px solid rgba(26,107,60,0.1);display:flex;align-items:center;gap:6px;background:#fff}
+.priv-opciones{display:flex;gap:3px}
+.priv-opt{background:none;border:none;font-size:1rem;cursor:pointer;padding:4px;border-radius:6px;transition:background 0.15s;color:#4a6b56}
+.priv-opt:hover{background:#f0f7f3}
+.priv-inp{flex:1;border:1.5px solid rgba(26,107,60,0.2);border-radius:14px;padding:5px 11px;font-size:0.8rem;outline:none;background:#f8faf8;color:var(--os);font-family:'DM Sans',sans-serif}
+.priv-inp:focus{border-color:var(--vm)}
+.priv-send{background:var(--vd);color:#fff;border:none;border-radius:50%;width:30px;height:30px;cursor:pointer;font-size:0.8rem;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.priv-send:hover{background:var(--vm)}
+.mw{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.65);z-index:500;align-items:center;justify-content:center}
+.mw.show{display:flex}
+.mb2{background:#fff;border-radius:16px;width:360px;overflow:hidden;max-width:95vw}
+.mhd{background:var(--vd);color:#fff;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;font-size:0.85rem;font-weight:600}
+.mc{background:none;border:none;color:#fff;font-size:1rem;cursor:pointer}
 .cp{padding:16px;max-width:1000px;margin:0 auto}
 .ptt{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;color:var(--vd);margin-bottom:14px}
 .ng{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
@@ -174,18 +216,15 @@ body{font-family:'DM Sans',sans-serif;background:#f0f4f1;color:var(--os)}
 .pcn{font-size:0.83rem;font-weight:700;color:var(--os);margin:3px 0}
 .pcd{font-size:0.7rem;color:#7a8c7e;line-height:1.4}
 .pcbtn{background:#e65100;color:#fff;border:none;border-radius:20px;padding:5px 13px;font-size:0.7rem;margin-top:7px;cursor:pointer;font-family:'DM Sans',sans-serif}
-.mw{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.65);z-index:500;align-items:center;justify-content:center}
-.mw.show{display:flex}
-.mb2{background:#fff;border-radius:16px;width:360px;overflow:hidden;max-width:95vw}
-.mhd{background:var(--vd);color:#fff;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;font-size:0.85rem;font-weight:600}
-.mc{background:none;border:none;color:#fff;font-size:1rem;cursor:pointer}
 ::-webkit-scrollbar{width:4px;height:4px}
 ::-webkit-scrollbar-track{background:transparent}
 ::-webkit-scrollbar-thumb{background:rgba(26,107,60,0.2);border-radius:4px}
 </style>
 </head>
 <body>
+
 <div id="screen-load"><div class="spin"></div></div>
+
 <div id="screen-login">
   <div class="ltree t1">🌿</div>
   <div class="ltree t2">🍃</div>
@@ -204,6 +243,7 @@ body{font-family:'DM Sans',sans-serif;background:#f0f4f1;color:var(--os)}
     <p class="lnote">Al entrar aceptas los términos de uso de CaquetáChat. Tu privacidad está protegida.</p>
   </div>
 </div>
+
 <div id="screen-app">
   <nav class="topbar">
     <div class="logo">Caquet<span>á</span>Chat</div>
@@ -214,8 +254,13 @@ body{font-family:'DM Sans',sans-serif;background:#f0f4f1;color:var(--os)}
       <button class="ntab" data-p="publicidad">📢 Publicidad</button>
       <button class="ntab" data-p="eventos">🎉 Eventos</button>
     </div>
-    <div class="tr"><div id="uav" class="uav">?</div><span id="unm" class="unm"></span><button id="btn-out" class="obtn">⏻</button></div>
+    <div class="tr">
+      <div id="uav" class="uav">?</div>
+      <span id="unm" class="unm"></span>
+      <button id="btn-out" class="obtn">⏻</button>
+    </div>
   </nav>
+
   <div class="page active" id="page-inicio">
     <div class="portal">
       <div>
@@ -237,23 +282,37 @@ body{font-family:'DM Sans',sans-serif;background:#f0f4f1;color:var(--os)}
       <div class="scol">
         <div class="wc"><div class="wh">🌤️ Clima — Florencia</div><div class="wb"><div class="cr2"><span class="ci">⛅</span><div><div class="ct">28°C</div><div class="cn">Parcialmente nublado<br>Hum. 82%</div></div></div></div></div>
         <div class="pw" onclick="gp('publicidad')"><div class="pl">Publicidad</div><div class="pi"><div class="pio">🛒</div><div class="pt2">Mercado Caquetá</div><div class="ps">Productos frescos de tu región</div><button class="pb2">Ver oferta →</button></div></div>
-        <div class="wc"><div class="wh">👥 En línea ahora</div><div class="wb" id="online-list"><div style="font-size:0.75rem;color:#9aab9e">Cargando...</div></div><div style="padding:0 13px 10px"><button class="bc" onclick="gp('chat')">Ir al chat →</button></div></div>
+        <div class="wc">
+          <div class="wh">👥 En línea ahora</div>
+          <div class="wb" id="online-list"><div style="font-size:0.75rem;color:#9aab9e">Cargando...</div></div>
+          <div style="padding:0 13px 10px"><button class="bc" onclick="gp('chat')">Ir al chat →</button></div>
+        </div>
       </div>
     </div>
   </div>
+
   <div class="page" id="page-chat">
     <div class="chat-layout">
-      <div class="sp">
-        <div class="spt">💬 Salas</div>
-        <div class="sala active" onclick="cs('plaza','🌿 Plaza Caquetá',this)"><span class="sd2"></span><span class="se">🌿</span><span class="sn">Plaza Caquetá</span></div>
-        <div class="sala" onclick="cs('cultura','🎵 Cultura',this)"><span class="sd2"></span><span class="se">🎵</span><span class="sn">Cultura y Arte</span></div>
-        <div class="sala" onclick="cs('empleo','💼 Empleo',this)"><span class="sd2"></span><span class="se">💼</span><span class="sn">Empleo</span></div>
-        <div class="sala" onclick="cs('naturaleza','🐟 Naturaleza',this)"><span class="sd2"></span><span class="se">🐟</span><span class="sn">Naturaleza</span></div>
-        <div class="sala" onclick="cs('deportes','⚽ Deportes',this)"><span class="sd2"></span><span class="se">⚽</span><span class="sn">Deportes</span></div>
-        <div class="sala" onclick="cs('salud','🏥 Salud',this)"><span class="sd2"></span><span class="se">🏥</span><span class="sn">Salud</span></div>
+      <div class="panel-salas">
+        <div class="panel-salas-header">💬 Salas de Chat</div>
+        <div class="sala active" onclick="cs('plaza','🌿 Plaza Caquetá',this)"><span class="sala-dot"></span><span class="sala-emoji">🌿</span><span class="sala-nombre">Plaza Caquetá</span></div>
+        <div class="sala" onclick="cs('cultura','🎵 Cultura',this)"><span class="sala-dot"></span><span class="sala-emoji">🎵</span><span class="sala-nombre">Cultura y Arte</span></div>
+        <div class="sala" onclick="cs('empleo','💼 Empleo',this)"><span class="sala-dot"></span><span class="sala-emoji">💼</span><span class="sala-nombre">Empleo</span></div>
+        <div class="sala" onclick="cs('naturaleza','🐟 Naturaleza',this)"><span class="sala-dot"></span><span class="sala-emoji">🐟</span><span class="sala-nombre">Naturaleza</span></div>
+        <div class="sala" onclick="cs('deportes','⚽ Deportes',this)"><span class="sala-dot"></span><span class="sala-emoji">⚽</span><span class="sala-nombre">Deportes</span></div>
+        <div class="sala" onclick="cs('salud','🏥 Salud',this)"><span class="sala-dot"></span><span class="sala-emoji">🏥</span><span class="sala-nombre">Salud</span></div>
       </div>
-      <div class="cm">
-        <div class="chd"><div><div class="rn" id="rnm">🌿 Plaza Caquetá</div><div class="rs" id="rst">Cargando...</div></div><div class="ca"><button class="hb" onclick="document.getElementById('vm').classList.add('show')">📹 Video</button><button class="hb" onclick="alert('Próximamente')">📞 Llamar</button></div></div>
+      <div class="panel-centro">
+        <div class="chat-header">
+          <div>
+            <div class="chat-header-titulo" id="rnm">🌿 Plaza Caquetá</div>
+            <div class="chat-header-sub" id="rst">Cargando...</div>
+          </div>
+          <div class="chat-acciones">
+            <button class="hb" onclick="document.getElementById('vm').classList.add('show')">📹 Video</button>
+            <button class="hb" onclick="alert('Próximamente')">📞 Llamar</button>
+          </div>
+        </div>
         <div class="msgs" id="msgs"><div class="mph">Selecciona una sala 👋</div></div>
         <div class="cft">
           <div class="mt">
@@ -263,45 +322,66 @@ body{font-family:'DM Sans',sans-serif;background:#f0f4f1;color:var(--os)}
             <button class="mtl" onclick="document.getElementById('img-in').click()">🖼️ Imagen</button>
             <button class="mtl" onclick="addEmoji()">😄 Emoji</button>
           </div>
-          <div class="ir"><textarea id="minp" class="mi" rows="1" placeholder="Escribe un mensaje..."></textarea><button class="sb" onclick="enviar()">➤</button></div>
+          <div class="ir">
+            <textarea id="minp" class="mi" rows="1" placeholder="Escribe un mensaje..."></textarea>
+            <button class="sb" onclick="enviar()">➤</button>
+          </div>
         </div>
         <input type="file" id="file-in" style="display:none" onchange="upFile(this)">
         <input type="file" id="img-in" accept="image/*" style="display:none" onchange="upImg(this)">
         <input type="file" id="cam-in" accept="image/*" capture="environment" style="display:none" onchange="upImg(this)">
       </div>
+      <div class="panel-usuarios" id="panel-usuarios">
+        <div class="panel-usuarios-header">
+          👥 Comunidad
+          <div class="online-badge">
+            <span class="online-badge-dot"></span>
+            <span id="contador-online">0 en línea</span>
+          </div>
+        </div>
+        <div id="lista-usuarios-chat" style="padding-top:6px">
+          <div style="font-size:0.72rem;color:#9aab9e;padding:12px">Cargando...</div>
+        </div>
+      </div>
     </div>
-    <div class="mw" id="vm"><div class="mb2"><div class="mhd">📹 Videollamada <button class="mc" onclick="document.getElementById('vm').classList.remove('show')">✕</button></div><div style="background:#111;min-height:200px;display:flex;align-items:center;justify-content:center;color:#666;font-size:0.82rem;border-radius:0 0 14px 14px">Iniciando...</div></div></div>
   </div>
+
   <div class="page" id="page-noticias"><div class="cp"><div class="ptt">📰 Noticias del Caquetá</div><div class="ng"><div class="card"><div class="ni" style="background:#e8f5e9">🌿</div><div class="nb"><span class="tag vd">Departamento</span><div class="nt">Conectividad digital llega a 40 veredas rurales</div><div class="nd">Hace 1 hora</div></div></div><div class="card"><div class="ni" style="background:#e3f2fd">🐟</div><div class="nb"><span class="tag az">Naturaleza</span><div class="nt">Rescate masivo de tortugas en el río Caguán</div><div class="nd">Hace 2 horas</div></div></div><div class="card"><div class="ni" style="background:#fce4ec">🎭</div><div class="nb"><span class="tag ro">Cultura</span><div class="nt">Festival de teatro internacional en Florencia</div><div class="nd">Hace 4 horas</div></div></div><div class="card"><div class="ni" style="background:#fff3e0">⚽</div><div class="nb"><span class="tag na">Deportes</span><div class="nt">Caquetá FC clasifica a la final regional</div><div class="nd">Ayer</div></div></div><div class="card"><div class="ni" style="background:#e8f5e9">🌾</div><div class="nb"><span class="tag vd">Economía</span><div class="nt">Cacao caquetano conquista mercados europeos</div><div class="nd">Ayer</div></div></div><div class="card"><div class="ni" style="background:#f3e5f5">🏥</div><div class="nb"><span class="tag mo">Salud</span><div class="nt">Nueva unidad de salud en San Vicente</div><div class="nd">Hace 2 días</div></div></div></div></div></div>
+
   <div class="page" id="page-publicidad"><div class="cp"><div class="pbn"><div style="font-size:2rem">📢</div><div><h3>¿Tienes un negocio en el Caquetá?</h3><p>Llega a miles de usuarios de tu región</p></div><button class="pbb">Publicar aviso</button></div><div class="ptt">🛒 Directorio comercial</div><div class="pg"><div class="pc"><div class="pci" style="background:#fff3e0">🛒</div><div class="pcb"><div class="pct">Mercado</div><div class="pcn">Mercado Caquetá Fresco</div><div class="pcd">Frutas y verduras a precios del campo.</div><button class="pcbtn">Ver más</button></div></div><div class="pc"><div class="pci" style="background:#e8f5e9">🏠</div><div class="pcb"><div class="pct">Finca Raíz</div><div class="pcn">Inmobiliaria Amazonia</div><div class="pcd">Lotes, fincas y casas.</div><button class="pcbtn">Ver más</button></div></div><div class="pc"><div class="pci" style="background:#e3f2fd">🚌</div><div class="pcb"><div class="pct">Transporte</div><div class="pcn">Transportes del Sur</div><div class="pcd">Rutas desde Florencia.</div><button class="pcbtn">Ver más</button></div></div><div class="pc"><div class="pci" style="background:#fce4ec">🍽️</div><div class="pcb"><div class="pct">Restaurante</div><div class="pcn">Sabor Amazónico</div><div class="pcd">Gastronomía típica caquetana.</div><button class="pcbtn">Ver más</button></div></div><div class="pc"><div class="pci" style="background:#f3e5f5">💻</div><div class="pcb"><div class="pct">Tecnología</div><div class="pcn">TechCaquetá</div><div class="pcd">Reparación de equipos.</div><button class="pcbtn">Ver más</button></div></div><div class="pc"><div class="pci" style="background:#e8f5e9">🌿</div><div class="pcb"><div class="pct">Turismo</div><div class="pcn">Ecoturismo Caguán</div><div class="pcd">Tours por la selva amazónica.</div><button class="pcbtn">Ver más</button></div></div></div></div></div>
+
   <div class="page" id="page-eventos"><div class="cp"><div class="ptt">🎉 Eventos en el Caquetá</div><div class="ng"><div class="card"><div class="ni" style="background:#fff3e0;font-size:2.5rem">🎭</div><div class="nb"><span class="tag na">Festival</span><div class="nt">Festival de Teatro Internacional Florencia</div><div class="nd">📅 15-20 Oct 2025</div></div></div><div class="card"><div class="ni" style="background:#e8f5e9;font-size:2.5rem">🌾</div><div class="nb"><span class="tag vd">Feria</span><div class="nt">Feria del Cacao Caquetano</div><div class="nd">📅 8 Nov 2025</div></div></div><div class="card"><div class="ni" style="background:#e3f2fd;font-size:2.5rem">⚽</div><div class="nb"><span class="tag az">Deportes</span><div class="nt">Final Regional de Fútbol</div><div class="nd">📅 2 Nov 2025</div></div></div><div class="card"><div class="ni" style="background:#fce4ec;font-size:2.5rem">🎶</div><div class="nb"><span class="tag ro">Música</span><div class="nt">Noche de Llaneras — San Vicente</div><div class="nd">📅 28 Sep 2025</div></div></div></div></div></div>
+
+  <div class="mw" id="vm"><div class="mb2"><div class="mhd">📹 Videollamada <button class="mc" onclick="document.getElementById('vm').classList.remove('show')">✕</button></div><div style="background:#111;min-height:200px;display:flex;align-items:center;justify-content:center;color:#666;font-size:0.82rem;border-radius:0 0 14px 14px">Iniciando videollamada...</div></div></div>
+
+  <div id="contenedor-privado"></div>
 </div>
+
 <script type="module">
 import{initializeApp}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import{getAuth,GoogleAuthProvider,signInWithPopup,signOut,onAuthStateChanged}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 import{getFirestore,collection,addDoc,query,orderBy,limit,onSnapshot,serverTimestamp,doc,setDoc,getDocs}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
 const app=initializeApp({apiKey:"AIzaSyDehFdJAKNzvCGPRB3rca6VmEMTvdpO-2M",authDomain:"caquetachat.firebaseapp.com",projectId:"caquetachat",storageBucket:"caquetachat.firebasestorage.app",messagingSenderId:"911518784033",appId:"1:911518784033:web:9c003be112ad6880a1e160"});
 const auth=getAuth(app),db=getFirestore(app);
-let user=null,sala="plaza",unsub=null,rec=false,mr=null,chunks=[];
-const SL=document.getElementById("screen-load");
-const SLG=document.getElementById("screen-login");
-const SA=document.getElementById("screen-app");
+let user=null,sala="plaza",unsub=null,unsubU=null,rec=false,mr=null,chunks=[],privAbierto=null,unsubPriv=null;
+const SL=document.getElementById("screen-load"),SLG=document.getElementById("screen-login"),SA=document.getElementById("screen-app");
 function show(s){SL.style.display="none";SLG.classList.remove("show");SA.classList.remove("show");if(s==="login")SLG.classList.add("show");else SA.classList.add("show");}
 document.getElementById("btn-login").onclick=async()=>{try{await signInWithPopup(auth,new GoogleAuthProvider());}catch(e){alert("Error: "+e.message);}};
 document.getElementById("btn-out").onclick=()=>signOut(auth);
 onAuthStateChanged(auth,async u=>{
-if(u){user=u;show("app");
-const av=document.getElementById("uav");
-if(u.photoURL){av.innerHTML=`<img src="${u.photoURL}">`;}else{av.textContent=u.displayName?.charAt(0)||"U";}
-document.getElementById("unm").textContent=u.displayName?.split(" ")[0]||"";
-await setDoc(doc(db,"presencia",u.uid),{nombre:u.displayName||"Usuario",foto:u.photoURL||"",online:true,ts:serverTimestamp()},{merge:true});
-loadOnline();loadChat("plaza");
-}else{user=null;show("login");}
+  if(u){user=u;show("app");
+    const av=document.getElementById("uav");
+    if(u.photoURL){av.innerHTML=`<img src="${u.photoURL}">`;}else{av.textContent=u.displayName?.charAt(0)||"U";}
+    document.getElementById("unm").textContent=u.displayName?.split(" ")[0]||"";
+    await setDoc(doc(db,"presencia",u.uid),{nombre:u.displayName||"Usuario",foto:u.photoURL||"",online:true,ts:serverTimestamp()},{merge:true});
+    loadOnline();loadUsuariosChat();loadChat("plaza");
+  }else{user=null;show("login");}
 });
 document.querySelectorAll(".ntab").forEach(b=>b.onclick=()=>{document.querySelectorAll(".ntab").forEach(x=>x.classList.remove("active"));b.classList.add("active");document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));document.getElementById("page-"+b.dataset.p).classList.add("active");if(b.dataset.p==="chat")loadChat(sala);});
-window.gp=p=>{document.querySelectorAll(".ntab").forEach(b=>{b.classList.toggle("active",b.dataset.p===p);});document.querySelectorAll(".page").forEach(x=>x.classList.remove("active"));document.getElementById("page-"+p).classList.add("active");if(p==="chat")loadChat(sala);};
+window.gp=p=>{document.querySelectorAll(".ntab").forEach(b=>b.classList.toggle("active",b.dataset.p===p));document.querySelectorAll(".page").forEach(x=>x.classList.remove("active"));document.getElementById("page-"+p).classList.add("active");if(p==="chat")loadChat(sala);};
 window.cs=(s,nm,el)=>{document.querySelectorAll(".sala").forEach(x=>x.classList.remove("active"));el.classList.add("active");sala=s;document.getElementById("rnm").textContent=nm;loadChat(s);};
-function loadChat(s){if(unsub)unsub();const c=document.getElementById("msgs");c.innerHTML='<div class="mph">Cargando...</div>';const q=query(collection(db,"salas",s,"mensajes"),orderBy("timestamp","asc"),limit(60));unsub=onSnapshot(q,snap=>{c.innerHTML="";let ld="";snap.forEach(d=>{const m=d.data();const fd=m.timestamp?.toDate();const fs=fd?fd.toLocaleDateString("es-CO",{weekday:"long",day:"numeric",month:"long"}):"";if(fs&&fs!==ld){const dv=document.createElement("div");dv.className="dd";dv.innerHTML=`<span>${fs}</span>`;c.appendChild(dv);ld=fs;}c.appendChild(mkBub(m));});c.scrollTop=c.scrollHeight;document.getElementById("rst").textContent=snap.size+" mensajes";});}
+function loadChat(s){if(unsub)unsub();const c=document.getElementById("msgs");c.innerHTML='<div class="mph">Cargando...</div>';const q=query(collection(db,"salas",s,"mensajes"),orderBy("timestamp","asc"),limit(60));unsub=onSnapshot(q,snap=>{c.innerHTML="";let ld="";snap.forEach(d=>{const m=d.data();const fd=m.timestamp?.toDate();const fs=fd?fd.toLocaleDateString("es-CO",{weekday:"long",day:"numeric",month:"long"}):"";if(fs&&fs!==ld){const dv=document.createElement("div");dv.className="dd";dv.innerHTML=`<span>${fs}</span>`;c.appendChild(dv);ld=fs;}c.appendChild(mkBub(m));});c.scrollTop=c.scrollHeight;document.getElementById("rst").textContent=snap.size+" mensajes en esta sala";});}
 function mkBub(m){const me=m.uid===user?.uid;const row=document.createElement("div");row.className="mr2"+(me?" me":"");const hr=m.timestamp?.toDate()?.toLocaleTimeString("es-CO",{hour:"2-digit",minute:"2-digit"})||"";const lt=(m.nombre||"U").charAt(0).toUpperCase();const cols=["#e8f5e9","#e3f2fd","#fff3e0","#fce4ec","#f3e5f5"];const col=cols[(m.nombre||"").charCodeAt(0)%cols.length]||"#e8f5e9";const avH=m.foto?`<div class="av"><img src="${m.foto}"></div>`:`<div class="av" style="background:${col}">${lt}</div>`;let cont="";if(m.tipo==="texto")cont=`<div class="snm">${m.nombre||"U"}</div><div class="bub">${esc(m.texto)}</div><div class="mm">${hr}${me?" ✓✓":""}</div>`;else if(m.tipo==="imagen")cont=`<div class="snm">${m.nombre||"U"}</div><div class="ib"><img src="${m.url}" loading="lazy"><div class="ic">${esc(m.nf||"Img")}</div></div><div class="mm">${hr}</div>`;else if(m.tipo==="archivo")cont=`<div class="snm">${m.nombre||"U"}</div><div class="fb2"><div class="fi">📄</div><div><div class="fn">${esc(m.nf||"Archivo")}</div><div class="fz">${m.sz||""}</div></div><a href="${m.url}" target="_blank" style="font-size:0.75rem;color:var(--vm);text-decoration:none;margin-left:4px">⬇</a></div><div class="mm">${hr}</div>`;else if(m.tipo==="audio"){const wv=Array.from({length:18},(_,i)=>`<div class="wb2" style="height:${[10,16,22,14,26,18,12,20,16,24,10,18,14,22,16,12,20,8][i]}px"></div>`).join("");cont=`<div class="snm">${m.nombre||"U"}</div><div class="ab"><button class="ppb" onclick="new Audio('${m.url}').play()">▶</button><div class="wf">${wv}</div><span class="ad">${m.dur||"0:10"}</span></div><div class="mm">${hr}</div>`;}
 row.innerHTML=avH+`<div>${cont}</div>`;return row;}
 window.enviar=async()=>{const inp=document.getElementById("minp");const txt=inp.value.trim();if(!txt||!user)return;inp.value="";await addDoc(collection(db,"salas",sala,"mensajes"),{tipo:"texto",texto:txt,uid:user.uid,nombre:user.displayName||"Usuario",foto:user.photoURL||"",timestamp:serverTimestamp()});};
@@ -311,7 +391,14 @@ window.upImg=async inp=>{const f=inp.files[0];if(!f||!user)return;inp.value="";c
 window.upFile=async inp=>{const f=inp.files[0];if(!f||!user)return;inp.value="";const r=new FileReader();r.onloadend=async()=>{if(r.result.length>900000){alert("Archivo muy grande. Máx 700KB");return;}const kb=Math.round(f.size/1024);const sz=kb>1024?(kb/1024).toFixed(1)+" MB":kb+" KB";await addDoc(collection(db,"salas",sala,"mensajes"),{tipo:"archivo",url:r.result,nf:f.name,sz,uid:user.uid,nombre:user.displayName||"Usuario",foto:user.photoURL||"",timestamp:serverTimestamp()});};r.readAsDataURL(f);};
 const emjs=["🌿","🐟","🦜","🌺","🌅","😊","🎉","👋","❤️","🌱"];
 window.addEmoji=()=>{const i=document.getElementById("minp");i.value+=emjs[Math.floor(Math.random()*emjs.length)];i.focus();};
-async function loadOnline(){const c=document.getElementById("online-list");try{const s=await getDocs(collection(db,"presencia"));if(s.empty){c.innerHTML='<div style="font-size:0.75rem;color:#9aab9e">Sin usuarios aún</div>';return;}c.innerHTML="";let n=0;s.forEach(d=>{if(n>=5)return;const u=d.data();const lt=(u.nombre||"U").charAt(0).toUpperCase();const cols=["#e8f5e9","#e3f2fd","#fff3e0","#fce4ec","#f3e5f5"];const col=cols[(u.nombre||"").charCodeAt(0)%cols.length]||"#e8f5e9";const row=document.createElement("div");row.className="ur";row.innerHTML=`<div class="ua" style="background:${col}">${u.foto?`<img src="${u.foto}">`:"<span>"+lt+"</span>"}</div><span class="un">${(u.nombre||"U").split(" ")[0]}</span><div class="ud"></div>`;c.appendChild(row);n++;});}catch(e){c.innerHTML='<div style="font-size:0.75rem;color:#9aab9e">Cargando...</div>';}}
+function loadUsuariosChat(){const lista=document.getElementById("lista-usuarios-chat");const contador=document.getElementById("contador-online");if(unsubU)unsubU();unsubU=onSnapshot(collection(db,"presencia"),snap=>{lista.innerHTML="";const colores=["#e8f5e9","#e3f2fd","#fff3e0","#fce4ec","#f3e5f5"];let count=0;const tit=document.createElement("div");tit.className="seccion-estado";tit.textContent="En línea";lista.appendChild(tit);snap.forEach(d=>{const u=d.data();if(d.id===user?.uid)return;count++;const lt=(u.nombre||"U").charAt(0).toUpperCase();const col=colores[(u.nombre||"").charCodeAt(0)%colores.length];const el=document.createElement("div");el.className="user-en-linea";el.title=`Chatear con ${u.nombre||"Usuario"}`;el.innerHTML=`<div class="user-av-wrap"><div class="user-av" style="background:${col}">${u.foto?`<img src="${u.foto}">`:`<span>${lt}</span>`}</div><div class="user-estado-dot" style="background:#39e87c"></div></div><div class="user-info"><div class="user-nombre">${esc(u.nombre||"Usuario")}</div><div class="user-ciudad">📍 Caquetá</div></div><span style="font-size:0.7rem;color:var(--vm)">💬</span>`;el.onclick=()=>abrirChatPrivado(d.id,u);lista.appendChild(el);});contador.textContent=count+" en línea";if(count===0){lista.innerHTML+='<div style="font-size:0.72rem;color:#9aab9e;padding:12px">Nadie más en línea</div>';}});}
+function abrirChatPrivado(otroUid,otroUser){if(privAbierto===otroUid)return;privAbierto=otroUid;const chatId=[user.uid,otroUid].sort().join("_");if(unsubPriv)unsubPriv();const c=document.getElementById("contenedor-privado");const lt=(otroUser.nombre||"U").charAt(0).toUpperCase();const cols=["#e8f5e9","#e3f2fd","#fff3e0","#fce4ec","#f3e5f5"];const col=cols[(otroUser.nombre||"").charCodeAt(0)%cols.length];c.innerHTML=`<div class="priv-chat" id="ventana-privada"><div class="priv-header"><div class="priv-av" style="background:${col}">${otroUser.foto?`<img src="${otroUser.foto}">`:`<span>${lt}</span>`}</div><span class="priv-nombre">${esc(otroUser.nombre||"Usuario")}</span><div class="priv-acciones"><button class="priv-btn" onclick="alert('Videollamada próximamente')" title="Videollamada">📹</button><button class="priv-btn" onclick="alert('Llamada próximamente')" title="Llamada">📞</button><button class="priv-btn" onclick="cerrarPrivado()" title="Cerrar">✕</button></div></div><div class="priv-msgs" id="priv-msgs"><div style="text-align:center;color:#9aab9e;font-size:0.75rem;margin:auto">Cargando...</div></div><div class="priv-input-area"><div class="priv-opciones"><button class="priv-opt" onclick="document.getElementById('priv-img').click()" title="Imagen">📷</button></div><input type="file" id="priv-img" accept="image/*" style="display:none" onchange="privEnviarImg(this,'${chatId}')"><textarea id="priv-inp" class="priv-inp" rows="1" placeholder="Mensaje privado..."></textarea><button class="priv-send" onclick="privEnviar('${chatId}')">➤</button></div></div>`;
+document.getElementById("priv-inp").addEventListener("keydown",e=>{if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();privEnviar(chatId);}});
+const q=query(collection(db,"privados",chatId,"mensajes"),orderBy("timestamp","asc"),limit(100));unsubPriv=onSnapshot(q,snap=>{const box=document.getElementById("priv-msgs");if(!box)return;box.innerHTML="";if(snap.empty){box.innerHTML='<div style="text-align:center;color:#9aab9e;font-size:0.75rem;margin:auto;padding:20px">Di hola 👋</div>';return;}snap.forEach(d=>{const m=d.data();const yo=m.uid===user.uid;const hr=m.timestamp?.toDate()?.toLocaleTimeString("es-CO",{hour:"2-digit",minute:"2-digit"})||"";const bub=document.createElement("div");bub.style.display="flex";bub.style.flexDirection="column";bub.style.alignItems=yo?"flex-end":"flex-start";if(m.tipo==="imagen"){bub.innerHTML=`<img src="${m.url}" style="max-width:170px;border-radius:10px"><span class="priv-hora">${hr}</span>`;}else{bub.innerHTML=`<div class="priv-bub ${yo?'yo':'ellos'}">${esc(m.texto||"")}</div><span class="priv-hora">${hr}</span>`;}box.appendChild(bub);});box.scrollTop=box.scrollHeight;});}
+window.privEnviar=async(chatId)=>{const inp=document.getElementById("priv-inp");const txt=inp?.value.trim();if(!txt||!user)return;inp.value="";await addDoc(collection(db,"privados",chatId,"mensajes"),{tipo:"texto",texto:txt,uid:user.uid,nombre:user.displayName||"Usuario",timestamp:serverTimestamp()});};
+window.privEnviarImg=async(inp,chatId)=>{const f=inp.files[0];if(!f||!user)return;inp.value="";const r=new FileReader();r.onloadend=async()=>{if(r.result.length>900000){alert("Imagen muy grande");return;}await addDoc(collection(db,"privados",chatId,"mensajes"),{tipo:"imagen",url:r.result,uid:user.uid,nombre:user.displayName||"Usuario",timestamp:serverTimestamp()});};r.readAsDataURL(f);};
+window.cerrarPrivado=()=>{if(unsubPriv){unsubPriv();unsubPriv=null;}privAbierto=null;document.getElementById("contenedor-privado").innerHTML="";};
+async function loadOnline(){const c=document.getElementById("online-list");try{const s=await getDocs(collection(db,"presencia"));if(s.empty){c.innerHTML='<div style="font-size:0.75rem;color:#9aab9e">Sin usuarios aún</div>';return;}c.innerHTML="";let n=0;s.forEach(d=>{if(n>=5)return;const u=d.data();const lt=(u.nombre||"U").charAt(0).toUpperCase();const cols=["#e8f5e9","#e3f2fd","#fff3e0","#fce4ec","#f3e5f5"];const col=cols[(u.nombre||"").charCodeAt(0)%cols.length];const row=document.createElement("div");row.className="ur";row.innerHTML=`<div class="ua" style="background:${col}">${u.foto?`<img src="${u.foto}">`:`<span>${lt}</span>`}</div><span class="un">${(u.nombre||"U").split(" ")[0]}</span><div class="ud"></div>`;c.appendChild(row);n++;});}catch(e){c.innerHTML='<div style="font-size:0.75rem;color:#9aab9e">Cargando...</div>';}}
 function esc(t){return t?.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")||"";}
 </script>
 </body>
