@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CaquetáChat — Comunidad del Caquetá</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===== PANTALLA DE LOGIN ===== -->
+<div id="screen-login" class="screen active">
+  <div class="login-bg">
+    <div class="login-leaves">🌿</div>
+    <div class="login-leaves r">🍃</div>
+  </div>
+  <div class="login-box">
+    <div class="login-logo">Caquet<span>á</span>Chat</div>
+    <p class="login-tagline">La comunidad digital del departamento del Caquetá</p>
+    <div class="login-features">
+      <span>💬 Chat</span><span>🎙️ Audio</span><span>📷 Cámara</span><span>📰 Noticias</span>
+    </div>
+    <button id="btn-google-login" class="btn-google">
+      <svg width="18" height="18" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+      Continuar con Google
+    </button>
+    <p class="login-note">Al entrar aceptas los términos de uso de CaquetáChat</p>
+  </div>
+</div>
+
+<!-- ===== PORTAL PRINCIPAL ===== -->
+<div id="screen-app" class="screen">
+
+  <!-- TOPBAR -->
+  <nav class="topbar">
+    <div class="logo">Caquet<span>á</span>Chat</div>
+    <div class="nav-tabs">
+      <button class="ntab active" data-page="inicio">🏠 Inicio</button>
+      <button class="ntab" data-page="chat">💬 Chat</button>
+      <button class="ntab" data-page="noticias">📰 Noticias</button>
+      <button class="ntab" data-page="publicidad">📢 Publicidad</button>
+      <button class="ntab" data-page="eventos">🎉 Eventos</button>
+    </div>
+    <div class="topbar-right">
+      <div class="user-badge">
+        <div id="user-avatar" class="user-av">?</div>
+        <span id="user-name" class="user-nm"></span>
+      </div>
+      <button id="btn-logout" class="btn-logout" title="Cerrar sesión">⏻</button>
+    </div>
+  </nav>
+
+  <!-- PÁGINA INICIO -->
+  <div class="page active" id="page-inicio">
+    <div class="portal-layout">
+      <div class="main-col">
+        <div class="noticias-hero">
+          <div class="noticia-main card-hover" onclick="goPage('noticias')">
+            <div class="noticia-img" style="background:#1a6b3c">🌿</div>
+            <div class="noticia-body">
+              <span class="tag verde">Departamento</span>
+              <h3>Caquetá avanza en conectividad digital para zonas rurales</h3>
+              <p>El gobierno departamental lanzó un ambicioso plan para llevar internet de alta velocidad a más de 40 veredas, beneficiando a más de 12.000 familias...</p>
+              <span class="noticia-fecha">Hace 1 hora</span>
+            </div>
+          </div>
+          <div class="noticias-stack">
+            <div class="noticia-mini card-hover" onclick="goPage('noticias')">
+              <div class="mini-img azul">🐟</div>
+              <div class="mini-txt"><span class="tag azul">Naturaleza</span><h4>Rescate de tortugas en el río Caguán</h4><p>Hace 2 horas</p></div>
+            </div>
+            <div class="noticia-mini card-hover" onclick="goPage('noticias')">
+              <div class="mini-img rosa">🎭</div>
+              <div class="mini-txt"><span class="tag rosa">Cultura</span><h4>Festival de teatro llega a Florencia</h4><p>Hace 4 horas</p></div>
+            </div>
+            <div class="noticia-mini card-hover" onclick="goPage('noticias')">
+              <div class="mini-img naranja">⚽</div>
+              <div class="mini-txt"><span class="tag naranja">Deportes</span><h4>Caquetá FC clasifica a la final</h4><p>Ayer</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-cards">
+          <div class="sec-card card-hover" onclick="goPage('chat')">
+            <div class="sec-icon">💬</div>
+            <div class="sec-title">Chat comunitario</div>
+            <div class="sec-desc">Salas temáticas en tiempo real</div>
+          </div>
+          <div class="sec-card card-hover" onclick="goPage('noticias')">
+            <div class="sec-icon">📰</div>
+            <div class="sec-title">Noticias locales</div>
+            <div class="sec-desc">Lo más reciente del Caquetá</div>
+          </div>
+          <div class="sec-card card-hover" onclick="goPage('publicidad')">
+            <div class="sec-icon">📢</div>
+            <div class="sec-title">Directorio comercial</div>
+            <div class="sec-desc">Negocios y servicios locales</div>
+          </div>
+          <div class="sec-card card-hover" onclick="goPage('eventos')">
+            <div class="sec-icon">🎉</div>
+            <div class="sec-title">Eventos</div>
+            <div class="sec-desc">Agenda cultural y deportiva</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar">
+        <div class="widget-card">
+          <div class="wcard-head">🌤️ Clima — Florencia</div>
+          <div class="wcard-body">
+            <div class="clima-box">
+              <span class="clima-icon">⛅</span>
+              <div><div class="clima-temp">28°C</div><div class="clima-info">Parcialmente nublado · Hum. 82%</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="widget-card pub-widget">
+          <div class="pub-label">Publicidad</div>
+          <div class="pub-content card-hover" onclick="goPage('publicidad')">
+            <div class="pub-ico">🛒</div>
+            <div class="pub-title">Mercado Caquetá</div>
+            <div class="pub-sub">Productos frescos de tu región</div>
+            <button class="pub-btn">Ver oferta →</button>
+          </div>
+        </div>
+
+        <div class="widget-card">
+          <div class="wcard-head">👥 En línea ahora</div>
+          <div class="wcard-body" id="online-users">
+            <div class="loading-users">Cargando usuarios...</div>
+          </div>
+          <div style="padding:0 12px 10px;text-align:center">
+            <button class="btn-ir-chat" onclick="goPage('chat')">Ir al chat →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PÁGINA CHAT -->
+  <div class="page" id="page-chat">
+    <div class="chat-layout">
+      <!-- Salas -->
+      <div class="salas-panel">
+        <div class="salas-head">💬 Salas</div>
+        <div id="salas-list">
+          <div class="sala-item active" data-sala="plaza" onclick="cambiarSala('plaza','🌿 Plaza Caquetá',this)">
+            <span class="sala-dot"></span><span class="sala-em">🌿</span><span class="sala-nm">Plaza Caquetá</span>
+          </div>
+          <div class="sala-item" data-sala="cultura" onclick="cambiarSala('cultura','🎵 Cultura y Arte',this)">
+            <span class="sala-dot"></span><span class="sala-em">🎵</span><span class="sala-nm">Cultura y Arte</span>
+          </div>
+          <div class="sala-item" data-sala="empleo" onclick="cambiarSala('empleo','💼 Empleo',this)">
+            <span class="sala-dot"></span><span class="sala-em">💼</span><span class="sala-nm">Empleo y Negocios</span>
+          </div>
+          <div class="sala-item" data-sala="naturaleza" onclick="cambiarSala('naturaleza','🐟 Naturaleza',this)">
+            <span class="sala-dot"></span><span class="sala-em">🐟</span><span class="sala-nm">Naturaleza</span>
+          </div>
+          <div class="sala-item" data-sala="deportes" onclick="cambiarSala('deportes','⚽ Deportes',this)">
+            <span class="sala-dot"></span><span class="sala-em">⚽</span><span class="sala-nm">Deportes</span>
+          </div>
+          <div class="sala-item" data-sala="salud" onclick="cambiarSala('salud','🏥 Salud',this)">
+            <span class="sala-dot"></span><span class="sala-em">🏥</span><span class="sala-nm">Salud</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chat principal -->
+      <div class="chat-main">
+        <div class="chat-header">
+          <div>
+            <div class="room-name" id="room-title">🌿 Plaza Caquetá</div>
+            <div class="room-status" id="room-status">Cargando...</div>
+          </div>
+          <div class="chat-actions">
+            <button class="hbtn" title="Videollamada" onclick="iniciarVideo()">📹 Video</button>
+            <button class="hbtn" title="Llamada de voz" onclick="iniciarAudioCall()">📞 Llamar</button>
+          </div>
+        </div>
+
+        <div class="messages" id="messages-container">
+          <div class="msg-placeholder">Selecciona una sala para chatear 👋</div>
+        </div>
+
+        <!-- Input area -->
+        <div class="chat-footer">
+          <div class="media-toolbar">
+            <button class="mtool" id="btn-audio" onclick="toggleAudio()">🎙️ Audio</button>
+            <button class="mtool" onclick="triggerCamera()">📷 Cámara</button>
+            <button class="mtool" onclick="triggerFile()">📎 Archivo</button>
+            <button class="mtool" onclick="triggerImage()">🖼️ Imagen</button>
+            <button class="mtool" onclick="addEmoji()">😄 Emoji</button>
+          </div>
+          <div class="input-row">
+            <textarea id="msg-input" class="msg-inp" rows="1" placeholder="Escribe un mensaje..."></textarea>
+            <button class="send-btn" onclick="enviarMensaje()">➤</button>
+          </div>
+        </div>
+
+        <!-- Input oculto para archivos -->
+        <input type="file" id="file-input" style="display:none" onchange="subirArchivo(this)">
+        <input type="file" id="image-input" accept="image/*" style="display:none" onchange="subirImagen(this)">
+        <input type="file" id="camera-input" accept="image/*" capture="environment" style="display:none" onchange="subirImagen(this)">
+      </div>
+    </div>
+
+    <!-- Modal video -->
+    <div id="video-modal" class="modal-wrap" style="display:none">
+      <div class="modal-box">
+        <div class="modal-head">📹 Videollamada <button onclick="cerrarVideo()" class="modal-close">✕</button></div>
+        <div id="video-frame" style="background:#111;min-height:220px;display:flex;align-items:center;justify-content:center;color:#aaa;font-size:0.85rem;border-radius:0 0 12px 12px">
+          Iniciando videollamada...
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PÁGINA NOTICIAS -->
+  <div class="page" id="page-noticias">
+    <div class="content-page">
+      <div class="page-title">📰 Noticias del Caquetá</div>
+      <div class="noticias-grid">
+        <div class="noticia-card card-hover"><div class="nc-img" style="background:#e8f5e9">🌿</div><div class="nc-body"><span class="tag verde">Departamento</span><div class="nc-title">Conectividad digital llega a 40 veredas rurales del Caquetá</div><div class="nc-date">Hace 1 hora</div></div></div>
+        <div class="noticia-card card-hover"><div class="nc-img" style="background:#e3f2fd">🐟</div><div class="nc-body"><span class="tag azul">Naturaleza</span><div class="nc-title">Rescate masivo de tortugas en el río Caguán conmueve a la región</div><div class="nc-date">Hace 2 horas</div></div></div>
+        <div class="noticia-card card-hover"><div class="nc-img" style="background:#fce4ec">🎭</div><div class="nc-body"><span class="tag rosa">Cultura</span><div class="nc-title">Festival de teatro internacional llega a Florencia en octubre</div><div class="nc-date">Hace 4 horas</div></div></div>
+        <div class="noticia-card card-hover"><div class="nc-img" style="background:#fff3e0">⚽</div><div class="nc-body"><span class="tag naranja">Deportes</span><div class="nc-title">Caquetá FC clasifica a la final regional tras victoria épica</div><div class="nc-date">Ayer</div></div></div>
+        <div class="noticia-card card-hover"><div class="nc-img" style="background:#e8f5e9">🌾</div><div class="nc-body"><span class="tag verde">Economía</span><div class="nc-title">Cacao caquetano conquista mercados europeos con sello de origen</div><div class="nc-date">Ayer</div></div></div>
+        <div class="noticia-card card-hover"><div class="nc-img" style="background:#f3e5f5">🏥</div><div class="nc-body"><span class="tag morado">Salud</span><div class="nc-title">Nueva unidad de salud abre en San Vicente del Caguán</div><div class="nc-date">Hace 2 días</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PÁGINA PUBLICIDAD -->
+  <div class="page" id="page-publicidad">
+    <div class="content-page">
+      <div class="pub-banner-top">
+        <div style="font-size:2rem">📢</div>
+        <div><h3>¿Tienes un negocio en el Caquetá?</h3><p>Llega a miles de usuarios de tu región</p></div>
+        <button class="btn-anunciar">Publicar aviso</button>
+      </div>
+      <div class="page-title">🛒 Directorio comercial</div>
+      <div class="pub-grid">
+        <div class="pub-card card-hover"><div class="pub-card-img" style="background:#fff3e0">🛒</div><div class="pub-card-body"><div class="pub-card-tag">Mercado</div><div class="pub-card-title">Mercado Caquetá Fresco</div><div class="pub-card-desc">Frutas y verduras de la región a precios directos del campo.</div><button class="pub-cta">Ver más</button></div></div>
+        <div class="pub-card card-hover"><div class="pub-card-img" style="background:#e8f5e9">🏠</div><div class="pub-card-body"><div class="pub-card-tag">Finca Raíz</div><div class="pub-card-title">Inmobiliaria Amazonia</div><div class="pub-card-desc">Lotes, fincas y casas en todo el departamento.</div><button class="pub-cta">Ver más</button></div></div>
+        <div class="pub-card card-hover"><div class="pub-card-img" style="background:#e3f2fd">🚌</div><div class="pub-card-body"><div class="pub-card-tag">Transporte</div><div class="pub-card-title">Transportes del Sur</div><div class="pub-card-desc">Rutas interdepartamentales desde Florencia.</div><button class="pub-cta">Ver más</button></div></div>
+        <div class="pub-card card-hover"><div class="pub-card-img" style="background:#fce4ec">🍽️</div><div class="pub-card-body"><div class="pub-card-tag">Restaurante</div><div class="pub-card-title">Sabor Amazónico</div><div class="pub-card-desc">Gastronomía típica caquetana. ¡Prueba el mojojoy!</div><button class="pub-cta">Ver más</button></div></div>
+        <div class="pub-card card-hover"><div class="pub-card-img" style="background:#f3e5f5">💻</div><div class="pub-card-body"><div class="pub-card-tag">Tecnología</div><div class="pub-card-title">TechCaquetá</div><div class="pub-card-desc">Reparación de equipos y accesorios tecnológicos.</div><button class="pub-cta">Ver más</button></div></div>
+        <div class="pub-card card-hover"><div class="pub-card-img" style="background:#e8f5e9">🌿</div><div class="pub-card-body"><div class="pub-card-tag">Turismo</div><div class="pub-card-title">Ecoturismo Caguán</div><div class="pub-card-desc">Tours por la selva amazónica y ríos del departamento.</div><button class="pub-cta">Ver más</button></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PÁGINA EVENTOS -->
+  <div class="page" id="page-eventos">
+    <div class="content-page">
+      <div class="page-title">🎉 Eventos en el Caquetá</div>
+      <div class="noticias-grid">
+        <div class="noticia-card card-hover"><div class="nc-img" style="background:#fff3e0;font-size:2.5rem">🎭</div><div class="nc-body"><span class="tag naranja">Festival</span><div class="nc-title">Festival de Teatro Internacional Florencia</div><div class="nc-date">📅 15 - 20 Oct 2025</div></div></div>
+        <div class="noticia-card card-hover"><div class="nc-img" style="background:#e8f5e9;font-size:2.5rem">🌾</div><div class="nc-body"><span class="tag verde">Feria</span><div class="nc-title">Feria del Cacao Caquetano</div><div class="nc-date">📅 8 Nov 2025</div></div></div>
+        <div class="noticia-card card-hover"><div class="nc-img" style="background:#e3f2fd;font-size:2.5rem">⚽</div><div class="nc-body"><span class="tag azul">Deportes</span><div class="nc-title">Final Regional de Fútbol</div><div class="nc-date">📅 2 Nov 2025</div></div></div>
+        <div class="noticia-card card-hover"><div class="nc-img" style="background:#fce4ec;font-size:2.5rem">🎶</div><div class="nc-body"><span class="tag rosa">Música</span><div class="nc-title">Noche de Llaneras — San Vicente</div><div class="nc-date">📅 28 Sep 2025</div></div></div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- fin screen-app -->
+
+<!-- Firebase SDK -->
+<script type="module" src="app.js"></script>
+</body>
+</html>
